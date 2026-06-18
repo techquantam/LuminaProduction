@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "uibpx77aq",
+    "createdAt": "2026-05-28T08:34:09.482Z",
+    "updatedAt": "2026-05-28T08:34:09.482Z",
+    "clientName": "Alexander Vance",
+    "company": "Aura Couture",
+    "feedback": "Lumina Production did not just organize a runway; they created an architectural miracle. Staging our autumn couture on a cliffside mirror runway was sheer genius.",
+    "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200",
+    "rating": 5
+  },
+  {
+    "_id": "piz3ei928",
+    "createdAt": "2026-05-28T08:34:09.483Z",
+    "updatedAt": "2026-05-28T08:34:09.483Z",
+    "clientName": "Sophia Lin",
+    "company": "Vertu Enterprise",
+    "feedback": "Our annual executive congress was elevated into a cinematic story. The holographic stages and flawless flow exceeded our corporate vision by orders of magnitude.",
+    "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200",
+    "rating": 5
+  }
+]

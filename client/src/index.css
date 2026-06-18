@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: initial; /* Lenis handles smooth scrolling */
+  }
+
+  body {
+    @apply bg-luxury-bg text-luxury-black font-sans transition-colors duration-500 overflow-x-hidden;
+  }
+
+  body.dark {
+    @apply bg-luxury-bgDark text-luxury-bg;
+  }
+
+  /* Custom luxury scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-luxury-gold/30 rounded-full hover:bg-luxury-gold/60 transition-colors;
+  }
+}
+
+@layer components {
+  .text-reveal {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .glassmorphism {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .glassmorphism-light {
+    @apply bg-black/5 backdrop-blur-md border border-black/5;
+  }
+
+  .luxury-button {
+    @apply relative overflow-hidden border border-luxury-gold/50 px-8 py-3 text-sm uppercase tracking-widest transition-all duration-500 hover:text-luxury-black;
+  }
+
+  .luxury-button::before {
+    content: '';
+    @apply absolute inset-0 bg-luxury-gold -z-10 translate-y-full transition-transform duration-500 ease-out;
+  }
+
+  .luxury-button:hover::before {
+    @apply translate-y-0;
+  }
+}
+
+/* Custom styles for horizontal scroll */
+.horizontal-scroll-container {
+  display: flex;
+  flex-wrap: nowrap;
+  will-change: transform;
+}
+
+/* Custom cinematic cursor hide on mobile */
+@media (max-width: 768px) {
+  .custom-cursor {
+    display: none !important;
+  }
+}

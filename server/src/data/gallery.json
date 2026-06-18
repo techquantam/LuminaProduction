@@ -1,0 +1,38 @@
+[
+  {
+    "_id": "j0haph15e",
+    "createdAt": "2026-05-28T08:34:09.484Z",
+    "updatedAt": "2026-05-28T08:34:09.484Z",
+    "title": "Cliffside Catwalk View",
+    "category": "Fashion Show",
+    "description": "Minimalist glass and mirror runway extending out towards the endless ocean horizon.",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=600"
+  },
+  {
+    "_id": "kg2uobz4z",
+    "createdAt": "2026-05-28T08:34:09.485Z",
+    "updatedAt": "2026-05-28T08:34:09.485Z",
+    "title": "Obsidian Stage Light Plot",
+    "category": "Stage Design",
+    "description": "Precision luxury ambient light beam design cutting through a clean smoke atmosphere.",
+    "imageUrl": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=600"
+  },
+  {
+    "_id": "ku0f7r50t",
+    "createdAt": "2026-05-28T08:34:09.486Z",
+    "updatedAt": "2026-05-28T08:34:09.486Z",
+    "title": "Flora Installation Close-Up",
+    "category": "Luxury Wedding",
+    "description": "Intricate hanging wisteria and glass globes creating a mystical starlight dinner ceiling.",
+    "imageUrl": "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600"
+  },
+  {
+    "_id": "zuhbj28w1",
+    "createdAt": "2026-05-28T08:34:09.487Z",
+    "updatedAt": "2026-05-28T08:34:09.487Z",
+    "title": "EV Robot Arm Setup",
+    "category": "Product Launch",
+    "description": "Advanced motion-controlled camera arm ready for the dramatic curtain drop.",
+    "imageUrl": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=600"
+  }
+]
