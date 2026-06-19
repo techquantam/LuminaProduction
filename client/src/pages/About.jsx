@@ -74,7 +74,15 @@ const getLogoClass = (name) => {
 const About = () => {
   const [hoveredCity, setHoveredCity] = useState(null);
   const [clients, setClients] = useState([]);
+  const [brokenLogos, setBrokenLogos] = useState({});
   const { API_URL } = useAuth();
+
+  const handleLogoError = (id) => {
+    setBrokenLogos(prev => ({
+      ...prev,
+      [id]: true
+    }));
+  };
 
   useEffect(() => {
     const fetchClients = async () => {
@@ -90,21 +98,21 @@ const About = () => {
         console.warn('Clients API offline. Loading seeded luxury partners.');
         // Set beautiful static placeholder logos
         setClients([
-          { _id: '1', name: 'Audemars Piguet', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/audemars-piguet.svg' },
-          { _id: '2', name: 'BMW', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/bmw.svg' },
-          { _id: '3', name: 'Cartier', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/cartier.svg' },
-          { _id: '4', name: 'Chanel', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/chanel.svg' },
-          { _id: '5', name: 'Chopard', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/chopard.svg' },
-          { _id: '6', name: 'Dior', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/dior.svg' },
-          { _id: '7', name: 'Fendi', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/fendi.svg' },
-          { _id: '8', name: 'Ferrari', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/ferrari.svg' },
-          { _id: '9', name: 'Gucci', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/gucci.svg' },
-          { _id: '10', name: 'Hermès', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/hermes.svg' },
-          { _id: '11', name: 'HSBC', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/hsbc.svg' },
-          { _id: '12', name: 'Lexus', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/lexus.svg' },
-          { _id: '13', name: 'Louis Vuitton', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/louis-vuitton.svg' },
-          { _id: '14', name: 'Montblanc', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/montblanc.svg' },
-          { _id: '15', name: 'Piaget', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/piaget.svg' }
+          { _id: '1', name: 'Audemars Piguet', logoUrl: 'https://cdn.logo.wine/logo/Audemars_Piguet/Audemars_Piguet-Logo.wine.svg' },
+          { _id: '2', name: 'BMW', logoUrl: 'https://cdn.logo.wine/logo/BMW/BMW-Logo.wine.svg' },
+          { _id: '3', name: 'Cartier', logoUrl: 'https://cdn.logo.wine/logo/Cartier/Cartier-Logo.wine.svg' },
+          { _id: '4', name: 'Chanel', logoUrl: 'https://cdn.logo.wine/logo/Chanel/Chanel-Logo.wine.svg' },
+          { _id: '5', name: 'Chopard', logoUrl: 'https://cdn.logo.wine/logo/Chopard/Chopard-Logo.wine.svg' },
+          { _id: '6', name: 'Dior', logoUrl: 'https://cdn.logo.wine/logo/Christian_Dior_S.A./Christian_Dior_S.A.-Logo.wine.svg' },
+          { _id: '7', name: 'Fendi', logoUrl: 'https://cdn.logo.wine/logo/Fendi/Fendi-Logo.wine.svg' },
+          { _id: '8', name: 'Ferrari', logoUrl: 'https://cdn.logo.wine/logo/Ferrari/Ferrari-Logo.wine.svg' },
+          { _id: '9', name: 'Gucci', logoUrl: 'https://cdn.logo.wine/logo/Gucci/Gucci-Logo.wine.svg' },
+          { _id: '10', name: 'Hermès', logoUrl: 'https://cdn.logo.wine/logo/Herm%C3%A8s_International_S.A./Herm%C3%A8s_International_S.A.-Logo.wine.svg' },
+          { _id: '11', name: 'HSBC', logoUrl: 'https://cdn.logo.wine/logo/HSBC/HSBC-Logo.wine.svg' },
+          { _id: '12', name: 'Lexus', logoUrl: 'https://cdn.logo.wine/logo/Lexus/Lexus-Logo.wine.svg' },
+          { _id: '13', name: 'Louis Vuitton', logoUrl: 'https://cdn.logo.wine/logo/Louis_Vuitton/Louis_Vuitton-Logo.wine.svg' },
+          { _id: '14', name: 'Montblanc', logoUrl: 'https://cdn.logo.wine/logo/Montblanc_(company)/Montblanc_(company)-Logo.wine.svg' },
+          { _id: '15', name: 'Piaget', logoUrl: 'https://cdn.logo.wine/logo/Piaget_(brand)/Piaget_(brand)-Logo.wine.svg' }
         ]);
       }
     };
@@ -306,18 +314,29 @@ const About = () => {
 
               <div className="flex whitespace-nowrap animate-infinite-marquee hover:[animation-play-state:paused] gap-12 items-center">
                 {/* Double array for infinite seamless looping */}
-                {[...clients, ...clients].map((cli, idx) => (
-                  <div
-                    key={`${cli._id}-${idx}`}
-                    className="inline-flex items-center justify-center shrink-0 w-36 h-24 relative group transition-transform duration-300 mx-4"
-                  >
-                    <img 
-                      src={cli.logoUrl} 
-                      alt={cli.name || 'Brand Logo'} 
-                      className={getLogoClass(cli.name)}
-                    />
-                  </div>
-                ))}
+                {[...clients, ...clients].map((cli, idx) => {
+                  const key = `${cli._id || idx}-${idx}`;
+                  const isBroken = cli._id && brokenLogos[cli._id];
+                  return (
+                    <div
+                      key={key}
+                      className="inline-flex items-center justify-center shrink-0 w-36 h-24 relative group transition-transform duration-300 mx-4"
+                    >
+                      {isBroken ? (
+                        <span className="font-editorial text-lg tracking-widest text-luxury-gold uppercase opacity-85 group-hover:scale-105 transition-transform duration-300 select-none">
+                          {cli.name}
+                        </span>
+                      ) : (
+                        <img 
+                          src={cli.logoUrl} 
+                          alt={cli.name || 'Brand Logo'} 
+                          className={getLogoClass(cli.name)}
+                          onError={() => cli._id && handleLogoError(cli._id)}
+                        />
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}

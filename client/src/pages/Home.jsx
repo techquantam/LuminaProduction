@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ChevronLeft, ChevronRight, Award, Compass, Play, Sparkles } from 'lucide-react';
+import { ArrowRight, Award, Compass, Play, Sparkles } from 'lucide-react';
 import TransitionEffect from '../components/TransitionEffect';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -54,8 +54,6 @@ const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [services, setServices] = useState(DEFAULT_SERVICES);
   const [projects, setProjects] = useState(DEFAULT_PROJECTS);
-  const [testimonials, setTestimonials] = useState(DEFAULT_TESTIMONIALS);
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [gallery, setGallery] = useState(DEFAULT_GALLERY);
 
   const horizontalSectionRef = useRef(null);
@@ -83,9 +81,6 @@ const Home = () => {
         const pData = await pRes.json();
         if (pData.success && pData.data.length > 0) setProjects(pData.data.slice(0, 3));
 
-        const tRes = await fetch(`${API_URL}/testimonials`);
-        const tData = await tRes.json();
-        if (tData.success && tData.data.length > 0) setTestimonials(tData.data);
 
         const gRes = await fetch(`${API_URL}/gallery`);
         const gData = await gRes.json();
@@ -359,55 +354,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 8. TESTIMONIALS SECTION */}
-      <section className="py-28 bg-luxury-bg dark:bg-luxury-bgDark transition-colors">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-xs uppercase tracking-widest text-luxury-gold font-semibold mb-8">Reflections</p>
-          
-          <div className="min-h-[250px] flex items-center justify-center">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTestimonial}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.6 }}
-                className="space-y-8"
-              >
-                <p className="font-editorial text-2xl md:text-3xl italic font-light text-luxury-black/90 dark:text-white/90 leading-relaxed">
-                  "{testimonials[activeTestimonial]?.feedback}"
-                </p>
-                <div className="flex flex-col items-center space-y-3">
-                  {testimonials[activeTestimonial]?.imageUrl && (
-                    <img src={testimonials[activeTestimonial].imageUrl} alt={testimonials[activeTestimonial].clientName} className="w-16 h-16 rounded-full object-cover border border-luxury-gold/30" />
-                  )}
-                  <div>
-                    <h4 className="font-editorial text-lg text-luxury-gold font-light">{testimonials[activeTestimonial]?.clientName}</h4>
-                    <p className="text-xs uppercase tracking-widest text-luxury-black/50 dark:text-white/40">{testimonials[activeTestimonial]?.company}</p>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          <div className="flex justify-center items-center space-x-6 mt-12">
-            <button
-              onClick={() => setActiveTestimonial(prev => (prev - 1 + testimonials.length) % testimonials.length)}
-              className="p-3 rounded-full border border-luxury-gold/20 hover:border-luxury-gold text-luxury-gold hover:text-luxury-black dark:hover:text-white transition-colors"
-              aria-label="Previous Testimonial"
-            >
-              <ChevronLeft size={16} />
-            </button>
-            <button
-              onClick={() => setActiveTestimonial(prev => (prev + 1) % testimonials.length)}
-              className="p-3 rounded-full border border-luxury-gold/20 hover:border-luxury-gold text-luxury-gold hover:text-luxury-black dark:hover:text-white transition-colors"
-              aria-label="Next Testimonial"
-            >
-              <ChevronRight size={16} />
-            </button>
-          </div>
-        </div>
-      </section>
 
       {/* 9. CONTACT CTA SECTION */}
       <section className="py-32 bg-luxury-black text-white relative border-t border-luxury-gold/25 overflow-hidden">

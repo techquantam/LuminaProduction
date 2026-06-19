@@ -197,21 +197,21 @@ const projectsData = [
 ];
 
 const clientsData = [
-  { name: 'Audemars Piguet', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/audemars-piguet.svg' },
-  { name: 'BMW', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/bmw.svg' },
-  { name: 'Cartier', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/cartier.svg' },
-  { name: 'Chanel', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/chanel.svg' },
-  { name: 'Chopard', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/chopard.svg' },
-  { name: 'Dior', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/dior.svg' },
-  { name: 'Fendi', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/fendi.svg' },
-  { name: 'Ferrari', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/ferrari.svg' },
-  { name: 'Gucci', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/gucci.svg' },
-  { name: 'Hermès', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/hermes.svg' },
-  { name: 'HSBC', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/hsbc.svg' },
-  { name: 'Lexus', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/lexus.svg' },
-  { name: 'Louis Vuitton', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/louis-vuitton.svg' },
-  { name: 'Montblanc', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/montblanc.svg' },
-  { name: 'Piaget', logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/piaget.svg' }
+  { name: 'Audemars Piguet', logoUrl: 'https://cdn.logo.wine/logo/Audemars_Piguet/Audemars_Piguet-Logo.wine.svg' },
+  { name: 'BMW', logoUrl: 'https://cdn.logo.wine/logo/BMW/BMW-Logo.wine.svg' },
+  { name: 'Cartier', logoUrl: 'https://cdn.logo.wine/logo/Cartier/Cartier-Logo.wine.svg' },
+  { name: 'Chanel', logoUrl: 'https://cdn.logo.wine/logo/Chanel/Chanel-Logo.wine.svg' },
+  { name: 'Chopard', logoUrl: 'https://cdn.logo.wine/logo/Chopard/Chopard-Logo.wine.svg' },
+  { name: 'Dior', logoUrl: 'https://cdn.logo.wine/logo/Christian_Dior_S.A./Christian_Dior_S.A.-Logo.wine.svg' },
+  { name: 'Fendi', logoUrl: 'https://cdn.logo.wine/logo/Fendi/Fendi-Logo.wine.svg' },
+  { name: 'Ferrari', logoUrl: 'https://cdn.logo.wine/logo/Ferrari/Ferrari-Logo.wine.svg' },
+  { name: 'Gucci', logoUrl: 'https://cdn.logo.wine/logo/Gucci/Gucci-Logo.wine.svg' },
+  { name: 'Hermès', logoUrl: 'https://cdn.logo.wine/logo/Herm%C3%A8s_International_S.A./Herm%C3%A8s_International_S.A.-Logo.wine.svg' },
+  { name: 'HSBC', logoUrl: 'https://cdn.logo.wine/logo/HSBC/HSBC-Logo.wine.svg' },
+  { name: 'Lexus', logoUrl: 'https://cdn.logo.wine/logo/Lexus/Lexus-Logo.wine.svg' },
+  { name: 'Louis Vuitton', logoUrl: 'https://cdn.logo.wine/logo/Louis_Vuitton/Louis_Vuitton-Logo.wine.svg' },
+  { name: 'Montblanc', logoUrl: 'https://cdn.logo.wine/logo/Montblanc_(company)/Montblanc_(company)-Logo.wine.svg' },
+  { name: 'Piaget', logoUrl: 'https://cdn.logo.wine/logo/Piaget_(brand)/Piaget_(brand)-Logo.wine.svg' }
 ];
 
 const testimonialsData = [
@@ -300,10 +300,16 @@ const seedData = async () => {
       galleryData.forEach(item => mockCollections.Gallery.create(item));
       console.log('\x1b[32m[Seed] Mock Gallery Initialized.\x1b[0m');
     }
-    if (mockCollections.Client.find().length === 0) {
-      clientsData.forEach(item => mockCollections.Client.create(item));
-      console.log('\x1b[32m[Seed] Mock Clients Initialized.\x1b[0m');
+    const existingMockClients = mockCollections.Client.find();
+    for (const item of clientsData) {
+      const match = existingMockClients.find(c => c.name === item.name);
+      if (match) {
+        mockCollections.Client.findByIdAndUpdate(match._id, { logoUrl: item.logoUrl });
+      } else {
+        mockCollections.Client.create(item);
+      }
     }
+    console.log('\x1b[32m[Seed] Mock Clients Synchronized.\x1b[0m');
     if (mockCollections.TeamMember.find().length === 0) {
       teamData.forEach(item => mockCollections.TeamMember.create(item));
       console.log('\x1b[32m[Seed] Mock Team Members Initialized.\x1b[0m');
@@ -335,11 +341,14 @@ const seedData = async () => {
         console.log('\x1b[32m[Seed] Mongoose Gallery Initialized.\x1b[0m');
       }
 
-      const clientCount = await Client.countDocuments();
-      if (clientCount === 0) {
-        await Client.insertMany(clientsData);
-        console.log('\x1b[32m[Seed] Mongoose Clients Initialized.\x1b[0m');
+      for (const item of clientsData) {
+        await Client.findOneAndUpdate(
+          { name: item.name },
+          { logoUrl: item.logoUrl },
+          { upsert: true }
+        );
       }
+      console.log('\x1b[32m[Seed] Mongoose Clients Synchronized.\x1b[0m');
 
       const teamCount = await TeamMember.countDocuments();
       if (teamCount === 0) {
