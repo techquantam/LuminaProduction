@@ -197,21 +197,21 @@ const projectsData = [
 ];
 
 const clientsData = [
-  { name: 'Audemars Piguet', logoUrl: 'https://cdn.logo.wine/logo/Audemars_Piguet/Audemars_Piguet-Logo.wine.svg' },
-  { name: 'BMW', logoUrl: 'https://cdn.logo.wine/logo/BMW/BMW-Logo.wine.svg' },
-  { name: 'Cartier', logoUrl: 'https://cdn.logo.wine/logo/Cartier/Cartier-Logo.wine.svg' },
-  { name: 'Chanel', logoUrl: 'https://cdn.logo.wine/logo/Chanel/Chanel-Logo.wine.svg' },
-  { name: 'Chopard', logoUrl: 'https://cdn.logo.wine/logo/Chopard/Chopard-Logo.wine.svg' },
-  { name: 'Dior', logoUrl: 'https://cdn.logo.wine/logo/Christian_Dior_S.A./Christian_Dior_S.A.-Logo.wine.svg' },
-  { name: 'Fendi', logoUrl: 'https://cdn.logo.wine/logo/Fendi/Fendi-Logo.wine.svg' },
-  { name: 'Ferrari', logoUrl: 'https://cdn.logo.wine/logo/Ferrari/Ferrari-Logo.wine.svg' },
-  { name: 'Gucci', logoUrl: 'https://cdn.logo.wine/logo/Gucci/Gucci-Logo.wine.svg' },
-  { name: 'Hermès', logoUrl: 'https://cdn.logo.wine/logo/Herm%C3%A8s_International_S.A./Herm%C3%A8s_International_S.A.-Logo.wine.svg' },
-  { name: 'HSBC', logoUrl: 'https://cdn.logo.wine/logo/HSBC/HSBC-Logo.wine.svg' },
-  { name: 'Lexus', logoUrl: 'https://cdn.logo.wine/logo/Lexus/Lexus-Logo.wine.svg' },
-  { name: 'Louis Vuitton', logoUrl: 'https://cdn.logo.wine/logo/Louis_Vuitton/Louis_Vuitton-Logo.wine.svg' },
-  { name: 'Montblanc', logoUrl: 'https://cdn.logo.wine/logo/Montblanc_(company)/Montblanc_(company)-Logo.wine.svg' },
-  { name: 'Piaget', logoUrl: 'https://cdn.logo.wine/logo/Piaget_(brand)/Piaget_(brand)-Logo.wine.svg' }
+  { name: 'Audemars Piguet', logoUrl: 'https://logo.clearbit.com/audemarspiguet.com' },
+  { name: 'BMW', logoUrl: 'https://logo.clearbit.com/bmw.com' },
+  { name: 'Cartier', logoUrl: 'https://logo.clearbit.com/cartier.com' },
+  { name: 'Chanel', logoUrl: 'https://logo.clearbit.com/chanel.com' },
+  { name: 'Chopard', logoUrl: 'https://logo.clearbit.com/chopard.com' },
+  { name: 'Dior', logoUrl: 'https://logo.clearbit.com/dior.com' },
+  { name: 'Fendi', logoUrl: 'https://logo.clearbit.com/fendi.com' },
+  { name: 'Ferrari', logoUrl: 'https://logo.clearbit.com/ferrari.com' },
+  { name: 'Gucci', logoUrl: 'https://logo.clearbit.com/gucci.com' },
+  { name: 'Hermès', logoUrl: 'https://logo.clearbit.com/hermes.com' },
+  { name: 'HSBC', logoUrl: 'https://logo.clearbit.com/hsbc.com' },
+  { name: 'Lexus', logoUrl: 'https://logo.clearbit.com/lexus.com' },
+  { name: 'Louis Vuitton', logoUrl: 'https://logo.clearbit.com/louisvuitton.com' },
+  { name: 'Montblanc', logoUrl: 'https://logo.clearbit.com/montblanc.com' },
+  { name: 'Piaget', logoUrl: 'https://logo.clearbit.com/piaget.com' }
 ];
 
 const testimonialsData = [

@@ -125,9 +125,9 @@ const AdminDashboard = () => {
       { _id: '1', name: 'Gilles Delacroix', email: 'gilles@chanel.com', subject: 'Paris Runway Curation 2026', message: 'We want to orchestrate an ethereal show.', status: 'unread' }
     ]);
     setClients([
-      { _id: '1', name: 'Chanel', logoUrl: 'https://cdn.logo.wine/logo/Chanel/Chanel-Logo.wine.svg' },
-      { _id: '2', name: 'Cartier', logoUrl: 'https://cdn.logo.wine/logo/Cartier/Cartier-Logo.wine.svg' },
-      { _id: '3', name: 'BMW', logoUrl: 'https://cdn.logo.wine/logo/BMW/BMW-Logo.wine.svg' }
+      { _id: '1', name: 'Chanel', logoUrl: 'https://logo.clearbit.com/chanel.com' },
+      { _id: '2', name: 'Cartier', logoUrl: 'https://logo.clearbit.com/cartier.com' },
+      { _id: '3', name: 'BMW', logoUrl: 'https://logo.clearbit.com/bmw.com' }
     ]);
     setTeam([
       { _id: '1', name: 'Gilles Delacroix', role: 'Managing Director & Scenographer', imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400' },
@@ -866,6 +866,7 @@ const AdminDashboard = () => {
                         onChange={(e) => setProjectFile(e.target.files[0])}
                         className="w-full text-xs text-luxury-black/60 dark:text-white/60"
                         accept="image/*"
+                        required={!isEditing}
                       />
                     </div>
 

@@ -98,21 +98,21 @@ const About = () => {
         console.warn('Clients API offline. Loading seeded luxury partners.');
         // Set beautiful static placeholder logos
         setClients([
-          { _id: '1', name: 'Audemars Piguet', logoUrl: 'https://cdn.logo.wine/logo/Audemars_Piguet/Audemars_Piguet-Logo.wine.svg' },
-          { _id: '2', name: 'BMW', logoUrl: 'https://cdn.logo.wine/logo/BMW/BMW-Logo.wine.svg' },
-          { _id: '3', name: 'Cartier', logoUrl: 'https://cdn.logo.wine/logo/Cartier/Cartier-Logo.wine.svg' },
-          { _id: '4', name: 'Chanel', logoUrl: 'https://cdn.logo.wine/logo/Chanel/Chanel-Logo.wine.svg' },
-          { _id: '5', name: 'Chopard', logoUrl: 'https://cdn.logo.wine/logo/Chopard/Chopard-Logo.wine.svg' },
-          { _id: '6', name: 'Dior', logoUrl: 'https://cdn.logo.wine/logo/Christian_Dior_S.A./Christian_Dior_S.A.-Logo.wine.svg' },
-          { _id: '7', name: 'Fendi', logoUrl: 'https://cdn.logo.wine/logo/Fendi/Fendi-Logo.wine.svg' },
-          { _id: '8', name: 'Ferrari', logoUrl: 'https://cdn.logo.wine/logo/Ferrari/Ferrari-Logo.wine.svg' },
-          { _id: '9', name: 'Gucci', logoUrl: 'https://cdn.logo.wine/logo/Gucci/Gucci-Logo.wine.svg' },
-          { _id: '10', name: 'Hermès', logoUrl: 'https://cdn.logo.wine/logo/Herm%C3%A8s_International_S.A./Herm%C3%A8s_International_S.A.-Logo.wine.svg' },
-          { _id: '11', name: 'HSBC', logoUrl: 'https://cdn.logo.wine/logo/HSBC/HSBC-Logo.wine.svg' },
-          { _id: '12', name: 'Lexus', logoUrl: 'https://cdn.logo.wine/logo/Lexus/Lexus-Logo.wine.svg' },
-          { _id: '13', name: 'Louis Vuitton', logoUrl: 'https://cdn.logo.wine/logo/Louis_Vuitton/Louis_Vuitton-Logo.wine.svg' },
-          { _id: '14', name: 'Montblanc', logoUrl: 'https://cdn.logo.wine/logo/Montblanc_(company)/Montblanc_(company)-Logo.wine.svg' },
-          { _id: '15', name: 'Piaget', logoUrl: 'https://cdn.logo.wine/logo/Piaget_(brand)/Piaget_(brand)-Logo.wine.svg' }
+          { _id: '1', name: 'Audemars Piguet', logoUrl: 'https://logo.clearbit.com/audemarspiguet.com' },
+          { _id: '2', name: 'BMW', logoUrl: 'https://logo.clearbit.com/bmw.com' },
+          { _id: '3', name: 'Cartier', logoUrl: 'https://logo.clearbit.com/cartier.com' },
+          { _id: '4', name: 'Chanel', logoUrl: 'https://logo.clearbit.com/chanel.com' },
+          { _id: '5', name: 'Chopard', logoUrl: 'https://logo.clearbit.com/chopard.com' },
+          { _id: '6', name: 'Dior', logoUrl: 'https://logo.clearbit.com/dior.com' },
+          { _id: '7', name: 'Fendi', logoUrl: 'https://logo.clearbit.com/fendi.com' },
+          { _id: '8', name: 'Ferrari', logoUrl: 'https://logo.clearbit.com/ferrari.com' },
+          { _id: '9', name: 'Gucci', logoUrl: 'https://logo.clearbit.com/gucci.com' },
+          { _id: '10', name: 'Hermès', logoUrl: 'https://logo.clearbit.com/hermes.com' },
+          { _id: '11', name: 'HSBC', logoUrl: 'https://logo.clearbit.com/hsbc.com' },
+          { _id: '12', name: 'Lexus', logoUrl: 'https://logo.clearbit.com/lexus.com' },
+          { _id: '13', name: 'Louis Vuitton', logoUrl: 'https://logo.clearbit.com/louisvuitton.com' },
+          { _id: '14', name: 'Montblanc', logoUrl: 'https://logo.clearbit.com/montblanc.com' },
+          { _id: '15', name: 'Piaget', logoUrl: 'https://logo.clearbit.com/piaget.com' }
         ]);
       }
     };
