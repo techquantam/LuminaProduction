@@ -42,6 +42,14 @@ const AdminDashboard = () => {
   // Client Form
   const [clientForm, setClientForm] = useState({ name: '' });
   const [clientFile, setClientFile] = useState(null);
+  const [brokenLogos, setBrokenLogos] = useState({});
+
+  const handleLogoError = (id) => {
+    setBrokenLogos(prev => ({
+      ...prev,
+      [id]: true
+    }));
+  };
 
   // Team Form
   const [teamForm, setTeamForm] = useState({ name: '', role: '' });
@@ -1104,13 +1112,14 @@ const AdminDashboard = () => {
                   {/* Create Form */}
                   <form onSubmit={handleClientSubmit} className="space-y-6 max-w-xl">
                     <div className="space-y-2">
-                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Brand Name (Optional)</label>
+                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Brand Name</label>
                       <input
                         type="text"
                         value={clientForm.name}
                         onChange={(e) => setClientForm({ name: e.target.value })}
                         className="w-full bg-transparent border-b border-luxury-gold/20 py-2 text-sm focus:outline-none focus:border-luxury-gold font-light"
-                        placeholder="ENTER BRAND NAME (E.G. DIOR) - OPTIONAL"
+                        placeholder="ENTER BRAND NAME (E.G. DIOR)"
+                        required
                       />
                     </div>
 
@@ -1139,10 +1148,17 @@ const AdminDashboard = () => {
                       {clients.map(cli => (
                         <div key={cli._id} className="p-4 border border-luxury-gold/10 rounded flex flex-col justify-between items-center text-center gap-3 bg-luxury-black/[0.01] dark:bg-white/[0.01]">
                           <div className="w-24 h-12 flex items-center justify-center overflow-hidden border border-luxury-gold/10 bg-white p-1">
-                            {cli.logoUrl ? (
-                              <img src={cli.logoUrl} alt={cli.name || 'Brand Logo'} className="h-8 w-auto max-w-[95%] object-contain filter grayscale" />
+                            {cli.logoUrl && !brokenLogos[cli._id] ? (
+                              <img 
+                                src={cli.logoUrl} 
+                                alt={cli.name || 'Brand Logo'} 
+                                className="h-8 w-auto max-w-[95%] object-contain filter grayscale" 
+                                onError={() => handleLogoError(cli._id)}
+                              />
                             ) : (
-                              <span className="text-[8px] uppercase tracking-wider text-luxury-gold font-bold">{cli.name || 'Unnamed Brand'}</span>
+                              <span className="font-editorial text-xs tracking-wider text-luxury-gold uppercase font-bold text-center leading-none px-1">
+                                {cli.name || 'Brand'}
+                              </span>
                             )}
                           </div>
                           <span className="text-[10px] uppercase font-bold text-luxury-black/75 dark:text-white/70">{cli.name || 'Unnamed Brand'}</span>
