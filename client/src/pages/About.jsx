@@ -73,9 +73,47 @@ const getLogoClass = (name) => {
 
 const About = () => {
   const [hoveredCity, setHoveredCity] = useState(null);
-  const [clients, setClients] = useState([]);
   const [brokenLogos, setBrokenLogos] = useState({});
   const { API_URL } = useAuth();
+
+  const clients = [
+    { _id: '1', name: '', logoUrl: '/uploads/logo-1779964869829-241648877.webp' },
+    { _id: '2', name: '', logoUrl: '/uploads/logo-1779964924216-993130959.webp' },
+    { _id: '3', name: '', logoUrl: '/uploads/logo-1779965262997-63687423.webp' },
+    { _id: '4', name: '', logoUrl: '/uploads/logo-1779965854047-483478109.webp' },
+    { _id: '5', name: '', logoUrl: '/uploads/logo-1779966362250-752362.webp' },
+    { _id: '6', name: '', logoUrl: '/uploads/logo-1779966381391-347988026.webp' },
+    { _id: '7', name: '', logoUrl: '/uploads/logo-1779966385261-663126342.webp' },
+    { _id: '8', name: '', logoUrl: '/uploads/logo-1779966390838-993991978.webp' },
+    { _id: '9', name: '', logoUrl: '/uploads/logo-1779966412734-484906813.webp' },
+    { _id: '10', name: '', logoUrl: '/uploads/logo-1779966417227-634848252.webp' },
+    { _id: '11', name: '', logoUrl: '/uploads/logo-1780557285601-93065572.jpg' },
+    { _id: '12', name: '', logoUrl: '/uploads/logo-1780557354158-634995759.jpg' },
+    { _id: '13', name: '', logoUrl: '/uploads/logo-1780557363537-120854696.png' },
+    { _id: '14', name: '', logoUrl: '/uploads/logo-1780557416934-519710448.png' },
+    { _id: '15', name: '', logoUrl: '/uploads/logo-1780557427406-844389947.png' },
+    { _id: '16', name: '', logoUrl: '/uploads/logo-1780557442252-14827534.jpg' },
+    { _id: '17', name: '', logoUrl: '/uploads/logo-1780557468426-811621556.jpg' },
+    { _id: '18', name: '', logoUrl: '/uploads/logo-1780557478034-933349745.jpg' },
+    { _id: '19', name: '', logoUrl: '/uploads/logo-1780557531518-275523592.jpg' },
+    { _id: '20', name: '', logoUrl: '/uploads/logo-1780557538710-55517393.jpg' },
+    { _id: '21', name: '', logoUrl: '/uploads/logo-1780557823029-34885305.jpg' },
+    { _id: '22', name: '', logoUrl: '/uploads/logo-1780557834843-770517060.png' },
+    { _id: '23', name: '', logoUrl: '/uploads/logo-1780557844846-465942112.jpg' },
+    { _id: '24', name: '', logoUrl: '/uploads/logo-1780557852304-664045466.png' },
+    { _id: '25', name: '', logoUrl: '/uploads/logo-1780557858424-728397655.png' },
+    { _id: '26', name: '', logoUrl: '/uploads/logo-1780557864638-377926523.jpg' },
+    { _id: '27', name: '', logoUrl: '/uploads/logo-1780557872698-872064116.jpg' },
+    { _id: '28', name: '', logoUrl: '/uploads/logo-1780557878544-681551346.png' },
+    { _id: '29', name: '', logoUrl: '/uploads/logo-1780557883176-358550688.jpg' },
+    { _id: '30', name: '', logoUrl: '/uploads/logo-1780557887775-825349826.jpg' },
+    { _id: '31', name: '', logoUrl: '/uploads/logo-1780557891866-16868299.png' },
+    { _id: '32', name: '', logoUrl: '/uploads/logo-1780557897133-818421009.png' },
+    { _id: '33', name: '', logoUrl: '/uploads/logo-1780557915124-54900629.jpg' },
+    { _id: '34', name: '', logoUrl: '/uploads/logo-1780557928494-463816006.jpg' },
+    { _id: '35', name: '', logoUrl: '/uploads/logo-1780557933132-799732769.png' },
+    { _id: '36', name: '', logoUrl: '/uploads/logo-1780557937111-544678353.png' }
+  ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const rotatingImages = [
@@ -98,40 +136,7 @@ const About = () => {
     }));
   };
 
-  useEffect(() => {
-    const fetchClients = async () => {
-      try {
-        const res = await fetch(`${API_URL}/clients`);
-        const data = await res.json();
-        if (data.success && data.data && data.data.length > 0) {
-          setClients(data.data);
-        } else {
-          throw new Error('No clients found');
-        }
-      } catch (err) {
-        console.warn('Clients API offline. Loading seeded luxury partners.');
-        // Set beautiful static placeholder logos
-        setClients([
-          { _id: '1', name: 'Audemars Piguet', logoUrl: 'https://logo.clearbit.com/audemarspiguet.com' },
-          { _id: '2', name: 'BMW', logoUrl: 'https://logo.clearbit.com/bmw.com' },
-          { _id: '3', name: 'Cartier', logoUrl: 'https://logo.clearbit.com/cartier.com' },
-          { _id: '4', name: 'Chanel', logoUrl: 'https://logo.clearbit.com/chanel.com' },
-          { _id: '5', name: 'Chopard', logoUrl: 'https://logo.clearbit.com/chopard.com' },
-          { _id: '6', name: 'Dior', logoUrl: 'https://logo.clearbit.com/dior.com' },
-          { _id: '7', name: 'Fendi', logoUrl: 'https://logo.clearbit.com/fendi.com' },
-          { _id: '8', name: 'Ferrari', logoUrl: 'https://logo.clearbit.com/ferrari.com' },
-          { _id: '9', name: 'Gucci', logoUrl: 'https://logo.clearbit.com/gucci.com' },
-          { _id: '10', name: 'Hermès', logoUrl: 'https://logo.clearbit.com/hermes.com' },
-          { _id: '11', name: 'HSBC', logoUrl: 'https://logo.clearbit.com/hsbc.com' },
-          { _id: '12', name: 'Lexus', logoUrl: 'https://logo.clearbit.com/lexus.com' },
-          { _id: '13', name: 'Louis Vuitton', logoUrl: 'https://logo.clearbit.com/louisvuitton.com' },
-          { _id: '14', name: 'Montblanc', logoUrl: 'https://logo.clearbit.com/montblanc.com' },
-          { _id: '15', name: 'Piaget', logoUrl: 'https://logo.clearbit.com/piaget.com' }
-        ]);
-      }
-    };
-    fetchClients();
-  }, [API_URL]);
+
 
   return (
     <>
