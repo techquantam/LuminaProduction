@@ -671,13 +671,7 @@ const AdminDashboard = () => {
                 <span>Concierge Inbox ({contacts.filter(c => c.status === 'unread').length})</span>
               </button>
 
-              <button
-                onClick={() => { setActiveTab('clients'); resetClientForm(); }}
-                className={`w-full text-left flex items-center space-x-4 px-6 py-4 text-xs uppercase tracking-widest font-bold border transition-all ${activeTab === 'clients' ? 'border-luxury-gold text-luxury-gold bg-luxury-gold/5' : 'border-luxury-gold/10 text-luxury-black/60 dark:text-white/60 hover:border-luxury-gold/30'}`}
-              >
-                <Award size={14} />
-                <span>Clients CRUD</span>
-              </button>
+              {/* Clients CRUD Button Removed */}
 
               <button
                 onClick={() => { setActiveTab('team'); resetTeamForm(); }}
@@ -981,78 +975,7 @@ const AdminDashboard = () => {
                 </div>
               )}
 
-              {/* TAB 5: CLIENTS CRUD */}
-              {activeTab === 'clients' && (
-                <div className="space-y-12">
-                  <div className="flex justify-between items-center border-b border-luxury-gold/10 pb-4">
-                    <h2 className="font-editorial text-2xl font-light text-luxury-gold">Add Brand Partner</h2>
-                  </div>
-
-                  {/* Create Form */}
-                  <form onSubmit={handleClientSubmit} className="space-y-6 max-w-xl">
-                    <div className="space-y-2">
-                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Brand Name</label>
-                      <input
-                        type="text"
-                        value={clientForm.name}
-                        onChange={(e) => setClientForm({ name: e.target.value })}
-                        className="w-full bg-transparent border-b border-luxury-gold/20 py-2 text-sm focus:outline-none focus:border-luxury-gold font-light"
-                        placeholder="ENTER BRAND NAME (E.G. DIOR)"
-                        required
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Brand Logo Image</label>
-                      <input
-                        type="file"
-                        onChange={(e) => setClientFile(e.target.files[0])}
-                        className="w-full text-xs text-luxury-black/60 dark:text-white/60"
-                        accept="image/*"
-                        required
-                      />
-                    </div>
-
-                    <div className="pt-4">
-                      <button type="submit" className="w-full bg-luxury-gold text-luxury-black font-semibold text-xs uppercase tracking-widest py-3 hover:bg-luxury-black hover:text-white dark:hover:bg-white dark:hover:text-luxury-black transition-colors">
-                        Add Client Partner
-                      </button>
-                    </div>
-                  </form>
-
-                  {/* Clients Grid */}
-                  <div className="space-y-4 pt-12 border-t border-luxury-gold/10">
-                    <h3 className="font-editorial text-xl font-light">Client Partners ({clients.length})</h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-                      {clients.map(cli => (
-                        <div key={cli._id} className="p-4 border border-luxury-gold/10 rounded flex flex-col justify-between items-center text-center gap-3 bg-luxury-black/[0.01] dark:bg-white/[0.01]">
-                          <div className="w-24 h-12 flex items-center justify-center overflow-hidden border border-luxury-gold/10 bg-white p-1">
-                            {cli.logoUrl && !brokenLogos[cli._id] ? (
-                              <img 
-                                src={cli.logoUrl} 
-                                alt={cli.name || 'Brand Logo'} 
-                                className="h-8 w-auto max-w-[95%] object-contain filter grayscale" 
-                                onError={() => handleLogoError(cli._id)}
-                              />
-                            ) : (
-                              <span className="font-editorial text-xs tracking-wider text-luxury-gold uppercase font-bold text-center leading-none px-1">
-                                {cli.name || 'Brand'}
-                              </span>
-                            )}
-                          </div>
-                          <span className="text-[10px] uppercase font-bold text-luxury-black/75 dark:text-white/70">{cli.name || 'Unnamed Brand'}</span>
-                          <button
-                            onClick={() => deleteClient(cli._id)}
-                            className="w-full py-1 text-[8px] uppercase tracking-widest font-semibold text-red-500 border border-red-500/25 hover:bg-red-500 hover:text-white transition-colors"
-                          >
-                            Remove
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
+              {/* TAB 5: CLIENTS CRUD REMOVED */}
 
               {/* TAB 6: TEAM CRUD */}
               {activeTab === 'team' && (
