@@ -79,9 +79,9 @@ const About = () => {
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const rotatingImages = [
-    'https://images.unsplash.com/photo-1503387762-592ded58c45a?q=80&w=1200', // Architectural design/drawing
-    'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200', // Sketch/workspace
-    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200'  // Modern interior blueprint/rendering
+    '/about-drawing-1.jpg',
+    '/about-drawing-2.jpg',
+    '/about-drawing-3.jpg'
   ];
 
   useEffect(() => {
