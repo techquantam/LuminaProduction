@@ -16,10 +16,13 @@ const HERO_IMAGES = [
 ];
 
 const DEFAULT_SERVICES = [
-  { _id: '1', name: 'Luxury Events', description: 'Immersive gala dinners, high-society celebrations, and bespoke private experiences.', icon: 'Sparkles' },
-  { _id: '2', name: 'Corporate Conferences', description: 'Transforming corporate messaging into cinematic spatial stories with elite technical direction.', icon: 'Award' },
-  { _id: '3', name: 'Brand Activations', description: 'High-impact tactile environments that bridge luxury brands and modern audiences.', icon: 'Flame' },
-  { _id: '4', name: 'Product Launches', description: 'Sensory reveals designed to make your product introduction an epochal event.', icon: 'Rocket' }
+  { _id: '1', name: 'Exhibition Booth Design', description: 'Crafting bespoke, high-impact exhibition pavilions and interactive booths that command attention at global trade fairs.', icon: 'Compass' },
+  { _id: '2', name: 'Production & Set Up', description: 'Providing elite technical staging, lighting design, sound engineering, and flawless on-site execution for grand spectacles.', icon: 'Award' },
+  { _id: '3', name: 'Digital Solutions', description: 'Integrating cutting-edge creative technologies, holographic projections, and immersive AR/VR environments.', icon: 'Sparkles' },
+  { _id: '4', name: 'Luxury Events', description: 'Immersive gala dinners, high-society celebrations, and bespoke private experiences defined by meticulous details.', icon: 'Sparkles' },
+  { _id: '5', name: 'Brand Activations', description: 'High-impact tactile environments that bridge luxury brands and modern audiences.', icon: 'Flame' },
+  { _id: '6', name: 'Fashion Shows', description: 'Breathtaking runway systems, couture lighting, and dynamic spatial concepts for luxury apparel brands.', icon: 'Scissors' },
+  { _id: '7', name: 'Wedding Experiences', description: 'Ethereal, high-end nuptials and reception productions conceptualized with romance and architectural grandeur.', icon: 'Heart' }
 ];
 
 const DEFAULT_PROJECTS = [
@@ -75,7 +78,7 @@ const Home = () => {
       try {
         const sRes = await fetch(`${API_URL}/services`);
         const sData = await sRes.json();
-        if (sData.success && sData.data.length > 0) setServices(sData.data.slice(0, 4));
+        if (sData.success && sData.data.length > 0) setServices(sData.data.slice(0, 7));
 
         const pRes = await fetch(`${API_URL}/projects/featured`);
         const pData = await pRes.json();
@@ -158,7 +161,7 @@ const Home = () => {
             <p className="text-xs uppercase tracking-extreme text-luxury-gold font-medium">Bespoke Experiential Curation</p>
             <h1 className="font-editorial text-5xl md:text-8xl font-light leading-none tracking-tight max-w-4xl">
               Crafting <br />
-              <span className="italic text-luxury-gold">Extraordinary</span> <br />
+              <span className="text-luxury-gold">Extraordinary</span> <br />
               Experiences
             </h1>
           </motion.div>
@@ -203,7 +206,7 @@ const Home = () => {
                 that command global awe.
               </h2>
               <p className="text-sm font-light text-luxury-black/70 dark:text-white/60 leading-relaxed">
-                Lumina is a premium experiential agency crafting bespoke event designs, high-end production engineering, and conceptual storytelling environments. From coastal fashion runways to luxury brand takeovers, we compose sensory miracles.
+                Lumina is a premium experiential marketing agency crafting bespoke event designs, high-end production engineering, and conceptual storytelling environments. From product launch to Global exhibitions, we compose sensory miracles for complete marketing solutions worldwide.
               </p>
               <div className="pt-4">
                 <Link to="/about" className="flex items-center space-x-3 group text-xs uppercase tracking-widest font-semibold text-luxury-gold hover:text-luxury-black dark:hover:text-white transition-colors">
@@ -216,12 +219,12 @@ const Home = () => {
             {/* Grid stats */}
             <div className="grid grid-cols-2 gap-8 border-l border-luxury-gold/20 pl-8">
               <div className="space-y-2">
-                <h3 className="font-editorial text-5xl md:text-6xl text-luxury-gold font-light">12+</h3>
-                <p className="text-xs uppercase tracking-widest text-luxury-black/50 dark:text-white/40">Years of Grandeur</p>
+                <h3 className="font-editorial text-5xl md:text-6xl text-luxury-gold font-light">24+</h3>
+                <p className="text-xs uppercase tracking-widest text-luxury-black/50 dark:text-white/40">Countries</p>
               </div>
               <div className="space-y-2">
                 <h3 className="font-editorial text-5xl md:text-6xl text-luxury-gold font-light">450+</h3>
-                <p className="text-xs uppercase tracking-widest text-luxury-black/50 dark:text-white/40">Bespoke Galas</p>
+                <p className="text-xs uppercase tracking-widest text-luxury-black/50 dark:text-white/40">Events Experiences</p>
               </div>
               <div className="space-y-2">
                 <h3 className="font-editorial text-5xl md:text-6xl text-luxury-gold font-light">30+</h3>
@@ -235,7 +238,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* 3. SERVICES SECTION */}
       <section className="py-28 bg-white dark:bg-[#0E0E0E] transition-colors border-y border-luxury-gold/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -244,12 +246,9 @@ const Home = () => {
               <p className="text-xs uppercase tracking-widest text-luxury-gold font-semibold">Specialist Curation</p>
               <h2 className="font-editorial text-4xl md:text-5xl font-light">Experiential Disciplines</h2>
             </div>
-            <Link to="/services" className="text-xs uppercase tracking-widest border-b border-luxury-gold text-luxury-gold pb-1 font-semibold hover:text-luxury-black dark:hover:text-white transition-colors">
-              View All Services
-            </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((svc, idx) => (
               <div
                 key={svc._id}
@@ -266,39 +265,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 4. PORTFOLIO MASONRY PREVIEW */}
-      <section className="py-28 bg-luxury-bg dark:bg-luxury-bgDark transition-colors">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
-            <div className="space-y-4">
-              <p className="text-xs uppercase tracking-widest text-luxury-gold font-semibold">The Archive</p>
-              <h2 className="font-editorial text-4xl md:text-5xl font-light">Featured Spectacles</h2>
-            </div>
-            <Link to="/portfolio" className="text-xs uppercase tracking-widest border-b border-luxury-gold text-luxury-gold pb-1 font-semibold hover:text-luxury-black dark:hover:text-white transition-colors">
-              Enter Gallery
-            </Link>
-          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {projects.map((proj) => (
-              <Link to={`/project/${proj._id}`} key={proj._id} className="group relative overflow-hidden h-[450px]">
-                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: `url(${proj.imageUrl})` }} />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-                
-                {/* Details card details */}
-                <div className="absolute bottom-0 left-0 w-full p-8 text-white space-y-2">
-                  <p className="text-xs uppercase tracking-widest text-luxury-gold font-semibold">{proj.category} &bull; {proj.client}</p>
-                  <h3 className="font-editorial text-2xl font-light">{proj.title}</h3>
-                  <div className="flex items-center space-x-2 text-xs uppercase tracking-wider text-white/60 pt-2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                    <span>Explore Spectacle</span>
-                    <ArrowRight size={12} />
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
 
 
@@ -328,31 +295,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 7. HORIZONTAL GSAP SCROLL GALLERY */}
-      <section ref={horizontalSectionRef} className="relative h-screen bg-luxury-black overflow-hidden flex items-center">
-        {/* Absolute header overlays */}
-        <div className="absolute top-16 left-6 md:left-12 z-20 space-y-2">
-          <p className="text-xs uppercase tracking-widest text-luxury-gold font-semibold">Scenic Archive</p>
-          <h2 className="font-editorial text-4xl md:text-5xl text-white font-light">Atmospheric Vistas</h2>
-        </div>
-        <div className="absolute bottom-16 right-6 md:right-12 z-20">
-          <p className="text-xs uppercase tracking-widest text-white/30">Scroll to explore parallax elements &bull; &rarr;</p>
-        </div>
 
-        {/* Scroll Content strip */}
-        <div ref={horizontalScrollRef} className="horizontal-scroll-container px-12 md:px-24 gap-12 items-center flex">
-          {gallery.map((item, idx) => (
-            <div key={item._id || idx} className="w-[85vw] md:w-[450px] shrink-0 h-[60vh] relative overflow-hidden group">
-              <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{ backgroundImage: `url(${item.imageUrl})` }} />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
-              <div className="absolute bottom-8 left-8 text-white space-y-1">
-                <p className="text-xs uppercase tracking-widest text-luxury-gold font-semibold">{item.category || 'Spectacle'}</p>
-                <h3 className="font-editorial text-xl font-light">{item.title}</h3>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
 
       {/* 9. CONTACT CTA SECTION */}
@@ -361,8 +304,8 @@ const Home = () => {
         <div className="max-w-4xl mx-auto px-6 text-center space-y-10 relative z-10">
           <p className="text-xs uppercase tracking-widest text-luxury-gold font-semibold">Initiation</p>
           <h2 className="font-editorial text-5xl md:text-7xl font-light leading-none tracking-tight">
-            Create An <br />
-            <span className="italic text-luxury-gold">Epoch</span> With Us
+            Create an <br />
+            <span className="italic text-luxury-gold">experience</span> with us.
           </h2>
           <p className="text-sm font-light text-white/50 max-w-md mx-auto leading-relaxed">
             Begin the script of your sensory event. Connect with our international concierge to outline your production objectives.

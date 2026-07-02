@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -8,11 +8,11 @@ import { useLenis } from './hooks/useLenis';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
+import IntroLoader from './components/IntroLoader';
 
 // Static Imports to eliminate Suspense delays and AnimatePresence route glitches
 import Home from './pages/Home';
 import About from './pages/About';
-import Services from './pages/Services';
 import Portfolio from './pages/Portfolio';
 import ProjectDetail from './pages/ProjectDetail';
 import Clients from './pages/Clients';
@@ -23,6 +23,10 @@ import AdminDashboard from './pages/AdminDashboard';
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  const [showIntro, setShowIntro] = useState(() => {
+    return sessionStorage.getItem('hasSeenIntro') !== 'true';
+  });
+
   // Initialize Lenis smooth scroll globally
   useLenis();
   const location = useLocation();
@@ -68,6 +72,12 @@ function App() {
 
   return (
     <>
+      {showIntro && (
+        <IntroLoader onComplete={() => {
+          sessionStorage.setItem('hasSeenIntro', 'true');
+          setShowIntro(false);
+        }} />
+      )}
       <CustomCursor />
       
       <div className="flex flex-col min-h-screen">
@@ -84,7 +94,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/project/:id" element={<ProjectDetail />} />
             <Route path="/clients" element={<Clients />} />

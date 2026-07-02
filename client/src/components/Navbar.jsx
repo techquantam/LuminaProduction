@@ -33,7 +33,6 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
-    { name: 'Services', path: '/services' },
     { name: 'Portfolio', path: '/portfolio' },
     { name: 'Team', path: '/team' },
     { name: 'Contact', path: '/contact' }
@@ -57,7 +56,7 @@ const Navbar = () => {
               src={logoImg} 
               alt="Lumina Global Events" 
               className={`h-9 md:h-11 w-auto object-contain transition-all duration-300 ${
-                isHomeAndTransparent ? 'brightness-0 invert' : 'dark:brightness-0 dark:invert'
+                isHomeAndTransparent ? 'invert hue-rotate-180' : 'dark:invert dark:hue-rotate-180'
               }`}
             />
           </Link>

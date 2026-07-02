@@ -8,18 +8,32 @@ const mockCollections = require('./mockDb');
 
 const servicesData = [
   {
+    name: 'Exhibition Booth Design',
+    description: 'Crafting bespoke, high-impact exhibition pavilions and interactive booths that command attention at global trade fairs.',
+    icon: 'Compass',
+    features: ['Custom Pavilion Engineering', 'Interactive Digital Walls', 'Architectural Spatial Planning', 'Eco-Luxury Material Sync'],
+    details: 'Transforming trade floor presence into high-end curated gallery pavilions. We maximize guest flow, direct attention through lighting design, and leverage sustainable luxury finishes to command focus.'
+  },
+  {
+    name: 'Production & Set Up',
+    description: 'Providing elite technical staging, lighting design, sound engineering, and flawless on-site execution for grand spectacles.',
+    icon: 'Award',
+    features: ['High-End AV Blueprinting', 'Couture Lighting Plots', 'Rigging & Structural Setup', 'On-Site Technical Direction'],
+    details: 'We deliver museum-grade event production. Our team coordinates complex rigging, custom stage fabrications, and synchronized lighting states to ensure a flawless execution under rigorous schedules.'
+  },
+  {
+    name: 'Digital Solutions',
+    description: 'Integrating cutting-edge creative technologies, holographic projections, and immersive AR/VR environments.',
+    icon: 'Sparkles',
+    features: ['Holographic Stage Integrations', 'Interactive Sensory Corridors', 'Actionable Customer Analytics', 'Web3 Immersive Integrations'],
+    details: 'The future of communication is active experience. We integrate custom creative technology—from custom sensory corridors to biometric-responsive systems—delivering deep customer insights and pure awe.'
+  },
+  {
     name: 'Luxury Events',
     description: 'Immersive gala dinners, high-society celebrations, and bespoke private experiences defined by meticulous details.',
     icon: 'Sparkles',
     features: ['Exquisite Venue Sourcing', 'Atmospheric Scenic Scape', 'Couture Entertainment Design', 'VIP Concierge Coordination'],
     details: 'Our luxury private events are exercises in absolute luxury. We script every contact point, transforming venues into dramatic, immersive worlds that resonate with refined styling and elegance.'
-  },
-  {
-    name: 'Corporate Conferences',
-    description: 'Transforming corporate messaging into cinematic spatial stories with elite technical direction and flawless logistics.',
-    icon: 'Award',
-    features: ['Stunning Stage Architecture', 'Ultra-HD Multi-Screen Visuals', 'Digital Keynote Integration', 'Real-Time Stream Control'],
-    details: 'We elevate corporate communication from simple presentations to majestic, cinematic brand statements. With elite AV arrays, real-time stage tracking, and seamless schedules, we inspire audiences globally.'
   },
   {
     name: 'Brand Activations',
@@ -29,18 +43,11 @@ const servicesData = [
     details: 'Through high-concept pop-ups, immersive gallery environments, and dynamic spatial takeovers, we construct unforgettable brand encounters that spark viral global reach and deep customer loyalty.'
   },
   {
-    name: 'Product Launches',
-    description: 'Sensory reveals designed to make your product introduction an epochal event in your industry.',
-    icon: 'Rocket',
-    features: ['High-Concept Reveal Tech', 'Global Press Management', 'Interactive Showcase Pods', 'Immersive Product Storytelling'],
-    details: 'A product introduction should feel like a cultural moment. We blend state-of-the-art projection mapping, theatrical choreography, and high-impact set design to maximize prestige, anticipation, and industry capture.'
-  },
-  {
     name: 'Fashion Shows',
     description: 'Breathtaking runway systems, couture lighting, and dynamic spatial concepts for luxury apparel brands.',
     icon: 'Scissors',
     features: ['Custom Runway Engineering', 'Couture Lighting Plots', 'Backstage Sync Systems', 'Press Gallery Design'],
-    details: 'Capturing the creative philosophy of apparel designers is our hallmark. We craft breathtaking set models, immersive soundscapes, and advanced architectural lighting to place couture garments in their perfect aesthetic orbit.'
+    details: 'Capturing the creative philosophy of apparel designers is our hallmark. We craft breathtaking set models, immersive soundscapes, and advanced architectural lighting to place couture garments in their perfect orbit.'
   },
   {
     name: 'Wedding Experiences',
@@ -48,20 +55,6 @@ const servicesData = [
     icon: 'Heart',
     features: ['Floral Master Architecture', 'Ethereal Ambient Illumination', 'Curated Symphony Orchestrations', 'Bespoke Invitation Craft'],
     details: 'We create ethereal, museum-grade wedding layouts for our high-profile clients. Blending master floral engineering with bespoke entertainment curation, we bring dreamlike romances into fully realized physical realities.'
-  },
-  {
-    name: 'Exhibition Design',
-    description: 'Museum-grade spatial graphics, interactive booths, and curated galleries for global trade fairs.',
-    icon: 'Compass',
-    features: ['Custom Pavilion Engineering', 'Interactive Digital Walls', 'Architectural Spatial Planning', 'Eco-Luxury Material Sync'],
-    details: 'Transforming trade floor presence into high-end curated gallery pavilions. We maximize guest flow, direct attention through lighting design, and leverage sustainable luxury finishes to command focus.'
-  },
-  {
-    name: 'Experiential Marketing',
-    description: 'Merging physical realms with digital magic through custom creative technologies.',
-    icon: 'Globe',
-    features: ['Holographic Stage Integrations', 'Interactive Sensory Corridors', 'Actionable Customer Analytics', 'Web3 Immersive Integrations'],
-    details: 'The future of communication is active experience. We integrate custom creative technology—from custom sensory corridors to biometric-responsive systems—delivering deep customer insights and pure awe.'
   }
 ];
 
@@ -284,10 +277,9 @@ const teamData = [
 const seedData = async () => {
   if (global.isMockDB) {
     // Seed mock collections
-    if (mockCollections.Service.find().length === 0) {
-      servicesData.forEach(item => mockCollections.Service.create(item));
-      console.log('\x1b[32m[Seed] Mock Services Initialized.\x1b[0m');
-    }
+    mockCollections.Service.write([]);
+    servicesData.forEach(item => mockCollections.Service.create(item));
+    console.log('\x1b[32m[Seed] Mock Services Synchronized.\x1b[0m');
     if (mockCollections.Project.find().length === 0) {
       projectsData.forEach(item => mockCollections.Project.create(item));
       console.log('\x1b[32m[Seed] Mock Projects Initialized.\x1b[0m');
@@ -317,11 +309,9 @@ const seedData = async () => {
   } else {
     try {
       // Seed Mongoose collections
-      const serviceCount = await Service.countDocuments();
-      if (serviceCount === 0) {
-        await Service.insertMany(servicesData);
-        console.log('\x1b[32m[Seed] Mongoose Services Initialized.\x1b[0m');
-      }
+      await Service.deleteMany({});
+      await Service.insertMany(servicesData);
+      console.log('\x1b[32m[Seed] Mongoose Services Synchronized.\x1b[0m');
 
       const projectCount = await Project.countDocuments();
       if (projectCount === 0) {

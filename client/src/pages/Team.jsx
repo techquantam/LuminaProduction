@@ -10,7 +10,7 @@ const SEGMENTS = [
   },
   {
     title: 'Event Management & Activation',
-    desc: 'Our expertise in event planning is marked by meticulousness, creativity, client-focused management, well-organized projects, strict timelines, and budget control. Long-running luxury brand partnerships validate our capabilities.'
+    desc: 'Our expertise in event and exhibition planning is marked by meticulousness, creativity, client-focused management, well-organized projects, strict timelines, and budget control. Long-running luxury brand partnerships validate our capabilities.'
   },
   {
     title: 'Design',
@@ -78,7 +78,7 @@ const Team = () => {
                 className="space-y-4 text-sm font-light text-luxury-black/70 dark:text-white/60 leading-relaxed"
               >
                 <p>Our strength lies in our team of seasoned and devoted professionals.</p>
-                <p>Having years of expertise, our team has the innate ability to turn ideas into reality with unwavering commitment to quality. Our keen eye for detail ensures that every event we create is unique, and sets us apart as leaders in the world of luxury and lifestyle events.</p>
+                <p>Having years of expertise, our team has the innate ability to turn ideas into reality with unwavering commitment to quality. Our keen eye for detail ensures that every event we create is unique, and sets us apart as leaders in the world of exhibitions, Turnkey project and events.</p>
                 <p>And our work ethics is infused with enthusiasm.</p>
               </motion.div>
             </div>

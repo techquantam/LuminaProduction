@@ -6,51 +6,27 @@ import TransitionEffect from '../components/TransitionEffect';
 const DEFAULT_SERVICES = [
   {
     _id: '1',
-    name: 'Luxury Events',
-    description: 'Immersive gala dinners, high-society celebrations, and bespoke private experiences defined by meticulous details.',
-    icon: 'Sparkles',
-    features: ['Exquisite Venue Sourcing', 'Atmospheric Scenic Scape', 'Couture Entertainment Design', 'VIP Concierge Coordination'],
-    details: 'Our luxury private events are exercises in absolute luxury. We script every contact point, transforming venues into dramatic, immersive worlds that resonate with refined styling and elegance.'
+    name: 'Exhibition Booth Design',
+    description: 'Crafting bespoke, high-impact exhibition pavilions and interactive booths that command attention at global trade fairs.',
+    icon: 'Compass',
+    features: ['Custom Pavilion Engineering', 'Interactive Digital Walls', 'Architectural Spatial Planning', 'Eco-Luxury Material Sync'],
+    details: 'Transforming trade floor presence into high-end curated gallery pavilions. We maximize guest flow, direct attention through lighting design, and leverage sustainable luxury finishes to command focus.'
   },
   {
     _id: '2',
-    name: 'Corporate Conferences',
-    description: 'Transforming corporate messaging into cinematic spatial stories with elite technical direction and flawless logistics.',
+    name: 'Production & Set Up',
+    description: 'Providing elite technical staging, lighting design, sound engineering, and flawless on-site execution for grand spectacles.',
     icon: 'Award',
-    features: ['Stunning Stage Architecture', 'Ultra-HD Multi-Screen Visuals', 'Digital Keynote Integration', 'Real-Time Stream Control'],
-    details: 'We elevate corporate communication from simple presentations to majestic, cinematic brand statements. With elite AV arrays, real-time stage tracking, and seamless schedules, we inspire audiences globally.'
+    features: ['High-End AV Blueprinting', 'Couture Lighting Plots', 'Rigging & Structural Setup', 'On-Site Technical Direction'],
+    details: 'We deliver museum-grade event production. Our team coordinates complex rigging, custom stage fabrications, and synchronized lighting states to ensure a flawless execution under rigorous schedules.'
   },
   {
     _id: '3',
-    name: 'Brand Activations',
-    description: 'High-impact tactile environments that bridge luxury brands and modern audiences with storytelling depth.',
-    icon: 'Flame',
-    features: ['Kinetic Art Installations', 'Influencer Sensory Spaces', 'Viral Architectural Takeovers', 'Augmented Reality Overlays'],
-    details: 'Through high-concept pop-ups, immersive gallery environments, and dynamic spatial takeovers, we construct unforgettable brand encounters that spark viral global reach and deep customer loyalty.'
-  },
-  {
-    _id: '4',
-    name: 'Product Launches',
-    description: 'Sensory reveals designed to make your product introduction an epochal event in your industry.',
-    icon: 'Rocket',
-    features: ['High-Concept Reveal Tech', 'Global Press Management', 'Interactive Showcase Pods', 'Immersive Product Storytelling'],
-    details: 'A product introduction should feel like a cultural moment. We blend state-of-the-art projection mapping, theatrical choreography, and high-impact set design to maximize prestige, anticipation, and industry capture.'
-  },
-  {
-    _id: '5',
-    name: 'Fashion Shows',
-    description: 'Breathtaking runway systems, couture lighting, and dynamic spatial concepts for luxury apparel brands.',
-    icon: 'Scissors',
-    features: ['Custom Runway Engineering', 'Couture Lighting Plots', 'Backstage Sync Systems', 'Press Gallery Design'],
-    details: 'Capturing the creative philosophy of apparel designers is our hallmark. We craft breathtaking set models, immersive soundscapes, and advanced architectural lighting to place couture garments in their perfect orbit.'
-  },
-  {
-    _id: '6',
-    name: 'Wedding Experiences',
-    description: 'Ethereal, high-end nuptials and reception productions conceptualized with romance and architectural grandeur.',
-    icon: 'Heart',
-    features: ['Floral Master Architecture', 'Ethereal Ambient Illumination', 'Curated Symphony Orchestrations', 'Bespoke Invitation Craft'],
-    details: 'We create ethereal, museum-grade wedding layouts for our high-profile clients. Blending master floral engineering with bespoke entertainment curation, we bring dreamlike romances into fully realized physical realities.'
+    name: 'Digital Solutions',
+    description: 'Integrating cutting-edge creative technologies, holographic projections, and immersive AR/VR environments.',
+    icon: 'Sparkles',
+    features: ['Holographic Stage Integrations', 'Interactive Sensory Corridors', 'Actionable Customer Analytics', 'Web3 Immersive Integrations'],
+    details: 'The future of communication is active experience. We integrate custom creative technology—from custom sensory corridors to biometric-responsive systems—delivering deep customer insights and pure awe.'
   }
 ];
 

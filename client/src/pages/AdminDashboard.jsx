@@ -661,13 +661,7 @@ const AdminDashboard = () => {
                 <span>Spectacles CRUD</span>
               </button>
 
-              <button
-                onClick={() => { setActiveTab('services'); resetServiceForm(); }}
-                className={`w-full text-left flex items-center space-x-4 px-6 py-4 text-xs uppercase tracking-widest font-bold border transition-all ${activeTab === 'services' ? 'border-luxury-gold text-luxury-gold bg-luxury-gold/5' : 'border-luxury-gold/10 text-luxury-black/60 dark:text-white/60 hover:border-luxury-gold/30'}`}
-              >
-                <Globe size={14} />
-                <span>Services CRUD</span>
-              </button>
+              {/* Services CRUD Button Removed */}
 
               <button
                 onClick={() => { setActiveTab('contacts'); }}
@@ -701,14 +695,10 @@ const AdminDashboard = () => {
               {activeTab === 'overview' && (
                 <div className="space-y-12">
                   <h2 className="font-editorial text-2xl font-light text-luxury-gold">Overview Analytics</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="p-6 border border-luxury-gold/15 space-y-2">
                       <h4 className="text-xs uppercase tracking-widest text-luxury-black/40 dark:text-white/40 font-bold">Spectacle Archives</h4>
                       <p className="font-editorial text-4xl text-luxury-gold font-light">{projects.length}</p>
-                    </div>
-                    <div className="p-6 border border-luxury-gold/15 space-y-2">
-                      <h4 className="text-xs uppercase tracking-widest text-luxury-black/40 dark:text-white/40 font-bold">Active Disciplines</h4>
-                      <p className="font-editorial text-4xl text-luxury-gold font-light">{services.length}</p>
                     </div>
                     <div className="p-6 border border-luxury-gold/15 space-y-2">
                       <h4 className="text-xs uppercase tracking-widest text-luxury-black/40 dark:text-white/40 font-bold">Inbox Submissions</h4>
@@ -931,119 +921,7 @@ const AdminDashboard = () => {
                 </div>
               )}
 
-              {/* TAB 3: SERVICES CRUD */}
-              {activeTab === 'services' && (
-                <div className="space-y-12">
-                  <div className="flex justify-between items-center border-b border-luxury-gold/10 pb-4">
-                    <h2 className="font-editorial text-2xl font-light text-luxury-gold">
-                      {isEditing ? 'Edit Service' : 'Add New Service'}
-                    </h2>
-                    {isEditing && (
-                      <button onClick={resetServiceForm} className="text-xs uppercase tracking-widest border border-luxury-gold/30 px-4 py-2 hover:border-luxury-gold transition-all">Cancel Edit</button>
-                    )}
-                  </div>
-
-                  {/* Create / Edit Form */}
-                  <form onSubmit={handleServiceSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Service Name</label>
-                        <input
-                          type="text"
-                          value={serviceForm.name}
-                          onChange={(e) => setServiceForm(prev => ({ ...prev, name: e.target.value }))}
-                          className="w-full bg-transparent border-b border-luxury-gold/20 py-2 text-sm focus:outline-none focus:border-luxury-gold"
-                          placeholder="E.G. COUTURE SHOW DESIGN"
-                          required
-                        />
-                      </div>
-
-                      <div className="space-y-2">
-                        <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Lucide Icon Theme</label>
-                        <select
-                          value={serviceForm.icon}
-                          onChange={(e) => setServiceForm(prev => ({ ...prev, icon: e.target.value }))}
-                          className="w-full bg-transparent border-b border-luxury-gold/20 py-2 text-sm focus:outline-none focus:border-luxury-gold dark:bg-[#0E0E0E]"
-                          required
-                        >
-                          <option value="Sparkles">Sparkles ✨ (Luxury Events)</option>
-                          <option value="Award">Award 🏆 (Corporate Conferences)</option>
-                          <option value="Scissors">Scissors ✂️ (Fashion Shows)</option>
-                          <option value="Heart">Heart ❤️ (Wedding Experiences)</option>
-                          <option value="Rocket">Rocket 🚀 (Product Launches)</option>
-                          <option value="Compass">Compass 🧭 (Exhibition Design)</option>
-                          <option value="Flame">Flame 🔥 (Brand Activations)</option>
-                          <option value="Globe">Globe 🌐 (Experiential Marketing)</option>
-                        </select>
-                      </div>
-
-                      <div className="space-y-2">
-                        <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Description</label>
-                        <input
-                          type="text"
-                          value={serviceForm.description}
-                          onChange={(e) => setServiceForm(prev => ({ ...prev, description: e.target.value }))}
-                          className="w-full bg-transparent border-b border-luxury-gold/20 py-2 text-sm focus:outline-none focus:border-luxury-gold"
-                          placeholder="Immersive stage engineering for luxury apparel brands."
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Features (Comma Separated)</label>
-                      <input
-                        type="text"
-                        value={serviceForm.features}
-                        onChange={(e) => setServiceForm(prev => ({ ...prev, features: e.target.value }))}
-                        className="w-full bg-transparent border-b border-luxury-gold/20 py-2 text-sm focus:outline-none focus:border-luxury-gold"
-                        placeholder="Custom runways, couture lights, audio sync grids"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Extended Spec Details</label>
-                      <textarea
-                        value={serviceForm.details}
-                        onChange={(e) => setServiceForm(prev => ({ ...prev, details: e.target.value }))}
-                        rows={3}
-                        className="w-full bg-transparent border-b border-luxury-gold/20 py-2 text-sm focus:outline-none focus:border-luxury-gold resize-none"
-                        placeholder="WE CRAFT BEATEHTAKING SET DESIGNS STAGED..."
-                        required
-                      />
-                    </div>
-
-                    <div className="pt-4">
-                      <button type="submit" className="w-full bg-luxury-gold text-luxury-black font-semibold text-xs uppercase tracking-widest py-3 hover:bg-luxury-black hover:text-white dark:hover:bg-white dark:hover:text-luxury-black transition-colors">
-                        {isEditing ? 'Apply Service Spec Update' : 'Publish Service Spec Profile'}
-                      </button>
-                    </div>
-                  </form>
-
-                  {/* Active Services List */}
-                  <div className="space-y-4 pt-12 border-t border-luxury-gold/10">
-                    <h3 className="font-editorial text-xl font-light">Services Profile</h3>
-                    <div className="space-y-3">
-                      {services.map(svc => (
-                        <div key={svc._id} className="p-4 border border-luxury-gold/10 rounded flex justify-between items-center gap-4 text-xs font-light">
-                          <div>
-                            <p className="font-semibold text-luxury-gold">{svc.name}</p>
-                            <p className="text-[10px] text-luxury-black/50 dark:text-white/50">{svc.description}</p>
-                          </div>
-                          <div className="flex items-center space-x-3">
-                            <button onClick={() => editService(svc)} className="p-2 border border-luxury-gold/20 text-luxury-gold hover:bg-luxury-gold hover:text-luxury-black transition-all" title="Edit">
-                              <Edit2 size={12} />
-                            </button>
-                            <button onClick={() => deleteService(svc._id)} className="p-2 border border-red-500/20 text-red-500 hover:bg-red-500 hover:text-white transition-all" title="Delete">
-                              <Trash2 size={12} />
-                            </button>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
+              {/* TAB 3: SERVICES CRUD REMOVED */}
 
               {/* TAB 4: CONCIERGE INBOX */}
               {activeTab === 'contacts' && (

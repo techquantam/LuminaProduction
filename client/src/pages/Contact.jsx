@@ -4,9 +4,12 @@ import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
 import TransitionEffect from '../components/TransitionEffect';
 
 const OFFICES = [
-  { city: 'New York', address: '750 Fifth Avenue, Floor 14', phone: '+1 (800) 555-LUMI', email: 'ny@luminalive.com' },
-  { city: 'Paris', address: '24 Rue du Faubourg Saint-Honoré', phone: '+33 (1) 42 68 53', email: 'paris@luminalive.com' },
-  { city: 'Tokyo', address: '5-1-1 Minami-Aoyama, Minato-ku', phone: '+81 (3) 5468 01', email: 'tokyo@luminalive.com' }
+  { city: 'Poland', address: 'Osiedle Piastowskie 120, 61-166 Poznań, Poland' },
+  { city: 'Spain', address: 'Tren de la Fresa Nº 8 Street Warehouse Nº 6, 28350 Ciempozuelos (Madrid), Spain' },
+  { city: 'India', address: 'Noida, 201301, Uttar Pradesh, India' },
+  { city: 'Italy', address: 'Piazza del Popolo, 12, 00187 Roma, Italy' },
+  { city: 'Turkey', address: 'Taksim Square, 3, 34437 Istanbul, Turkey' },
+  { city: 'Saudi Arabia', address: 'Olaya District, Riyadh 12212, Saudi Arabia' }
 ];
 
 const Contact = () => {
@@ -68,8 +71,8 @@ const Contact = () => {
           >
             <p className="text-xs uppercase tracking-extreme text-luxury-gold font-semibold">Initiation</p>
             <h1 className="font-editorial text-5xl md:text-7xl font-light leading-none tracking-tight">
-              Bespoke <br />
-              <span className="italic text-luxury-gold">Concierge Inbox</span>
+              Let's <br />
+              <span className="italic text-luxury-gold">discuss..</span>
             </h1>
           </motion.div>
         </div>
@@ -85,7 +88,7 @@ const Contact = () => {
               <div className="space-y-6">
                 <h2 className="font-editorial text-3xl font-light">Global Coordinates</h2>
                 <p className="text-sm font-light text-luxury-black/70 dark:text-white/60 leading-relaxed">
-                  We orchestrate experiences worldwide. Reach out to our nearest concierge office or submit the creative script form opposite.
+                  We orchestrate experiences worldwide. Reach out to our office or submit the brief to initiate the process..
                 </p>
               </div>
 
@@ -99,6 +102,17 @@ const Contact = () => {
                     <p className="text-xs font-light text-luxury-black/60 dark:text-white/50">{off.email}</p>
                   </div>
                 ))}
+              </div>
+
+              {/* General Contact Info */}
+              <div className="border-t border-luxury-gold/15 pt-8 space-y-3">
+                <div className="flex items-center space-x-3 text-luxury-gold">
+                  <Mail size={16} />
+                  <span className="text-xs uppercase tracking-widest font-semibold">General Inquiries</span>
+                </div>
+                <p className="text-sm font-light text-luxury-black/70 dark:text-white/60 leading-relaxed">
+                  Our mail ID: <a href="mailto:hello@luminaworldwideevents.com" className="text-luxury-gold hover:underline font-medium">hello@luminaworldwideevents.com</a>
+                </p>
               </div>
             </div>
 
