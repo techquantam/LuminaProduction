@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import TransitionEffect from '../components/TransitionEffect';
 import { useAuth } from '../context/AuthContext';
 
@@ -77,6 +77,20 @@ const About = () => {
   const [brokenLogos, setBrokenLogos] = useState({});
   const { API_URL } = useAuth();
 
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const rotatingImages = [
+    'https://images.unsplash.com/photo-1503387762-592ded58c45a?q=80&w=1200', // Architectural design/drawing
+    'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200', // Sketch/workspace
+    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200'  // Modern interior blueprint/rendering
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % 3);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   const handleLogoError = (id) => {
     setBrokenLogos(prev => ({
       ...prev,
@@ -144,19 +158,42 @@ const About = () => {
       {/* Main Image and Description Section */}
       <section className="pb-16 bg-luxury-bg dark:bg-luxury-bgDark transition-colors">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          {/* Main Image Container */}
+          {/* Main Image Container - Rotating drawings slideshow */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2 }}
-            className="w-full h-[500px] overflow-hidden border border-luxury-gold/15 relative group shadow-2xl"
+            className="w-full h-[500px] overflow-hidden border border-luxury-gold/15 relative group shadow-2xl bg-black"
           >
-            <img 
-              src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1200" 
-              alt="Lumina Luxury Event Spectacle" 
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+            <AnimatePresence mode="wait">
+              <motion.img 
+                key={currentImageIndex}
+                src={rotatingImages[currentImageIndex]} 
+                alt={`Lumina Drawing Sketch ${currentImageIndex + 1}`} 
+                initial={{ opacity: 0, scale: 1.02 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1, ease: 'easeInOut' }}
+                className="w-full h-full object-cover"
+              />
+            </AnimatePresence>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+            
+            {/* Slide Navigation Indicators */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2.5 z-10">
+              {rotatingImages.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentImageIndex(idx)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                    idx === currentImageIndex 
+                      ? 'bg-luxury-gold w-8' 
+                      : 'bg-white/40 hover:bg-white/70'
+                  }`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
           </motion.div>
 
           {/* Description - Aligned to the Right */}
