@@ -4,16 +4,14 @@ import TransitionEffect from '../components/TransitionEffect';
 import { useAuth } from '../context/AuthContext';
 
 const DEMO_CLIENTS = [
-  { name: 'Chanel', logoUrl: 'https://logo.clearbit.com/chanel.com' },
-  { name: 'Cartier', logoUrl: 'https://logo.clearbit.com/cartier.com' },
-  { name: 'Gucci', logoUrl: 'https://logo.clearbit.com/gucci.com' },
-  { name: 'Dior', logoUrl: 'https://logo.clearbit.com/dior.com' },
-  { name: 'Hermes', logoUrl: 'https://logo.clearbit.com/hermes.com' },
-  { name: 'Rolex', logoUrl: 'https://logo.clearbit.com/rolex.com' },
-  { name: 'Prada', logoUrl: 'https://logo.clearbit.com/prada.com' },
-  { name: 'Louis Vuitton', logoUrl: 'https://logo.clearbit.com/louisvuitton.com' },
-  { name: 'Ferrari', logoUrl: 'https://logo.clearbit.com/ferrari.com' },
-  { name: 'Bentley', logoUrl: 'https://logo.clearbit.com/bentleymotors.com' }
+  { name: 'Chanel', logoUrl: '/uploads/logo-chanel.svg' },
+  { name: 'Cartier', logoUrl: '/uploads/logo-cartier.svg' },
+  { name: 'Gucci', logoUrl: '/uploads/logo-gucci.svg' },
+  { name: 'Dior', logoUrl: '/uploads/logo-dior.svg' },
+  { name: 'Hermes', logoUrl: '/uploads/logo-hermes.svg' },
+  { name: 'Rolex', logoUrl: '/uploads/logo-rolex.svg' },
+  { name: 'Prada', logoUrl: '/uploads/logo-prada.svg' },
+  { name: 'Louis Vuitton', logoUrl: '/uploads/logo-louisvuitton.svg' }
 ];
 
 const CITIES = [
