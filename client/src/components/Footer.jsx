@@ -44,28 +44,66 @@ const Footer = () => {
           {/* Contact Details */}
           <div className="space-y-6">
             <h4 className="text-xs uppercase tracking-widest text-luxury-gold font-medium">Bespoke Offices</h4>
-            <div className="text-sm font-light text-white/60 space-y-4">
-              <div>
-                <p className="text-white/80 font-medium text-xs uppercase tracking-widest mb-1">Poland</p>
-                <p>Osiedle Piastowskie 120</p>
-                <p>61-166 Poznań, Poland</p>
-                {/* <p>poland@luminalive.com</p> */}
+            <div className="space-y-4">
+              <div className="border-l border-luxury-gold/30 pl-3">
+                <a 
+                  href="https://maps.google.com/?q=Osiedle+Piastowskie+120,+61-166+Pozna%C5%84,+Poland" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-luxury-gold font-medium text-[10px] uppercase tracking-widest transition-colors block"
+                >
+                  Poland
+                </a>
               </div>
-              <div>
-                <p className="text-white/80 font-medium text-xs uppercase tracking-widest mb-1">Spain:
-                </p>
-                <p>Tren de la Fresa Nº 8 Street WarehouseNº 6 28350 Ciempozuelos(Madrid) , Spain</p>
-                {/* <p>paris@luminalive.com</p> */}
+              <div className="border-l border-luxury-gold/30 pl-3">
+                <a 
+                  href="https://maps.google.com/?q=Tren+de+la+Fresa+N%C2%BA+8+Street+WarehouseN%C2%BA+6+28350+Ciempozuelos+(Madrid)+Spain" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-luxury-gold font-medium text-[10px] uppercase tracking-widest transition-colors block"
+                >
+                  Spain
+                </a>
               </div>
-              <div>
-                <p className="text-white/80 font-medium text-xs uppercase tracking-widest mb-1">India:
-                </p>
-                <p>Noida, 201301, Uttar Pradesh
-                </p>
-                {/* <p>paris@luminalive.com</p> */}
-                <p className="text-white/80 font-medium text-xs uppercase tracking-widest mb-1">Italy <br />
-                  Turkey<br />Saudi Arabia
-                </p>
+              <div className="border-l border-luxury-gold/30 pl-3">
+                <a 
+                  href="https://maps.google.com/?q=Viale+A.+De+Gasperi+101+-20017+Rho+(Milano)+Italy" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-luxury-gold font-medium text-[10px] uppercase tracking-widest transition-colors block"
+                >
+                  Italy
+                </a>
+              </div>
+              <div className="border-l border-luxury-gold/30 pl-3">
+                <a 
+                  href="https://maps.google.com/?q=Orhan+Gazi+Mah.+Mimsan+San.+Sit.+1730+Sok.+No+:+3+Esenyurt+/+%C4%B0stanbul+Turkey" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-luxury-gold font-medium text-[10px] uppercase tracking-widest transition-colors block"
+                >
+                  Turkey
+                </a>
+              </div>
+              <div className="border-l border-luxury-gold/30 pl-3">
+                <a 
+                  href="https://maps.google.com/?q=3311+An+Nasr+Rd,+7868,+Al-Masani,+Riyadh+14714,+Saudi+Arabia" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-luxury-gold font-medium text-[10px] uppercase tracking-widest transition-colors block"
+                >
+                  Saudi Arabia
+                </a>
+              </div>
+              <div className="border-l border-luxury-gold/30 pl-3">
+                <a 
+                  href="https://maps.google.com/?q=Noida,+201301,+Uttar+Pradesh,+India" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-luxury-gold font-medium text-[10px] uppercase tracking-widest transition-colors block"
+                >
+                  India
+                </a>
               </div>
             </div>
           </div>
@@ -103,7 +141,7 @@ const Footer = () => {
 
               {/* 2. Spain */}
               <a 
-                href="https://maps.google.com/?q=Calle+del+Tren+de+la+Fresa,+8,+28350+Ciempozuelos,+Madrid,+Spain" 
+                href="https://maps.google.com/?q=Tren+de+la+Fresa+N%C2%BA+8+Street+WarehouseN%C2%BA+6+28350+Ciempozuelos+(Madrid)+Spain" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="absolute cursor-pointer group/dot z-10 -translate-x-1/2 -translate-y-1/2" 
@@ -121,7 +159,7 @@ const Footer = () => {
 
               {/* 3. Italy */}
               <a 
-                href="https://maps.google.com/?q=Piazza+del+Popolo,+Rome,+Italy" 
+                href="https://maps.google.com/?q=Viale+A.+De+Gasperi+101+-20017+Rho+(Milano)+Italy" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="absolute cursor-pointer group/dot z-10 -translate-x-1/2 -translate-y-1/2" 
@@ -132,14 +170,14 @@ const Footer = () => {
                   <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-luxury-gold border border-black/30"></span>
                 </span>
                 <div className="absolute top-5 left-1/2 -translate-x-1/2 bg-black border border-luxury-gold/40 text-white text-[10px] py-1.5 px-2.5 rounded shadow-2xl opacity-0 scale-75 group-hover/dot:opacity-100 group-hover/dot:scale-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-20 origin-top">
-                  <p className="font-semibold text-luxury-gold">Rome, Italy</p>
+                  <p className="font-semibold text-luxury-gold">Milan, Italy</p>
                   <p className="text-white/60 text-[9px]">Click to view on Map</p>
                 </div>
               </a>
 
               {/* 4. Turkey */}
               <a 
-                href="https://maps.google.com/?q=Taksim+Square,+Istanbul,+Turkey" 
+                href="https://maps.google.com/?q=Orhan+Gazi+Mah.+Mimsan+San.+Sit.+1730+Sok.+No+:+3+Esenyurt+/+%C4%B0stanbul+Turkey" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="absolute cursor-pointer group/dot z-10 -translate-x-1/2 -translate-y-1/2" 
@@ -157,7 +195,7 @@ const Footer = () => {
 
               {/* 5. Saudi Arabia */}
               <a 
-                href="https://maps.google.com/?q=Olaya+District,+Riyadh,+Saudi+Arabia" 
+                href="https://maps.google.com/?q=3311+An+Nasr+Rd,+7868,+Al-Masani,+Riyadh+14714,+Saudi+Arabia" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="absolute cursor-pointer group/dot z-10 -translate-x-1/2 -translate-y-1/2" 
@@ -175,7 +213,7 @@ const Footer = () => {
 
               {/* 6. India */}
               <a 
-                href="https://maps.google.com/?q=Sector+62,+Noida,+Uttar+Pradesh,+India" 
+                href="https://maps.google.com/?q=Noida,+201301,+Uttar+Pradesh,+India" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="absolute cursor-pointer group/dot z-10 -translate-x-1/2 -translate-y-1/2" 

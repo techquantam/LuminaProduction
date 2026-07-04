@@ -4,17 +4,18 @@ import TransitionEffect from '../components/TransitionEffect';
 import { useAuth } from '../context/AuthContext';
 
 const CITIES = [
-  { name: 'Las Vegas', x: '10.0%', y: '35.0%' },
-  { name: 'New York', x: '19.3%', y: '31.1%' },
-  { name: 'London', x: '46.9%', y: '29.4%' },
-  { name: 'Berlin', x: '51.3%', y: '31.5%' },
-  { name: 'Barcelona', x: '48.0%', y: '36.8%' },
-  { name: 'Dubai', x: '63.0%', y: '49.6%' },
-  { name: 'Cape Town', x: '51.8%', y: '84.0%' },
-  { name: 'Singapore', x: '78.2%', y: '65.5%' },
-  { name: 'Beijing', x: '79.4%', y: '36.2%' },
-  { name: 'Tokyo', x: '85.9%', y: '40.4%' },
-  { name: 'Sydney', x: '88.3%', y: '86.0%' }
+  { name: 'Las Vegas', country: 'USA', x: '10.0%', y: '35.0%' },
+  { name: 'New York', country: 'USA', x: '19.3%', y: '31.1%' },
+  { name: 'London', country: 'UK', x: '46.9%', y: '29.4%' },
+  { name: 'Berlin', country: 'Germany', x: '51.3%', y: '31.5%' },
+  { name: 'Barcelona', country: 'Spain', x: '48.0%', y: '36.8%' },
+  { name: 'Dubai', country: 'UAE', x: '63.0%', y: '49.6%' },
+  { name: 'Cape Town', country: 'South Africa', x: '51.8%', y: '84.0%' },
+  { name: 'Singapore', country: 'Singapore', x: '78.2%', y: '65.5%' },
+  { name: 'Beijing', country: 'China', x: '79.4%', y: '36.2%' },
+  { name: 'Tokyo', country: 'Japan', x: '85.9%', y: '40.4%' },
+  { name: 'Sydney', country: 'Australia', x: '88.3%', y: '86.0%' },
+  { name: 'Rio de Janeiro', country: 'Brazil', x: '31.0%', y: '68.0%' }
 ];
 
 const containerVariants = {
@@ -32,76 +33,11 @@ const itemVariants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }
 };
 
-const getLogoClass = (name) => {
-  const normalized = (name || '').toLowerCase();
 
-  // Bold/circular/square logos that appear naturally larger and need to be scaled down/contained
-  const isBoldOrCircular =
-    normalized.includes('bmw') ||
-    normalized.includes('hermes') ||
-    normalized.includes('hermès') ||
-    normalized.includes('ferrari') ||
-    normalized.includes('lexus') ||
-    normalized.includes('hsbc') ||
-    normalized.includes('montblanc');
-
-  // Extremely thin/wide/text-only logos that appear naturally smaller and need a boost
-  const isThinOrWide =
-    normalized.includes('macallan') ||
-    normalized.includes('audemars') ||
-    normalized.includes('cartier') ||
-    normalized.includes('piaget') ||
-    normalized.includes('chopard') ||
-    normalized.includes('dior') ||
-    normalized.includes('gucci') ||
-    normalized.includes('louis') ||
-    normalized.includes('chanel');
-
-  if (isBoldOrCircular) {
-    // Keep bold/circular logos slightly smaller and contained so they don't overpower the grid
-    return "h-11 md:h-13 w-auto max-w-[85%] object-contain transition-all duration-300 hover:scale-105 select-none pointer-events-none";
-  }
-
-  if (isThinOrWide) {
-    // Boost height and width of thin text/wide logos so they are legible and match visual weight
-    return "h-16 md:h-18 w-auto max-w-[95%] object-contain transition-all duration-300 hover:scale-105 select-none pointer-events-none";
-  }
-
-  // Default elegant size
-  return "h-13 md:h-15 w-auto max-w-[90%] object-contain transition-all duration-300 hover:scale-105 select-none pointer-events-none";
-};
 
 const About = () => {
   const [hoveredCity, setHoveredCity] = useState(null);
-  const [brokenLogos, setBrokenLogos] = useState({});
-  const { API_URL } = useAuth();
-
-  const clients = [
-    { _id: '1', name: '', logoUrl: '/uploads/logo-1779964869829-241648877.webp' },
-    { _id: '2', name: '', logoUrl: '/uploads/logo-1779964924216-993130959.webp' },
-    { _id: '3', name: '', logoUrl: '/uploads/logo-1779965262997-63687423.webp' },
-    { _id: '4', name: '', logoUrl: '/uploads/logo-1779965854047-483478109.webp' },
-    { _id: '5', name: '', logoUrl: '/uploads/logo-1779966362250-752362.webp' },
-    { _id: '6', name: '', logoUrl: '/uploads/logo-1779966417227-634848252.webp' },
-    { _id: '7', name: '', logoUrl: '/uploads/logo-1780557285601-93065572.jpg' },
-    { _id: '8', name: '', logoUrl: '/uploads/logo-1780557354158-634995759.jpg' },
-    { _id: '9', name: '', logoUrl: '/uploads/logo-1780557416934-519710448.png' },
-    { _id: '10', name: '', logoUrl: '/uploads/logo-1780557427406-844389947.png' },
-    { _id: '11', name: '', logoUrl: '/uploads/logo-1780557844846-465942112.jpg' },
-    { _id: '12', name: '', logoUrl: '/uploads/logo-1780557852304-664045466.png' },
-    { _id: '13', name: '', logoUrl: '/uploads/logo-1780557858424-728397655.png' },
-    { _id: '14', name: '', logoUrl: '/uploads/logo-1780557864638-377926523.jpg' },
-    { _id: '15', name: '', logoUrl: '/uploads/logo-1780557872698-872064116.jpg' },
-    { _id: '16', name: '', logoUrl: '/uploads/logo-1780557878544-681551346.png' },
-    { _id: '17', name: '', logoUrl: '/uploads/logo-1780557883176-358550688.jpg' },
-    { _id: '18', name: '', logoUrl: '/uploads/logo-1780557887775-825349826.jpg' },
-    { _id: '19', name: '', logoUrl: '/uploads/logo-1780557891866-16868299.png' },
-    { _id: '20', name: '', logoUrl: '/uploads/logo-1780557897133-818421009.png' },
-    { _id: '21', name: '', logoUrl: '/uploads/logo-1780557915124-54900629.jpg' },
-    { _id: '22', name: '', logoUrl: '/uploads/logo-1780557928494-463816006.jpg' },
-    { _id: '23', name: '', logoUrl: '/uploads/logo-1780557933132-799732769.png' },
-    { _id: '24', name: '', logoUrl: '/uploads/logo-1780557937111-544678353.png' }
-  ];
+  const [hoveredCountry, setHoveredCountry] = useState(null);
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const rotatingImages = [
@@ -116,13 +52,6 @@ const About = () => {
     }, 4000);
     return () => clearInterval(timer);
   }, []);
-
-  const handleLogoError = (id) => {
-    setBrokenLogos(prev => ({
-      ...prev,
-      [id]: true
-    }));
-  };
 
 
 
@@ -179,8 +108,8 @@ const About = () => {
                   key={idx}
                   onClick={() => setCurrentImageIndex(idx)}
                   className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${idx === currentImageIndex
-                      ? 'bg-luxury-gold w-8'
-                      : 'bg-white/40 hover:bg-white/70'
+                    ? 'bg-luxury-gold w-8'
+                    : 'bg-white/40 hover:bg-white/70'
                     }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
@@ -265,19 +194,25 @@ const About = () => {
 
                 {/* Glowing coordinate pins */}
                 {CITIES.map((city) => {
-                  const isHovered = hoveredCity === city.name;
+                  const isHovered = hoveredCity === city.name || hoveredCountry === city.country;
                   return (
                     <div
                       key={city.name}
                       className="absolute group z-10 -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300"
                       style={{ left: city.x, top: city.y }}
-                      onMouseEnter={() => setHoveredCity(city.name)}
-                      onMouseLeave={() => setHoveredCity(null)}
+                      onMouseEnter={() => {
+                        setHoveredCity(city.name);
+                        setHoveredCountry(city.country);
+                      }}
+                      onMouseLeave={() => {
+                        setHoveredCity(null);
+                        setHoveredCountry(null);
+                      }}
                     >
                       {/* Premium integrated glass-capsule indicator */}
                       <div className={`flex items-center space-x-1 px-1.5 py-0.5 rounded-full border backdrop-blur-[3px] transition-all duration-300 shadow-md ${isHovered
-                          ? 'bg-luxury-gold border-luxury-gold text-luxury-black scale-110 z-20 shadow-lg'
-                          : 'bg-luxury-black/85 border-luxury-gold/30 text-white hover:border-luxury-gold/80 hover:scale-105'
+                        ? 'bg-luxury-gold border-luxury-gold text-luxury-black scale-110 z-20 shadow-lg'
+                        : 'bg-luxury-black/85 border-luxury-gold/30 text-white hover:border-luxury-gold/80 hover:scale-105'
                         }`}>
                         {/* pulsing indicator dot */}
                         <div className="relative flex items-center justify-center shrink-0 w-2 h-2">
@@ -297,77 +232,32 @@ const About = () => {
                 })}
               </div>
 
-              {/* Hoverable City Badges under the map */}
+              {/* Hoverable Country Badges under the map */}
               <div className="flex flex-wrap justify-center gap-3 mt-8 max-w-2xl">
-                {CITIES.map((city) => (
-                  <button
-                    key={city.name}
-                    onMouseEnter={() => setHoveredCity(city.name)}
-                    onMouseLeave={() => setHoveredCity(null)}
-                    className={`px-3 py-1.5 text-[9px] uppercase tracking-widest border transition-all duration-300 ${hoveredCity === city.name
+                {[...new Set(CITIES.map(c => c.country))].map((country) => {
+                  const isActive = hoveredCountry === country;
+                  return (
+                    <button
+                      key={country}
+                      onMouseEnter={() => setHoveredCountry(country)}
+                      onMouseLeave={() => setHoveredCountry(null)}
+                      className={`px-3 py-1.5 text-[9px] uppercase tracking-widest border transition-all duration-300 ${isActive
                         ? 'border-luxury-gold text-luxury-gold bg-luxury-gold/5 scale-105 shadow-sm'
                         : 'border-luxury-gold/15 text-luxury-black/60 dark:text-white/60 hover:border-luxury-gold/40'
-                      }`}
-                  >
-                    {city.name}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Luxury Clients Section */}
-      <section className="py-24 bg-luxury-bg dark:bg-luxury-bgDark border-t border-luxury-gold/15 transition-colors">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-
-          {/* Section Header */}
-          <div className="flex items-center space-x-4 mb-16">
-            <h2 className="font-editorial text-4xl md:text-5xl font-light text-luxury-black dark:text-white">Our Clients</h2>
-            <span className="font-editorial text-4xl md:text-5xl font-light text-luxury-gold">↘</span>
-            <div className="w-12 h-[1px] bg-luxury-gold" />
-          </div>
-
-          {/* Infinite Sliding Logo Marquee right to left */}
-          {clients.length > 0 && (
-            <div className="relative w-full overflow-hidden py-6">
-              {/* Left & Right elegant gradient overlays to fade out the edges for premium luxury touch */}
-              <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-luxury-bg to-transparent dark:from-luxury-bgDark z-10 pointer-events-none" />
-              <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-luxury-bg to-transparent dark:from-luxury-bgDark z-10 pointer-events-none" />
-
-              <div className="flex whitespace-nowrap animate-infinite-marquee hover:[animation-play-state:paused] gap-12 items-center">
-                {/* Double array for infinite seamless looping */}
-                {[...clients, ...clients].map((cli, idx) => {
-                  const key = `${cli._id || idx}-${idx}`;
-                  const isBroken = cli._id && brokenLogos[cli._id];
-                  return (
-                    <div
-                      key={key}
-                      className="inline-flex items-center justify-center shrink-0 w-36 h-24 relative group transition-transform duration-300 mx-4"
+                        }`}
                     >
-                      {isBroken ? (
-                        <span className="font-editorial text-lg tracking-widest text-luxury-gold uppercase opacity-85 group-hover:scale-105 transition-transform duration-300 select-none">
-                          {cli.name}
-                        </span>
-                      ) : (
-                        <img
-                          src={cli.logoUrl}
-                          alt={cli.name || 'Brand Logo'}
-                          className={getLogoClass(cli.name)}
-                          onError={() => cli._id && handleLogoError(cli._id)}
-                        />
-                      )}
-                    </div>
+                      {country}
+                    </button>
                   );
                 })}
               </div>
             </div>
-          )}
+          </div>
 
         </div>
       </section>
+
+
     </>
   );
 };

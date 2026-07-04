@@ -4,11 +4,13 @@ const {
   submitContactForm,
   getAllContactSubmissions,
   updateContactStatus,
-  deleteContactSubmission
+  deleteContactSubmission,
+  requestCredentials
 } = require('../controllers/contactController');
 const authMiddleware = require('../middleware/authMiddleware');
 
 router.post('/', submitContactForm);
+router.post('/credentials', requestCredentials);
 
 // Admin Protected Routes
 router.get('/', authMiddleware, getAllContactSubmissions);
