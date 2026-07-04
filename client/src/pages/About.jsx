@@ -3,6 +3,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import TransitionEffect from '../components/TransitionEffect';
 import { useAuth } from '../context/AuthContext';
 
+const DEMO_CLIENTS = [
+  { name: 'Chanel', logoUrl: 'https://logo.clearbit.com/chanel.com' },
+  { name: 'Cartier', logoUrl: 'https://logo.clearbit.com/cartier.com' },
+  { name: 'Gucci', logoUrl: 'https://logo.clearbit.com/gucci.com' },
+  { name: 'Dior', logoUrl: 'https://logo.clearbit.com/dior.com' },
+  { name: 'Hermes', logoUrl: 'https://logo.clearbit.com/hermes.com' },
+  { name: 'Rolex', logoUrl: 'https://logo.clearbit.com/rolex.com' },
+  { name: 'Prada', logoUrl: 'https://logo.clearbit.com/prada.com' },
+  { name: 'Louis Vuitton', logoUrl: 'https://logo.clearbit.com/louisvuitton.com' },
+  { name: 'Ferrari', logoUrl: 'https://logo.clearbit.com/ferrari.com' },
+  { name: 'Bentley', logoUrl: 'https://logo.clearbit.com/bentleymotors.com' }
+];
+
 const CITIES = [
   { name: 'Las Vegas', country: 'USA', x: '10.0%', y: '35.0%' },
   { name: 'New York', country: 'USA', x: '19.3%', y: '31.1%' },
@@ -258,6 +271,45 @@ const About = () => {
       </section>
 
 
+      {/* Luxury Clients Section */}
+      <section className="py-24 bg-luxury-bg dark:bg-luxury-bgDark border-t border-luxury-gold/15 transition-colors">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+
+          {/* Section Header */}
+          <div className="flex items-center space-x-4 mb-16">
+            <h2 className="font-editorial text-4xl md:text-5xl font-light text-luxury-black dark:text-white">Our Clients</h2>
+            <span className="font-editorial text-4xl md:text-5xl font-light text-luxury-gold">↘</span>
+            <div className="w-12 h-[1px] bg-luxury-gold" />
+          </div>
+
+          {/* Infinite Sliding Logo Marquee right to left */}
+          <div className="relative w-full overflow-hidden py-6">
+            {/* Left & Right elegant gradient overlays to fade out the edges for premium luxury touch */}
+            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-luxury-bg to-transparent dark:from-luxury-bgDark z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-luxury-bg to-transparent dark:from-luxury-bgDark z-10 pointer-events-none" />
+
+            <div className="flex whitespace-nowrap animate-infinite-marquee hover:[animation-play-state:paused] gap-12 items-center">
+              {/* Double array for infinite seamless looping */}
+              {[...DEMO_CLIENTS, ...DEMO_CLIENTS].map((cli, idx) => {
+                const key = `${cli.name}-${idx}`;
+                return (
+                  <div
+                    key={key}
+                    className="inline-flex items-center justify-center shrink-0 w-36 h-20 relative group transition-transform duration-300 mx-6 bg-white dark:bg-neutral-900 border border-luxury-gold/10 p-4 rounded shadow-sm hover:scale-105"
+                  >
+                    <img
+                      src={cli.logoUrl}
+                      alt={cli.name || 'Brand Logo'}
+                      className="max-w-full max-h-full object-contain pointer-events-none select-none"
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+        </div>
+      </section>
     </>
   );
 };
