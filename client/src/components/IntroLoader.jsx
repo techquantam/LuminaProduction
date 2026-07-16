@@ -16,7 +16,7 @@ const IntroLoader = ({ onComplete }) => {
     // Function to initialize the YouTube player
     const initPlayer = () => {
       if (!window.YT || !window.YT.Player) return;
-      
+
       playerRef.current = new window.YT.Player('intro-video-iframe', {
         events: {
           'onStateChange': (event) => {
@@ -96,7 +96,7 @@ const IntroLoader = ({ onComplete }) => {
         >
           {/* Step 1: Fullscreen Video */}
           {step === 'video' && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -107,7 +107,7 @@ const IntroLoader = ({ onComplete }) => {
               <div className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
                 <iframe
                   id="intro-video-iframe"
-                  src="https://www.youtube.com/embed/d77TQupCENc?enablejsapi=1&autoplay=1&mute=1&controls=0&loop=0&rel=0&showinfo=0&iv_load_policy=3&modestbranding=1&disablekb=1&fs=0&wmode=transparent"
+                  src="https://www.youtube.com/embed/cG8NJJ9lnOg?enablejsapi=1&autoplay=1&mute=1&controls=0&loop=0&rel=0&showinfo=0&iv_load_policy=3&modestbranding=1&disablekb=1&fs=0&wmode=transparent"
                   title="Lumina Cinematic Intro"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -152,7 +152,7 @@ const IntroLoader = ({ onComplete }) => {
               </motion.div>
 
               {/* Subtle elegant line */}
-              <motion.div 
+              <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: '80px' }}
                 transition={{ delay: 0.8, duration: 1.5, ease: 'easeInOut' }}

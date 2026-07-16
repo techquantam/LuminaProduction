@@ -7,20 +7,20 @@ import TransitionEffect from '../components/TransitionEffect';
 const DEFAULT_PROJECTS = [
   {
     _id: '1',
-    title: 'Showcase',
+    title: ' ',
     category: 'Pop-ups & Experiential Exhibitions',
-    client: 'Range Rover',
-    imageUrl: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=800',
-    location: 'Singapore',
-    year: '2025',
+    client: 'ALFA GATE',
+    imageUrl: '/alfa-gate.png',
+    location: 'AEEDC Dubai',
+    year: '2026',
     featured: true
   },
   {
     _id: '2',
-    title: 'Perlée Pop-up',
+    title: ' ',
     category: 'Pop-ups & Experiential Exhibitions',
-    client: 'Van Cleef & Arpels',
-    imageUrl: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800',
+    client: 'AZERBAIJAN PAVILION',
+    imageUrl: '/azerbaijan-pavilion.png',
     location: 'Singapore, Thailand, Malaysia',
     year: '2025',
     featured: true
@@ -29,20 +29,20 @@ const DEFAULT_PROJECTS = [
     _id: '3',
     title: 'The Magical House of Chanel',
     category: 'Luxury, Fashion, Lifestyle Events & Galas',
-    client: 'Chanel',
-    imageUrl: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800',
-    location: 'Singapore',
-    year: '2024',
+    client: 'EGYPT',
+    imageUrl: '/egypt.png',
+    location: 'Egypt',
+    year: '2026',
     featured: true
   },
   {
     _id: '4',
     title: 'Journey of Potential Launch Event',
     category: 'Pop-ups & Experiential Exhibitions',
-    client: 'Shiseido',
-    imageUrl: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800',
-    location: 'Singapore',
-    year: '2024',
+    client: 'HITACHI',
+    imageUrl: '/hitachi.png',
+    location: 'ADIPEC Dubai',
+    year: '2025',
     featured: false
   },
   {
@@ -50,8 +50,8 @@ const DEFAULT_PROJECTS = [
     title: 'Immersive Exhibition',
     category: 'Pop-ups & Experiential Exhibitions',
     client: 'Virtually Versailles',
-    imageUrl: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=800',
-    location: 'Singapore',
+    imageUrl: '/national-tourism-organization.png',
+    location: 'China',
     year: '2023',
     featured: false
   },
@@ -87,7 +87,7 @@ const Portfolio = () => {
   const [projects, setProjects] = useState(DEFAULT_PROJECTS);
   const [filteredProjects, setFilteredProjects] = useState(DEFAULT_PROJECTS);
   const [activeCategory, setActiveCategory] = useState('Pop-ups & Experiential Exhibitions');
-  
+
   const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
   const formRef = useRef(null);
@@ -122,7 +122,7 @@ const Portfolio = () => {
         body: JSON.stringify(formData)
       });
       const data = await res.json();
-      
+
       if (data.success) {
         setSubmitStatus({
           success: true,
@@ -171,7 +171,7 @@ const Portfolio = () => {
   return (
     <>
       <TransitionEffect />
-      
+
       {/* Premium Minimal Editorial Header */}
       <section className="pt-32 pb-6 bg-luxury-bg dark:bg-luxury-bgDark transition-colors">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -193,7 +193,7 @@ const Portfolio = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           {/* Top Divider */}
           <div className="w-full h-[1px] bg-luxury-black/10 dark:bg-white/10 mb-6" />
-          
+
           <div className="flex flex-wrap gap-x-10 gap-y-4 items-center">
             {CATEGORIES.map((cat) => {
               const isActive = activeCategory === cat;
@@ -239,7 +239,7 @@ const Portfolio = () => {
                   key={proj._id}
                   className="flex flex-col"
                 >
-                  <div 
+                  <div
                     onClick={scrollToForm}
                     className="group flex flex-col w-full h-full select-none cursor-pointer"
                   >
@@ -274,7 +274,7 @@ const Portfolio = () => {
       {/* Premium Credentials Request Form Section */}
       <section ref={formRef} className="py-24 bg-luxury-bg dark:bg-luxury-bgDark border-t border-luxury-gold/15 transition-colors">
         <div className="max-w-4xl mx-auto px-6 md:px-12">
-          
+
           {/* Header */}
           <div className="flex items-center space-x-4 mb-10">
             <h2 className="font-editorial text-3xl md:text-4xl font-light text-luxury-black dark:text-white">Request Credentials Booklet</h2>
@@ -283,7 +283,7 @@ const Portfolio = () => {
           </div>
 
           <p className="text-sm font-light text-luxury-black/70 dark:text-white/70 leading-relaxed mb-12 max-w-2xl">
-            Access our exclusive capabilities portfolio, case studies, and bespoke event credentials. 
+            Access our exclusive capabilities portfolio, case studies, and bespoke event credentials.
             Fill in your details below to receive our official credentials booklet directly in your inbox.
           </p>
 
@@ -309,7 +309,7 @@ const Portfolio = () => {
                 <h3 className="font-editorial text-2xl font-light text-luxury-black dark:text-white mb-4">
                   Credentials Dispatched
                 </h3>
-                
+
                 <p className="text-sm text-luxury-black/70 dark:text-white/70 leading-relaxed max-w-md mx-auto mb-10">
                   {submitStatus.message}
                 </p>

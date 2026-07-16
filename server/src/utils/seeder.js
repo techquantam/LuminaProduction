@@ -60,31 +60,31 @@ const servicesData = [
 
 const projectsData = [
   {
-    title: 'Showcase',
+    title: ' ',
     description: 'An exclusive architectural lounge and glass showcase for the ultra-premium Range Rover SV, constructed inside the main atrium of a luxury retail center. The installation featured pristine mirror panel structures, synchronized LED screens, and custom copper lighting highlights.',
     category: 'Pop-ups & Experiential Exhibitions',
-    client: 'Range Rover',
+    client: 'ALFA GATE',
     date: new Date('2025-02-15'),
-    imageUrl: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=800',
+    imageUrl: '/alfa-gate.png',
     subImages: [
       'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=800',
       'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800',
       'https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=800',
       'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=800'
     ],
-    location: 'Singapore',
-    year: '2025',
+    location: 'AEEDC Dubai',
+    year: '2026',
     videoUrl: '',
     servicesDone: ['Atrium Set Engineering', 'Mirror Pane Architectural Detailing', 'Dynamic Lighting Synchronization', 'High-End Customer Reception Sync'],
     featured: true
   },
   {
-    title: 'Perlée Pop-up',
+    title: ' ',
     description: 'A whimsical sensory garden showcasing the iconic Perlée collection by high-jewelry maison Van Cleef & Arpels. The pastel-green interactive space integrated a custom-built miniature golden Ferris wheel, kinetic floral sculptures, and immersive digital showcase boxes across Southeast Asian flagships.',
     category: 'Pop-ups & Experiential Exhibitions',
-    client: 'Van Cleef & Arpels',
+    client: 'AZERBAIJAN PAVILION',
     date: new Date('2025-04-10'),
-    imageUrl: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800',
+    imageUrl: '/azerbaijan-pavilion.png',
     subImages: [
       'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800',
       'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800',
@@ -101,17 +101,17 @@ const projectsData = [
     title: 'The Magical House of Chanel',
     description: 'An outdoor architectural holiday installation staging a grand monochrome and gold house theme at Marina Bay Sands. The installation featured towering black double-C logos, oversized golden gift boxes, and a synchronized twilight laser light show.',
     category: 'Luxury, Fashion, Lifestyle Events & Galas',
-    client: 'Chanel',
+    client: 'EGYPT',
     date: new Date('2024-11-20'),
-    imageUrl: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800',
+    imageUrl: '/egypt.png',
     subImages: [
       'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800',
       'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800',
       'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800',
       'https://images.unsplash.com/photo-1548624149-f9b1859aa7d0?q=80&w=800'
     ],
-    location: 'Singapore',
-    year: '2024',
+    location: 'Egypt',
+    year: '2026',
     videoUrl: '',
     servicesDone: ['Outdoor Architectural Engineering', 'Monochrome Scenic Production', 'Laser Array Integration', 'VIP Christmas Launch Gala Curation'],
     featured: true
@@ -120,16 +120,16 @@ const projectsData = [
     title: 'Journey of Potential Launch Event',
     description: 'A premium skincare launch event featuring custom biometric interactive screens that mapped skin health and projected personalized floral light art. The clean, modern gallery setting utilized sustainable timber frames and dynamic LED walls.',
     category: 'Pop-ups & Experiential Exhibitions',
-    client: 'Shiseido',
+    client: 'HITACHI',
     date: new Date('2024-08-05'),
-    imageUrl: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800',
+    imageUrl: '/hitachi.png',
     subImages: [
       'https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800',
       'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800',
       'https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800'
     ],
-    location: 'Singapore',
-    year: '2024',
+    location: 'ADIPEC Dubai',
+    year: '2025',
     videoUrl: '',
     servicesDone: ['Biometric Integration Design', 'Sustainable Set Building', 'Projection Mapping Curation', 'Press Reveal Choreography'],
     featured: false
@@ -140,13 +140,13 @@ const projectsData = [
     category: 'Pop-ups & Experiential Exhibitions',
     client: 'Virtually Versailles',
     date: new Date('2023-10-15'),
-    imageUrl: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=800',
+    imageUrl: '/national-tourism-organization.png',
     subImages: [
       'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=800',
       'https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800',
-      'https://images.unsplash.com/photo-1505232458627-539c97a88171?q=80&w=800'
+      'https://images.unsplash.com/photo-1505232458627-539c97a88171?q=80&w=600'
     ],
-    location: 'Singapore',
+    location: 'China',
     year: '2023',
     videoUrl: '',
     servicesDone: ['Cylindrical Dome Projection', 'Scent Integration Mechanics', 'VR Lounge Network Design', 'Museum Display Engineering'],
@@ -313,11 +313,10 @@ const seedData = async () => {
       await Service.insertMany(servicesData);
       console.log('\x1b[32m[Seed] Mongoose Services Synchronized.\x1b[0m');
 
-      const projectCount = await Project.countDocuments();
-      if (projectCount === 0) {
-        await Project.insertMany(projectsData);
-        console.log('\x1b[32m[Seed] Mongoose Projects Initialized.\x1b[0m');
-      }
+      // Seed Mongoose projects (fully synchronized)
+      await Project.deleteMany({});
+      await Project.insertMany(projectsData);
+      console.log('\x1b[32m[Seed] Mongoose Projects Synchronized.\x1b[0m');
 
       const testimonialCount = await Testimonial.countDocuments();
       if (testimonialCount === 0) {
