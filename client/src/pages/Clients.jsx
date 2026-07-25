@@ -25,10 +25,10 @@ const Clients = () => {
             transition={{ duration: 1 }}
             className="space-y-4 max-w-4xl"
           >
-            <p className="text-xs uppercase tracking-extreme text-luxury-gold font-semibold">Our Cohorts</p>
+            <p className="text-xs uppercase tracking-extreme text-luxury-purple font-semibold">Our Cohorts</p>
             <h1 className="font-editorial text-5xl md:text-7xl font-light leading-none tracking-tight">
               Elite Brand <br />
-              <span className="italic text-luxury-gold">Partnerships</span>
+              <span className="italic text-luxury-purple">Partnerships</span>
             </h1>
           </motion.div>
         </div>
@@ -45,7 +45,7 @@ const Clients = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="group bg-white dark:bg-[#0E0E0E] border border-luxury-gold/15 p-6 hover:shadow-xl transition-all duration-500 flex flex-col justify-between"
+                className="group bg-white dark:bg-[#0E0E0E] border border-luxury-purple/15 p-6 hover:shadow-xl transition-all duration-500 flex flex-col justify-between"
               >
                 <div className="space-y-6">
                   {/* Aspect-ratio image block */}
@@ -58,7 +58,7 @@ const Clients = () => {
                   </div>
                   
                   <div className="space-y-2">
-                    <p className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">
+                    <p className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">
                       {partner.type}
                     </p>
                     <h3 className="font-editorial text-xl font-light text-luxury-black dark:text-white">
@@ -70,7 +70,7 @@ const Clients = () => {
                   </div>
                 </div>
 
-                <div className="border-t border-luxury-gold/10 mt-6 pt-4 flex justify-between items-center text-[10px] uppercase tracking-widest font-bold text-luxury-gold">
+                <div className="border-t border-luxury-purple/10 mt-6 pt-4 flex justify-between items-center text-[10px] uppercase tracking-widest font-bold text-luxury-purple">
                   <span>Elite Alliance</span>
                   <span>&bull;</span>
                   <span>2024 - 2026</span>

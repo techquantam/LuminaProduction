@@ -28,7 +28,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-luxury-gold/30 rounded-full hover:bg-luxury-gold/60 transition-colors;
+    @apply bg-luxury-purple/30 rounded-full hover:bg-luxury-purple/60 transition-colors;
   }
 }
 
@@ -47,12 +47,12 @@
   }
 
   .luxury-button {
-    @apply relative overflow-hidden border border-luxury-gold/50 px-8 py-3 text-sm uppercase tracking-widest transition-all duration-500 hover:text-luxury-black;
+    @apply relative overflow-hidden border border-luxury-purple/50 px-8 py-3 text-sm uppercase tracking-widest transition-all duration-500 hover:text-luxury-black;
   }
 
   .luxury-button::before {
     content: '';
-    @apply absolute inset-0 bg-luxury-gold -z-10 translate-y-full transition-transform duration-500 ease-out;
+    @apply absolute inset-0 bg-luxury-purple -z-10 translate-y-full transition-transform duration-500 ease-out;
   }
 
   .luxury-button:hover::before {

@@ -69,10 +69,10 @@ const Contact = () => {
             transition={{ duration: 1 }}
             className="space-y-4 max-w-4xl"
           >
-            <p className="text-xs uppercase tracking-extreme text-luxury-gold font-semibold">Initiation</p>
+            <p className="text-xs uppercase tracking-extreme text-luxury-purple font-semibold">Initiation</p>
             <h1 className="font-editorial text-5xl md:text-7xl font-light leading-none tracking-tight">
               Let's <br />
-              <span className="italic text-luxury-gold">discuss..</span>
+              <span className="italic text-luxury-purple">discuss..</span>
             </h1>
           </motion.div>
         </div>
@@ -95,8 +95,8 @@ const Contact = () => {
               {/* Office Details Cards */}
               <div className="space-y-8">
                 {OFFICES.map((off) => (
-                  <div key={off.city} className="border-l-2 border-luxury-gold/30 pl-6 space-y-2">
-                    <h3 className="font-editorial text-xl text-luxury-gold font-light uppercase tracking-widest">{off.city}</h3>
+                  <div key={off.city} className="border-l-2 border-luxury-purple/30 pl-6 space-y-2">
+                    <h3 className="font-editorial text-xl text-luxury-purple font-light uppercase tracking-widest">{off.city}</h3>
                     <p className="text-xs font-light text-luxury-black/80 dark:text-white/70">{off.address}</p>
                     <p className="text-xs font-light text-luxury-black/60 dark:text-white/50">{off.phone}</p>
                     <p className="text-xs font-light text-luxury-black/60 dark:text-white/50">{off.email}</p>
@@ -105,41 +105,41 @@ const Contact = () => {
               </div>
 
               {/* General Contact Info */}
-              <div className="border-t border-luxury-gold/15 pt-8 space-y-3">
-                <div className="flex items-center space-x-3 text-luxury-gold">
+              <div className="border-t border-luxury-purple/15 pt-8 space-y-3">
+                <div className="flex items-center space-x-3 text-luxury-purple">
                   <Mail size={16} />
                   <span className="text-xs uppercase tracking-widest font-semibold">General Inquiries</span>
                 </div>
                 <p className="text-sm font-light text-luxury-black/70 dark:text-white/60 leading-relaxed">
-                  Our mail ID: <a href="mailto:hello@luminaworldwideevents.com" className="text-luxury-gold hover:underline font-medium">hello@luminaworldwideevents.com</a>
+                  Our mail ID: <a href="mailto:hello@luminaworldwideevents.com" className="text-luxury-purple hover:underline font-medium">hello@luminaworldwideevents.com</a>
                 </p>
               </div>
             </div>
 
             {/* Right side: Luxurious Form */}
-            <div className="lg:col-span-7 bg-white dark:bg-[#0E0E0E] p-8 md:p-12 border border-luxury-gold/15 shadow-xl">
+            <div className="lg:col-span-7 bg-white dark:bg-[#0E0E0E] p-8 md:p-12 border border-luxury-purple/15 shadow-xl">
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-2">
-                    <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Your Name</label>
+                    <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Your Name</label>
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full bg-transparent border-b border-luxury-gold/20 py-3 text-sm focus:outline-none focus:border-luxury-gold text-luxury-black dark:text-white font-light"
+                      className="w-full bg-transparent border-b border-luxury-purple/20 py-3 text-sm focus:outline-none focus:border-luxury-purple text-luxury-black dark:text-white font-light"
                       placeholder="ENTER NAME"
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Email Address</label>
+                    <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Email Address</label>
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full bg-transparent border-b border-luxury-gold/20 py-3 text-sm focus:outline-none focus:border-luxury-gold text-luxury-black dark:text-white font-light"
+                      className="w-full bg-transparent border-b border-luxury-purple/20 py-3 text-sm focus:outline-none focus:border-luxury-purple text-luxury-black dark:text-white font-light"
                       placeholder="ENTER EMAIL"
                       required
                     />
@@ -147,26 +147,26 @@ const Contact = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Subject Theme</label>
+                  <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Subject Theme</label>
                   <input
                     type="text"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full bg-transparent border-b border-luxury-gold/20 py-3 text-sm focus:outline-none focus:border-luxury-gold text-luxury-black dark:text-white font-light"
+                    className="w-full bg-transparent border-b border-luxury-purple/20 py-3 text-sm focus:outline-none focus:border-luxury-purple text-luxury-black dark:text-white font-light"
                     placeholder="E.G. COUTURE SHOW 2026"
                     required
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Creative Objective</label>
+                  <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Creative Objective</label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     rows={4}
-                    className="w-full bg-transparent border-b border-luxury-gold/20 py-3 text-sm focus:outline-none focus:border-luxury-gold text-luxury-black dark:text-white font-light resize-none"
+                    className="w-full bg-transparent border-b border-luxury-purple/20 py-3 text-sm focus:outline-none focus:border-luxury-purple text-luxury-black dark:text-white font-light resize-none"
                     placeholder="DESCRIBE THE SPECTACLE Blueprints..."
                     required
                   />
@@ -174,7 +174,7 @@ const Contact = () => {
 
                 {/* Status messages */}
                 {status === 'success' && (
-                  <div className="flex items-center space-x-3 p-4 bg-luxury-gold/10 border border-luxury-gold/30 text-luxury-gold rounded text-xs uppercase tracking-widest font-semibold animate-pulse">
+                  <div className="flex items-center space-x-3 p-4 bg-luxury-purple/10 border border-luxury-purple/30 text-luxury-purple rounded text-xs uppercase tracking-widest font-semibold animate-pulse">
                     <CheckCircle2 size={16} />
                     <span>{feedbackMessage}</span>
                   </div>
@@ -188,7 +188,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-luxury-gold text-luxury-black font-semibold text-xs uppercase tracking-widest py-4 flex items-center justify-center space-x-2 hover:bg-luxury-black hover:text-white dark:hover:bg-white dark:hover:text-luxury-black transition-colors"
+                  className="w-full bg-luxury-purple text-luxury-black font-semibold text-xs uppercase tracking-widest py-4 flex items-center justify-center space-x-2 hover:bg-luxury-black hover:text-white dark:hover:bg-white dark:hover:text-luxury-black transition-colors"
                 >
                   <Send size={14} />
                   <span>{loading ? 'TRANSMITTING...' : 'TRANSMIT SCRIPT'}</span>

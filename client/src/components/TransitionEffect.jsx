@@ -13,7 +13,7 @@ const TransitionEffect = () => {
       />
       {/* Second Layer: Luxury Gold Wipe */}
       <motion.div
-        className="fixed top-0 bottom-0 right-full w-full h-full z-[998] bg-luxury-gold"
+        className="fixed top-0 bottom-0 right-full w-full h-full z-[998] bg-luxury-purple"
         initial={{ x: '100%', width: '100%' }}
         animate={{ x: '0%', width: '0%' }}
         transition={{ delay: 0.15, duration: 0.8, ease: [0.76, 0, 0.24, 1] }}

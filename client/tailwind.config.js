@@ -13,8 +13,10 @@ export default {
           bgDark: '#0A0A0A',
           black: '#000000',
           gray: '#D9D9D9',
-          gold: '#C9A86A',
-          goldLight: '#DFCDA7',
+          purple: '#6D28D9',      // Brand dark purple (violet-700)
+          purpleLight: '#C4B5FD', // Brand light purple (violet-300)
+          gold: '#C9A86A',         // Original gold
+          goldLight: '#DFCDA7',    // Original gold light
         }
       },
       fontFamily: {

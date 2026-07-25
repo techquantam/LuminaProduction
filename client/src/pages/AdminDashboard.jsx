@@ -538,36 +538,36 @@ const AdminDashboard = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="w-full max-w-md bg-white dark:bg-[#0E0E0E] p-8 border border-luxury-gold/15 shadow-2xl space-y-8"
+            className="w-full max-w-md bg-white dark:bg-[#0E0E0E] p-8 border border-luxury-purple/15 shadow-2xl space-y-8"
           >
             <div className="text-center space-y-2">
-              <div className="w-12 h-12 rounded-full border border-luxury-gold/30 flex items-center justify-center text-luxury-gold mx-auto">
+              <div className="w-12 h-12 rounded-full border border-luxury-purple/30 flex items-center justify-center text-luxury-purple mx-auto">
                 <Lock size={20} />
               </div>
               <h1 className="font-editorial text-3xl font-light tracking-wide">Lumina Admin</h1>
-              <p className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Authorized Staff Access Only</p>
+              <p className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Authorized Staff Access Only</p>
             </div>
 
             <form onSubmit={handleLoginSubmit} className="space-y-6">
               <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Email Address</label>
+                <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Email Address</label>
                 <input
                   type="email"
                   value={loginEmail}
                   onChange={(e) => setLoginEmail(e.target.value)}
-                  className="w-full bg-transparent border-b border-luxury-gold/20 py-2 text-sm focus:outline-none focus:border-luxury-gold font-light"
+                  className="w-full bg-transparent border-b border-luxury-purple/20 py-2 text-sm focus:outline-none focus:border-luxury-purple font-light"
                   placeholder="admin@luminalive.com"
                   required
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Password</label>
+                <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Password</label>
                 <input
                   type="password"
                   value={loginPassword}
                   onChange={(e) => setLoginPassword(e.target.value)}
-                  className="w-full bg-transparent border-b border-luxury-gold/20 py-2 text-sm focus:outline-none focus:border-luxury-gold font-light"
+                  className="w-full bg-transparent border-b border-luxury-purple/20 py-2 text-sm focus:outline-none focus:border-luxury-purple font-light"
                   placeholder="••••••••"
                   required
                 />
@@ -581,14 +581,14 @@ const AdminDashboard = () => {
 
               <button
                 type="submit"
-                className="w-full bg-luxury-gold text-luxury-black font-semibold text-xs uppercase tracking-widest py-3 flex items-center justify-center space-x-2 hover:bg-luxury-black hover:text-white dark:hover:bg-white dark:hover:text-luxury-black transition-colors"
+                className="w-full bg-luxury-purple text-luxury-black font-semibold text-xs uppercase tracking-widest py-3 flex items-center justify-center space-x-2 hover:bg-luxury-black hover:text-white dark:hover:bg-white dark:hover:text-luxury-black transition-colors"
               >
                 <ShieldCheck size={14} />
                 <span>Verify Credentials</span>
               </button>
             </form>
 
-            <div className="border-t border-luxury-gold/10 pt-4 text-center">
+            <div className="border-t border-luxury-purple/10 pt-4 text-center">
               <p className="text-[9px] uppercase tracking-wider text-luxury-black/40 dark:text-white/40 leading-relaxed">
                 Demo Key Fallback Available:<br />
                 admin@luminalive.com / admin123
@@ -608,9 +608,9 @@ const AdminDashboard = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           {/* Header Dashboard Banner */}
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b border-luxury-gold/20 pb-8 mb-12">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b border-luxury-purple/20 pb-8 mb-12">
             <div>
-              <p className="text-xs uppercase tracking-extreme text-luxury-gold font-bold">
+              <p className="text-xs uppercase tracking-extreme text-luxury-purple font-bold">
                 {isStandalone ? 'Client Sandbox Mode' : 'Connected to API'}
               </p>
               <h1 className="font-editorial text-4xl font-light text-luxury-black dark:text-white mt-1">
@@ -620,7 +620,7 @@ const AdminDashboard = () => {
             
             <div className="flex items-center space-x-4">
               <div className="text-right">
-                <p className="text-xs font-semibold uppercase text-luxury-gold">{admin.username}</p>
+                <p className="text-xs font-semibold uppercase text-luxury-purple">{admin.username}</p>
                 <p className="text-[10px] text-luxury-black/40 dark:text-white/40">{admin.email}</p>
               </div>
               <button
@@ -635,7 +635,7 @@ const AdminDashboard = () => {
 
           {/* Status Alerts */}
           {alert.msg && (
-            <div className={`p-4 mb-8 text-xs uppercase tracking-widest font-semibold border rounded ${alert.type === 'success' ? 'bg-luxury-gold/15 border-luxury-gold/45 text-luxury-gold animate-pulse' : 'bg-red-950/15 border-red-800 text-red-400'}`}>
+            <div className={`p-4 mb-8 text-xs uppercase tracking-widest font-semibold border rounded ${alert.type === 'success' ? 'bg-luxury-purple/15 border-luxury-purple/45 text-luxury-purple animate-pulse' : 'bg-red-950/15 border-red-800 text-red-400'}`}>
               {alert.msg}
             </div>
           )}
@@ -647,7 +647,7 @@ const AdminDashboard = () => {
             <div className="lg:col-span-3 space-y-3">
               <button
                 onClick={() => { setActiveTab('overview'); resetProjectForm(); resetServiceForm(); }}
-                className={`w-full text-left flex items-center space-x-4 px-6 py-4 text-xs uppercase tracking-widest font-bold border transition-all ${activeTab === 'overview' ? 'border-luxury-gold text-luxury-gold bg-luxury-gold/5' : 'border-luxury-gold/10 text-luxury-black/60 dark:text-white/60 hover:border-luxury-gold/30'}`}
+                className={`w-full text-left flex items-center space-x-4 px-6 py-4 text-xs uppercase tracking-widest font-bold border transition-all ${activeTab === 'overview' ? 'border-luxury-purple text-luxury-purple bg-luxury-purple/5' : 'border-luxury-purple/10 text-luxury-black/60 dark:text-white/60 hover:border-luxury-purple/30'}`}
               >
                 <LayoutDashboard size={14} />
                 <span>Overview</span>
@@ -655,7 +655,7 @@ const AdminDashboard = () => {
 
               <button
                 onClick={() => { setActiveTab('projects'); resetProjectForm(); }}
-                className={`w-full text-left flex items-center space-x-4 px-6 py-4 text-xs uppercase tracking-widest font-bold border transition-all ${activeTab === 'projects' ? 'border-luxury-gold text-luxury-gold bg-luxury-gold/5' : 'border-luxury-gold/10 text-luxury-black/60 dark:text-white/60 hover:border-luxury-gold/30'}`}
+                className={`w-full text-left flex items-center space-x-4 px-6 py-4 text-xs uppercase tracking-widest font-bold border transition-all ${activeTab === 'projects' ? 'border-luxury-purple text-luxury-purple bg-luxury-purple/5' : 'border-luxury-purple/10 text-luxury-black/60 dark:text-white/60 hover:border-luxury-purple/30'}`}
               >
                 <FolderKanban size={14} />
                 <span>Spectacles CRUD</span>
@@ -665,7 +665,7 @@ const AdminDashboard = () => {
 
               <button
                 onClick={() => { setActiveTab('contacts'); }}
-                className={`w-full text-left flex items-center space-x-4 px-6 py-4 text-xs uppercase tracking-widest font-bold border transition-all ${activeTab === 'contacts' ? 'border-luxury-gold text-luxury-gold bg-luxury-gold/5' : 'border-luxury-gold/10 text-luxury-black/60 dark:text-white/60 hover:border-luxury-gold/30'}`}
+                className={`w-full text-left flex items-center space-x-4 px-6 py-4 text-xs uppercase tracking-widest font-bold border transition-all ${activeTab === 'contacts' ? 'border-luxury-purple text-luxury-purple bg-luxury-purple/5' : 'border-luxury-purple/10 text-luxury-black/60 dark:text-white/60 hover:border-luxury-purple/30'}`}
               >
                 <MessageSquare size={14} />
                 <span>Concierge Inbox ({contacts.filter(c => c.status === 'unread').length})</span>
@@ -675,7 +675,7 @@ const AdminDashboard = () => {
 
               <button
                 onClick={() => { setActiveTab('team'); resetTeamForm(); }}
-                className={`w-full text-left flex items-center space-x-4 px-6 py-4 text-xs uppercase tracking-widest font-bold border transition-all ${activeTab === 'team' ? 'border-luxury-gold text-luxury-gold bg-luxury-gold/5' : 'border-luxury-gold/10 text-luxury-black/60 dark:text-white/60 hover:border-luxury-gold/30'}`}
+                className={`w-full text-left flex items-center space-x-4 px-6 py-4 text-xs uppercase tracking-widest font-bold border transition-all ${activeTab === 'team' ? 'border-luxury-purple text-luxury-purple bg-luxury-purple/5' : 'border-luxury-purple/10 text-luxury-black/60 dark:text-white/60 hover:border-luxury-purple/30'}`}
               >
                 <Users size={14} />
                 <span>Team CRUD</span>
@@ -683,20 +683,20 @@ const AdminDashboard = () => {
             </div>
 
             {/* main Content Area */}
-            <div className="lg:col-span-9 bg-white dark:bg-[#0E0E0E] p-8 border border-luxury-gold/15 shadow-xl">
+            <div className="lg:col-span-9 bg-white dark:bg-[#0E0E0E] p-8 border border-luxury-purple/15 shadow-xl">
               
               {/* TAB 1: OVERVIEW */}
               {activeTab === 'overview' && (
                 <div className="space-y-12">
-                  <h2 className="font-editorial text-2xl font-light text-luxury-gold">Overview Analytics</h2>
+                  <h2 className="font-editorial text-2xl font-light text-luxury-purple">Overview Analytics</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="p-6 border border-luxury-gold/15 space-y-2">
+                    <div className="p-6 border border-luxury-purple/15 space-y-2">
                       <h4 className="text-xs uppercase tracking-widest text-luxury-black/40 dark:text-white/40 font-bold">Spectacle Archives</h4>
-                      <p className="font-editorial text-4xl text-luxury-gold font-light">{projects.length}</p>
+                      <p className="font-editorial text-4xl text-luxury-purple font-light">{projects.length}</p>
                     </div>
-                    <div className="p-6 border border-luxury-gold/15 space-y-2">
+                    <div className="p-6 border border-luxury-purple/15 space-y-2">
                       <h4 className="text-xs uppercase tracking-widest text-luxury-black/40 dark:text-white/40 font-bold">Inbox Submissions</h4>
-                      <p className="font-editorial text-4xl text-luxury-gold font-light">
+                      <p className="font-editorial text-4xl text-luxury-purple font-light">
                         {contacts.filter(c => c.status === 'unread').length} <span className="text-xs uppercase tracking-widest text-red-500 font-sans font-semibold">unread</span>
                       </p>
                     </div>
@@ -704,12 +704,12 @@ const AdminDashboard = () => {
 
                   {/* Latest Inquiries lists */}
                   <div className="space-y-4">
-                    <h3 className="font-editorial text-xl font-light border-b border-luxury-gold/10 pb-2">Latest Inbox Inquiries</h3>
+                    <h3 className="font-editorial text-xl font-light border-b border-luxury-purple/10 pb-2">Latest Inbox Inquiries</h3>
                     <div className="space-y-3">
                       {contacts.slice(0, 3).map(con => (
-                        <div key={con._id} className="p-4 border border-luxury-gold/10 rounded flex justify-between items-center gap-4 text-xs font-light">
+                        <div key={con._id} className="p-4 border border-luxury-purple/10 rounded flex justify-between items-center gap-4 text-xs font-light">
                           <div className="space-y-1">
-                            <p className="font-semibold text-luxury-gold">{con.name} &bull; {con.email}</p>
+                            <p className="font-semibold text-luxury-purple">{con.name} &bull; {con.email}</p>
                             <p className="text-[10px] uppercase font-bold text-luxury-black/50 dark:text-white/50">{con.subject}</p>
                           </div>
                           <span className={`px-3 py-1 rounded-full uppercase tracking-widest text-[9px] font-bold ${con.status === 'unread' ? 'bg-red-950/20 text-red-400' : 'bg-green-950/20 text-green-400'}`}>
@@ -725,35 +725,35 @@ const AdminDashboard = () => {
               {/* TAB 2: PROJECTS CRUD */}
               {activeTab === 'projects' && (
                 <div className="space-y-12">
-                  <div className="flex justify-between items-center border-b border-luxury-gold/10 pb-4">
-                    <h2 className="font-editorial text-2xl font-light text-luxury-gold">
+                  <div className="flex justify-between items-center border-b border-luxury-purple/10 pb-4">
+                    <h2 className="font-editorial text-2xl font-light text-luxury-purple">
                       {isEditing ? 'Edit Spectacle' : 'Add New Spectacle'}
                     </h2>
                     {isEditing && (
-                      <button onClick={resetProjectForm} className="text-xs uppercase tracking-widest border border-luxury-gold/30 px-4 py-2 hover:border-luxury-gold transition-all">Cancel Edit</button>
+                      <button onClick={resetProjectForm} className="text-xs uppercase tracking-widest border border-luxury-purple/30 px-4 py-2 hover:border-luxury-purple transition-all">Cancel Edit</button>
                     )}
                   </div>
 
                   {/* Create / Edit Form */}
                   <form onSubmit={handleProjectSubmit} className="space-y-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Spectacle Title</label>
+                      <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Spectacle Title</label>
                       <input
                         type="text"
                         value={projectForm.title}
                         onChange={(e) => setProjectForm(prev => ({ ...prev, title: e.target.value }))}
-                        className="w-full bg-transparent border-b border-luxury-gold/20 py-2 text-sm focus:outline-none focus:border-luxury-gold"
+                        className="w-full bg-transparent border-b border-luxury-purple/20 py-2 text-sm focus:outline-none focus:border-luxury-purple"
                         placeholder="ENTER SPECTACLE NAME"
                         required
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Category</label>
+                      <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Category</label>
                       <select
                         value={projectForm.category}
                         onChange={(e) => setProjectForm(prev => ({ ...prev, category: e.target.value }))}
-                        className="w-full bg-transparent border-b border-luxury-gold/20 py-2 text-sm focus:outline-none focus:border-luxury-gold"
+                        className="w-full bg-transparent border-b border-luxury-purple/20 py-2 text-sm focus:outline-none focus:border-luxury-purple"
                         required
                       >
                         <option value="Pop-ups & Experiential Exhibitions">Pop-ups & Experiential Exhibitions</option>
@@ -763,88 +763,88 @@ const AdminDashboard = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Client</label>
+                      <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Client</label>
                       <input
                         type="text"
                         value={projectForm.client}
                         onChange={(e) => setProjectForm(prev => ({ ...prev, client: e.target.value }))}
-                        className="w-full bg-transparent border-b border-luxury-gold/20 py-2 text-sm focus:outline-none focus:border-luxury-gold"
+                        className="w-full bg-transparent border-b border-luxury-purple/20 py-2 text-sm focus:outline-none focus:border-luxury-purple"
                         placeholder="ENTER CLIENT NAME"
                         required
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Event Date</label>
+                      <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Event Date</label>
                       <input
                         type="date"
                         value={projectForm.date}
                         onChange={(e) => setProjectForm(prev => ({ ...prev, date: e.target.value }))}
-                        className="w-full bg-transparent border-b border-luxury-gold/20 py-2 text-sm focus:outline-none focus:border-luxury-gold"
+                        className="w-full bg-transparent border-b border-luxury-purple/20 py-2 text-sm focus:outline-none focus:border-luxury-purple"
                         required
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Location Coordinates</label>
+                      <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Location Coordinates</label>
                       <input
                         type="text"
                         value={projectForm.location}
                         onChange={(e) => setProjectForm(prev => ({ ...prev, location: e.target.value }))}
-                        className="w-full bg-transparent border-b border-luxury-gold/20 py-2 text-sm focus:outline-none focus:border-luxury-gold"
+                        className="w-full bg-transparent border-b border-luxury-purple/20 py-2 text-sm focus:outline-none focus:border-luxury-purple"
                         placeholder="Singapore"
                         required
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Chronology Year</label>
+                      <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Chronology Year</label>
                       <input
                         type="text"
                         value={projectForm.year}
                         onChange={(e) => setProjectForm(prev => ({ ...prev, year: e.target.value }))}
-                        className="w-full bg-transparent border-b border-luxury-gold/20 py-2 text-sm focus:outline-none focus:border-luxury-gold"
+                        className="w-full bg-transparent border-b border-luxury-purple/20 py-2 text-sm focus:outline-none focus:border-luxury-purple"
                         placeholder="2025"
                         required
                       />
                     </div>
 
                     <div className="space-y-2 md:col-span-2">
-                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Curation Checklist (Comma Separated)</label>
+                      <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Curation Checklist (Comma Separated)</label>
                       <input
                         type="text"
                         value={projectForm.servicesDone}
                         onChange={(e) => setProjectForm(prev => ({ ...prev, servicesDone: e.target.value }))}
-                        className="w-full bg-transparent border-b border-luxury-gold/20 py-2 text-sm focus:outline-none focus:border-luxury-gold"
+                        className="w-full bg-transparent border-b border-luxury-purple/20 py-2 text-sm focus:outline-none focus:border-luxury-purple"
                         placeholder="Runway Engineering, Light Plotting, Acoustic Design"
                       />
                     </div>
 
                     <div className="space-y-2 md:col-span-2">
-                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Sub-Images (Comma Separated URLs)</label>
+                      <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Sub-Images (Comma Separated URLs)</label>
                       <input
                         type="text"
                         value={projectForm.subImages}
                         onChange={(e) => setProjectForm(prev => ({ ...prev, subImages: e.target.value }))}
-                        className="w-full bg-transparent border-b border-luxury-gold/20 py-2 text-sm focus:outline-none focus:border-luxury-gold"
+                        className="w-full bg-transparent border-b border-luxury-purple/20 py-2 text-sm focus:outline-none focus:border-luxury-purple"
                         placeholder="https://image1.com, https://image2.com"
                       />
                     </div>
 
                     <div className="space-y-2 md:col-span-2">
-                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Spectacle Narrative</label>
+                      <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Spectacle Narrative</label>
                       <textarea
                         value={projectForm.description}
                         onChange={(e) => setProjectForm(prev => ({ ...prev, description: e.target.value }))}
                         rows={3}
-                        className="w-full bg-transparent border-b border-luxury-gold/20 py-2 text-sm focus:outline-none focus:border-luxury-gold resize-none"
+                        className="w-full bg-transparent border-b border-luxury-purple/20 py-2 text-sm focus:outline-none focus:border-luxury-purple resize-none"
                         placeholder="DESCRIBE SPECTACLE OBJECTIVES..."
                         required
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Main Image Upload</label>
+                      <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Main Image Upload</label>
                       <input
                         type="file"
                         onChange={(e) => setProjectFile(e.target.files[0])}
@@ -855,7 +855,7 @@ const AdminDashboard = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Sub-Images Upload (Multiple Files)</label>
+                      <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Sub-Images Upload (Multiple Files)</label>
                       <input
                         type="file"
                         onChange={(e) => setSubImageFiles(Array.from(e.target.files))}
@@ -871,37 +871,37 @@ const AdminDashboard = () => {
                         checked={projectForm.featured}
                         onChange={(e) => setProjectForm(prev => ({ ...prev, featured: e.target.checked }))}
                         id="featured"
-                        className="w-4 h-4 accent-luxury-gold"
+                        className="w-4 h-4 accent-luxury-purple"
                       />
-                      <label htmlFor="featured" className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold select-none cursor-pointer">
+                      <label htmlFor="featured" className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold select-none cursor-pointer">
                         Feature on Hero Page
                       </label>
                     </div>
 
                     <div className="md:col-span-2 pt-4">
-                      <button type="submit" className="w-full bg-luxury-gold text-luxury-black font-semibold text-xs uppercase tracking-widest py-3 hover:bg-luxury-black hover:text-white dark:hover:bg-white dark:hover:text-luxury-black transition-colors">
+                      <button type="submit" className="w-full bg-luxury-purple text-luxury-black font-semibold text-xs uppercase tracking-widest py-3 hover:bg-luxury-black hover:text-white dark:hover:bg-white dark:hover:text-luxury-black transition-colors">
                         {isEditing ? 'Apply Spectacle Update' : 'Publish Spectacle Archive'}
                       </button>
                     </div>
                   </form>
 
                   {/* Archives List View */}
-                  <div className="space-y-4 pt-12 border-t border-luxury-gold/10">
+                  <div className="space-y-4 pt-12 border-t border-luxury-purple/10">
                     <h3 className="font-editorial text-xl font-light">Spectacle Archives</h3>
                     <div className="space-y-3">
                       {projects.map(proj => (
-                        <div key={proj._id} className="p-4 border border-luxury-gold/10 rounded flex justify-between items-center gap-4">
+                        <div key={proj._id} className="p-4 border border-luxury-purple/10 rounded flex justify-between items-center gap-4">
                           <div className="flex items-center space-x-4">
                             {proj.imageUrl && (
-                              <img src={proj.imageUrl} alt={proj.title} className="w-12 h-12 object-cover border border-luxury-gold/20" />
+                              <img src={proj.imageUrl} alt={proj.title} className="w-12 h-12 object-cover border border-luxury-purple/20" />
                             )}
                             <div className="text-xs font-light">
-                              <p className="font-semibold text-luxury-gold">{proj.title}</p>
+                              <p className="font-semibold text-luxury-purple">{proj.title}</p>
                               <p className="text-[10px] uppercase text-luxury-black/40 dark:text-white/40">{proj.category} &bull; {proj.client}</p>
                             </div>
                           </div>
                           <div className="flex items-center space-x-3">
-                            <button onClick={() => editProject(proj)} className="p-2 border border-luxury-gold/20 text-luxury-gold hover:bg-luxury-gold hover:text-luxury-black transition-all" title="Edit">
+                            <button onClick={() => editProject(proj)} className="p-2 border border-luxury-purple/20 text-luxury-purple hover:bg-luxury-purple hover:text-luxury-black transition-all" title="Edit">
                               <Edit2 size={12} />
                             </button>
                             <button onClick={() => deleteProject(proj._id)} className="p-2 border border-red-500/20 text-red-500 hover:bg-red-500 hover:text-white transition-all" title="Delete">
@@ -920,7 +920,7 @@ const AdminDashboard = () => {
               {/* TAB 4: CONCIERGE INBOX */}
               {activeTab === 'contacts' && (
                 <div className="space-y-12">
-                  <h2 className="font-editorial text-2xl font-light text-luxury-gold border-b border-luxury-gold/10 pb-4">
+                  <h2 className="font-editorial text-2xl font-light text-luxury-purple border-b border-luxury-purple/10 pb-4">
                     Concierge Inbox ({contacts.length} Inquiries)
                   </h2>
 
@@ -931,11 +931,11 @@ const AdminDashboard = () => {
                       contacts.map(con => (
                         <div
                           key={con._id}
-                          className={`p-6 border rounded space-y-4 transition-all ${con.status === 'unread' ? 'border-luxury-gold bg-luxury-gold/5' : 'border-luxury-gold/15'}`}
+                          className={`p-6 border rounded space-y-4 transition-all ${con.status === 'unread' ? 'border-luxury-purple bg-luxury-purple/5' : 'border-luxury-purple/15'}`}
                         >
                           <div className="flex flex-col md:flex-row justify-between md:items-center gap-2">
                             <div>
-                              <p className="text-sm font-semibold text-luxury-gold">{con.name} &bull; {con.email}</p>
+                              <p className="text-sm font-semibold text-luxury-purple">{con.name} &bull; {con.email}</p>
                               <p className="text-xs font-bold text-luxury-black/60 dark:text-white/60 mt-1 uppercase tracking-wide">
                                 Theme: {con.subject}
                               </p>
@@ -945,7 +945,7 @@ const AdminDashboard = () => {
                             </span>
                           </div>
 
-                          <p className="text-xs font-light text-luxury-black/85 dark:text-white/70 leading-relaxed border-t border-luxury-gold/10 pt-4 italic">
+                          <p className="text-xs font-light text-luxury-black/85 dark:text-white/70 leading-relaxed border-t border-luxury-purple/10 pt-4 italic">
                             "{con.message}"
                           </p>
 
@@ -953,7 +953,7 @@ const AdminDashboard = () => {
                             {con.status === 'unread' && (
                               <button
                                 onClick={() => markContactRead(con._id)}
-                                className="flex items-center space-x-2 text-[10px] uppercase tracking-widest font-bold border border-luxury-gold/25 px-4 py-2 hover:border-luxury-gold hover:text-luxury-gold transition-colors text-luxury-black dark:text-white"
+                                className="flex items-center space-x-2 text-[10px] uppercase tracking-widest font-bold border border-luxury-purple/25 px-4 py-2 hover:border-luxury-purple hover:text-luxury-purple transition-colors text-luxury-black dark:text-white"
                               >
                                 <CheckCircle size={12} />
                                 <span>Mark Read</span>
@@ -980,38 +980,38 @@ const AdminDashboard = () => {
               {/* TAB 6: TEAM CRUD */}
               {activeTab === 'team' && (
                 <div className="space-y-12">
-                  <div className="flex justify-between items-center border-b border-luxury-gold/10 pb-4">
-                    <h2 className="font-editorial text-2xl font-light text-luxury-gold">Add Team Member</h2>
+                  <div className="flex justify-between items-center border-b border-luxury-purple/10 pb-4">
+                    <h2 className="font-editorial text-2xl font-light text-luxury-purple">Add Team Member</h2>
                   </div>
 
                   {/* Create Form */}
                   <form onSubmit={handleTeamSubmit} className="space-y-6 max-w-xl">
                     <div className="space-y-2">
-                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Full Name</label>
+                      <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Full Name</label>
                       <input
                         type="text"
                         value={teamForm.name}
                         onChange={(e) => setTeamForm(prev => ({ ...prev, name: e.target.value }))}
-                        className="w-full bg-transparent border-b border-luxury-gold/20 py-2 text-sm focus:outline-none focus:border-luxury-gold font-light"
+                        className="w-full bg-transparent border-b border-luxury-purple/20 py-2 text-sm focus:outline-none focus:border-luxury-purple font-light"
                         placeholder="ENTER FULL NAME"
                         required
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Role / Designation</label>
+                      <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Role / Designation</label>
                       <input
                         type="text"
                         value={teamForm.role}
                         onChange={(e) => setTeamForm(prev => ({ ...prev, role: e.target.value }))}
-                        className="w-full bg-transparent border-b border-luxury-gold/20 py-2 text-sm focus:outline-none focus:border-luxury-gold font-light"
+                        className="w-full bg-transparent border-b border-luxury-purple/20 py-2 text-sm focus:outline-none focus:border-luxury-purple font-light"
                         placeholder="E.G. CREATIVE DIRECTOR"
                         required
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Member Image</label>
+                      <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Member Image</label>
                       <input
                         type="file"
                         onChange={(e) => setTeamFile(e.target.files[0])}
@@ -1022,28 +1022,28 @@ const AdminDashboard = () => {
                     </div>
 
                     <div className="pt-4">
-                      <button type="submit" className="w-full bg-luxury-gold text-luxury-black font-semibold text-xs uppercase tracking-widest py-3 hover:bg-luxury-black hover:text-white dark:hover:bg-white dark:hover:text-luxury-black transition-colors">
+                      <button type="submit" className="w-full bg-luxury-purple text-luxury-black font-semibold text-xs uppercase tracking-widest py-3 hover:bg-luxury-black hover:text-white dark:hover:bg-white dark:hover:text-luxury-black transition-colors">
                         Add Team Member
                       </button>
                     </div>
                   </form>
 
                   {/* Team Members Grid */}
-                  <div className="space-y-4 pt-12 border-t border-luxury-gold/10">
+                  <div className="space-y-4 pt-12 border-t border-luxury-purple/10">
                     <h3 className="font-editorial text-xl font-light">Team Members ({team.length})</h3>
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
                       {team.map(member => (
-                        <div key={member._id} className="p-4 border border-luxury-gold/10 rounded flex flex-col justify-between items-center text-center gap-3 bg-luxury-black/[0.01] dark:bg-white/[0.01]">
-                          <div className="w-24 h-24 flex items-center justify-center overflow-hidden border border-luxury-gold/10 bg-white p-1">
+                        <div key={member._id} className="p-4 border border-luxury-purple/10 rounded flex flex-col justify-between items-center text-center gap-3 bg-luxury-black/[0.01] dark:bg-white/[0.01]">
+                          <div className="w-24 h-24 flex items-center justify-center overflow-hidden border border-luxury-purple/10 bg-white p-1">
                             {member.imageUrl ? (
                               <img src={member.imageUrl} alt={member.name} className="h-full w-full object-cover filter grayscale" />
                             ) : (
-                              <span className="text-[8px] uppercase tracking-wider text-luxury-gold font-bold">{member.name}</span>
+                              <span className="text-[8px] uppercase tracking-wider text-luxury-purple font-bold">{member.name}</span>
                             )}
                           </div>
                           <div className="space-y-1">
                             <p className="text-[10px] uppercase font-bold text-luxury-black/75 dark:text-white/70 leading-none">{member.name}</p>
-                            <p className="text-[8px] text-luxury-gold font-medium uppercase tracking-wider">{member.role}</p>
+                            <p className="text-[8px] text-luxury-purple font-medium uppercase tracking-wider">{member.role}</p>
                           </div>
                           <button
                             onClick={() => deleteTeamMember(member._id)}

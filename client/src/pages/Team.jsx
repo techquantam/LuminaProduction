@@ -85,7 +85,7 @@ const Team = () => {
           </div>
 
           {/* Segments Sections */}
-          <div className="space-y-12 border-t border-luxury-gold/15 pt-12 pb-24">
+          <div className="space-y-12 border-t border-luxury-purple/15 pt-12 pb-24">
             {SEGMENTS.map((seg, idx) => (
               <motion.div
                 key={seg.title}
@@ -93,11 +93,11 @@ const Team = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-8 border-b border-luxury-gold/10 pb-8 items-start"
+                className="grid grid-cols-1 lg:grid-cols-12 gap-8 border-b border-luxury-purple/10 pb-8 items-start"
               >
                 {/* Title with Arrow Icon on the left */}
                 <div className="lg:col-span-5 flex items-start space-x-3 group">
-                  <span className="font-editorial text-2xl text-luxury-gold transform transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1">
+                  <span className="font-editorial text-2xl text-luxury-purple transform transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1">
                     ↘
                   </span>
                   <h3 className="font-editorial text-2xl font-light text-luxury-black dark:text-white leading-tight">
@@ -116,16 +116,16 @@ const Team = () => {
           </div>
 
           {/* Dynamic Team Members Grid */}
-          <div className="border-t border-luxury-gold/15 pt-20">
+          <div className="border-t border-luxury-purple/15 pt-20">
             {/* Subsection Header */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-4">
               <div>
-                <p className="text-xs uppercase tracking-extreme text-luxury-gold font-semibold mb-2">Team</p>
+                <p className="text-xs uppercase tracking-extreme text-luxury-purple font-semibold mb-2">Team</p>
                 <h2 className="font-editorial text-4xl font-light text-luxury-black dark:text-white">
                   Meet the Innovators
                 </h2>
               </div>
-              <div className="w-16 h-[1px] bg-luxury-gold hidden md:block" />
+              <div className="w-16 h-[1px] bg-luxury-purple hidden md:block" />
             </div>
 
             {/* Grid */}
@@ -137,7 +137,7 @@ const Team = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  className="group bg-white dark:bg-[#0E0E0E] border border-luxury-gold/15 p-6 hover:shadow-xl transition-all duration-500 flex flex-col justify-between"
+                  className="group bg-white dark:bg-[#0E0E0E] border border-luxury-purple/15 p-6 hover:shadow-xl transition-all duration-500 flex flex-col justify-between"
                 >
                   <div className="space-y-6">
                     {/* Aspect-ratio image block */}
@@ -150,7 +150,7 @@ const Team = () => {
                     </div>
 
                     <div className="space-y-2 text-center">
-                      <p className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">
+                      <p className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">
                         {member.role}
                       </p>
                       <h3 className="font-editorial text-xl font-light text-luxury-black dark:text-white">

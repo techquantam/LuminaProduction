@@ -207,7 +207,7 @@ const Portfolio = () => {
                   {isActive && (
                     <motion.span
                       layoutId="activeCategoryBorder"
-                      className="absolute bottom-0 left-0 w-full h-[2px] bg-luxury-gold"
+                      className="absolute bottom-0 left-0 w-full h-[2px] bg-luxury-purple"
                       transition={{ type: 'spring', stiffness: 350, damping: 28 }}
                     />
                   )}
@@ -260,7 +260,7 @@ const Portfolio = () => {
 
                     {/* Footer / Location below image */}
                     <div className="flex items-center space-x-2 text-[10px] uppercase tracking-widest text-luxury-black/50 dark:text-white/50 mt-3 font-light">
-                      <span className="w-1.5 h-1.5 rounded-full border border-luxury-gold shrink-0 inline-block" />
+                      <span className="w-1.5 h-1.5 rounded-full border border-luxury-purple shrink-0 inline-block" />
                       <span>{proj.location || 'Singapore'}</span>
                     </div>
                   </div>
@@ -272,14 +272,14 @@ const Portfolio = () => {
       </section>
 
       {/* Premium Credentials Request Form Section */}
-      <section ref={formRef} className="py-24 bg-luxury-bg dark:bg-luxury-bgDark border-t border-luxury-gold/15 transition-colors">
+      <section ref={formRef} className="py-24 bg-luxury-bg dark:bg-luxury-bgDark border-t border-luxury-purple/15 transition-colors">
         <div className="max-w-4xl mx-auto px-6 md:px-12">
 
           {/* Header */}
           <div className="flex items-center space-x-4 mb-10">
             <h2 className="font-editorial text-3xl md:text-4xl font-light text-luxury-black dark:text-white">Request Credentials Booklet</h2>
-            <span className="font-editorial text-3xl md:text-4xl font-light text-luxury-gold">↘</span>
-            <div className="w-12 h-[1px] bg-luxury-gold" />
+            <span className="font-editorial text-3xl md:text-4xl font-light text-luxury-purple">↘</span>
+            <div className="w-12 h-[1px] bg-luxury-purple" />
           </div>
 
           <p className="text-sm font-light text-luxury-black/70 dark:text-white/70 leading-relaxed mb-12 max-w-2xl">
@@ -294,14 +294,14 @@ const Portfolio = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
-                className="bg-luxury-black/5 dark:bg-white/5 border border-luxury-gold/30 p-8 md:p-12 text-center rounded-lg shadow-xl relative overflow-hidden"
+                className="bg-luxury-black/5 dark:bg-white/5 border border-luxury-purple/30 p-8 md:p-12 text-center rounded-lg shadow-xl relative overflow-hidden"
               >
                 {/* Visual Glow */}
-                <div className="absolute -top-24 -left-24 w-48 h-48 bg-luxury-gold/10 rounded-full blur-3xl pointer-events-none" />
-                <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-luxury-gold/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -top-24 -left-24 w-48 h-48 bg-luxury-purple/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-luxury-purple/10 rounded-full blur-3xl pointer-events-none" />
 
                 <div className="flex justify-center mb-6">
-                  <div className="w-16 h-16 rounded-full bg-luxury-gold/10 border border-luxury-gold/30 flex items-center justify-center text-luxury-gold">
+                  <div className="w-16 h-16 rounded-full bg-luxury-purple/10 border border-luxury-purple/30 flex items-center justify-center text-luxury-purple">
                     <CheckCircle size={32} />
                   </div>
                 </div>
@@ -317,7 +317,7 @@ const Portfolio = () => {
                 <div className="flex justify-center">
                   <button
                     onClick={() => setSubmitStatus({ success: null, message: '', downloadUrl: '' })}
-                    className="inline-flex items-center space-x-2 bg-luxury-gold hover:bg-luxury-gold/90 text-luxury-black font-medium text-xs uppercase tracking-widest px-10 py-4 transition-all duration-300 rounded shadow-md hover:shadow-lg"
+                    className="inline-flex items-center space-x-2 bg-luxury-purple hover:bg-luxury-purple/90 text-luxury-black font-medium text-xs uppercase tracking-widest px-10 py-4 transition-all duration-300 rounded shadow-md hover:shadow-lg"
                   >
                     <span>Request Another</span>
                   </button>
@@ -348,7 +348,7 @@ const Portfolio = () => {
                       onChange={handleFormChange}
                       required
                       placeholder="Full Name *"
-                      className="w-full bg-transparent border-b border-luxury-black/15 dark:border-white/15 focus:border-luxury-gold outline-none py-3 text-sm font-light text-luxury-black dark:text-white transition-colors placeholder-luxury-black/40 dark:placeholder-white/40"
+                      className="w-full bg-transparent border-b border-luxury-black/15 dark:border-white/15 focus:border-luxury-purple outline-none py-3 text-sm font-light text-luxury-black dark:text-white transition-colors placeholder-luxury-black/40 dark:placeholder-white/40"
                     />
                   </div>
 
@@ -361,7 +361,7 @@ const Portfolio = () => {
                       onChange={handleFormChange}
                       required
                       placeholder="Email Address *"
-                      className="w-full bg-transparent border-b border-luxury-black/15 dark:border-white/15 focus:border-luxury-gold outline-none py-3 text-sm font-light text-luxury-black dark:text-white transition-colors placeholder-luxury-black/40 dark:placeholder-white/40"
+                      className="w-full bg-transparent border-b border-luxury-black/15 dark:border-white/15 focus:border-luxury-purple outline-none py-3 text-sm font-light text-luxury-black dark:text-white transition-colors placeholder-luxury-black/40 dark:placeholder-white/40"
                     />
                   </div>
 
@@ -374,7 +374,7 @@ const Portfolio = () => {
                       onChange={handleFormChange}
                       required
                       placeholder="Company Name *"
-                      className="w-full bg-transparent border-b border-luxury-black/15 dark:border-white/15 focus:border-luxury-gold outline-none py-3 text-sm font-light text-luxury-black dark:text-white transition-colors placeholder-luxury-black/40 dark:placeholder-white/40"
+                      className="w-full bg-transparent border-b border-luxury-black/15 dark:border-white/15 focus:border-luxury-purple outline-none py-3 text-sm font-light text-luxury-black dark:text-white transition-colors placeholder-luxury-black/40 dark:placeholder-white/40"
                     />
                   </div>
 
@@ -386,7 +386,7 @@ const Portfolio = () => {
                       value={formData.jobTitle}
                       onChange={handleFormChange}
                       placeholder="Job Title / Role (Optional)"
-                      className="w-full bg-transparent border-b border-luxury-black/15 dark:border-white/15 focus:border-luxury-gold outline-none py-3 text-sm font-light text-luxury-black dark:text-white transition-colors placeholder-luxury-black/40 dark:placeholder-white/40"
+                      className="w-full bg-transparent border-b border-luxury-black/15 dark:border-white/15 focus:border-luxury-purple outline-none py-3 text-sm font-light text-luxury-black dark:text-white transition-colors placeholder-luxury-black/40 dark:placeholder-white/40"
                     />
                   </div>
                 </div>
@@ -395,7 +395,7 @@ const Portfolio = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="inline-flex items-center space-x-3 bg-luxury-gold text-luxury-black hover:bg-luxury-gold/90 disabled:bg-luxury-gold/50 font-medium text-xs uppercase tracking-widest px-10 py-5 transition-all duration-300 rounded shadow-md group"
+                    className="inline-flex items-center space-x-3 bg-luxury-purple text-luxury-black hover:bg-luxury-purple/90 disabled:bg-luxury-purple/50 font-medium text-xs uppercase tracking-widest px-10 py-5 transition-all duration-300 rounded shadow-md group"
                   >
                     <span>{isSubmitting ? 'Dispatching Credentials...' : 'Request Credentials Booklet'}</span>
                     {!isSubmitting && (

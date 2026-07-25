@@ -17,5 +17,8 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "pngjs": "^7.0.0"
   }
 }

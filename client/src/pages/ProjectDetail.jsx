@@ -171,7 +171,7 @@ const ProjectDetail = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-luxury-bg dark:bg-luxury-bgDark flex items-center justify-center">
-        <p className="font-editorial text-lg tracking-widest text-luxury-gold animate-pulse">Retexturing Scene...</p>
+        <p className="font-editorial text-lg tracking-widest text-luxury-purple animate-pulse">Retexturing Scene...</p>
       </div>
     );
   }
@@ -179,8 +179,8 @@ const ProjectDetail = () => {
   if (!project) {
     return (
       <div className="min-h-screen bg-luxury-bg dark:bg-luxury-bgDark flex flex-col items-center justify-center space-y-6">
-        <p className="font-editorial text-2xl text-luxury-gold">Spectacle Not Found</p>
-        <Link to="/portfolio" className="text-xs uppercase tracking-widest border border-luxury-gold px-6 py-3 text-luxury-gold">
+        <p className="font-editorial text-2xl text-luxury-purple">Spectacle Not Found</p>
+        <Link to="/portfolio" className="text-xs uppercase tracking-widest border border-luxury-purple px-6 py-3 text-luxury-purple">
           Return to Gallery
         </Link>
       </div>
@@ -203,12 +203,12 @@ const ProjectDetail = () => {
           <div className="py-4 mb-4 flex items-center justify-between">
             <button
               onClick={() => navigate(-1)}
-              className="flex items-center space-x-3 text-luxury-black/60 dark:text-white/60 hover:text-luxury-gold dark:hover:text-luxury-gold transition-colors text-xs uppercase tracking-widest font-semibold font-sans"
+              className="flex items-center space-x-3 text-luxury-black/60 dark:text-white/60 hover:text-luxury-purple dark:hover:text-luxury-purple transition-colors text-xs uppercase tracking-widest font-semibold font-sans"
             >
               <ArrowLeft size={14} />
               <span>Back to Portfolio</span>
             </button>
-            <div className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold font-sans">
+            <div className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold font-sans">
               {project.category}
             </div>
           </div>
@@ -223,7 +223,7 @@ const ProjectDetail = () => {
             
             {/* Project Quick Overlay Title */}
             <div className="absolute bottom-6 left-6 md:left-12 z-10 text-white">
-              <p className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold mb-1">
+              <p className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold mb-1">
                 {project.client}
               </p>
               <h2 className="font-editorial text-2xl md:text-3xl font-light">
@@ -243,14 +243,14 @@ const ProjectDetail = () => {
             <>
               <button
                 onClick={() => handleScroll('left')}
-                className="absolute left-8 md:left-14 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 dark:bg-luxury-bgDark/90 border border-luxury-gold/25 text-luxury-gold flex items-center justify-center hover:bg-luxury-gold hover:text-white transition-all duration-300 opacity-0 group-hover/carousel:opacity-100 shadow-md"
+                className="absolute left-8 md:left-14 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 dark:bg-luxury-bgDark/90 border border-luxury-purple/25 text-luxury-purple flex items-center justify-center hover:bg-luxury-purple hover:text-white transition-all duration-300 opacity-0 group-hover/carousel:opacity-100 shadow-md"
                 aria-label="Scroll Left"
               >
                 <ChevronLeft size={20} />
               </button>
               <button
                 onClick={() => handleScroll('right')}
-                className="absolute right-8 md:right-14 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 dark:bg-luxury-bgDark/90 border border-luxury-gold/25 text-luxury-gold flex items-center justify-center hover:bg-luxury-gold hover:text-white transition-all duration-300 opacity-0 group-hover/carousel:opacity-100 shadow-md"
+                className="absolute right-8 md:right-14 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 dark:bg-luxury-bgDark/90 border border-luxury-purple/25 text-luxury-purple flex items-center justify-center hover:bg-luxury-purple hover:text-white transition-all duration-300 opacity-0 group-hover/carousel:opacity-100 shadow-md"
                 aria-label="Scroll Right"
               >
                 <ChevronRight size={20} />
@@ -289,11 +289,11 @@ const ProjectDetail = () => {
             {/* Left Column: Creative Narrative Details */}
             <div className="lg:col-span-7 space-y-8">
               <div className="space-y-4">
-                <p className="text-xs uppercase tracking-widest text-luxury-gold font-bold font-sans">
+                <p className="text-xs uppercase tracking-widest text-luxury-purple font-bold font-sans">
                   The Creative Script
                 </p>
                 <h3 className="font-editorial text-3xl font-light text-luxury-black dark:text-white leading-tight">
-                  {project.client} &mdash; <span className="italic text-luxury-gold">{project.title}</span>
+                  {project.client} &mdash; <span className="italic text-luxury-purple">{project.title}</span>
                 </h3>
               </div>
               <p className="font-editorial text-lg font-light text-luxury-black/80 dark:text-white/70 leading-relaxed max-w-2xl">
@@ -302,9 +302,9 @@ const ProjectDetail = () => {
             </div>
 
             {/* Right Column: Spec Metrics & Checklist details */}
-            <div className="lg:col-span-5 space-y-8 bg-white dark:bg-[#0E0E0E] p-8 border border-luxury-gold/15 shadow-sm">
-              <div className="space-y-6 pb-6 border-b border-luxury-gold/10">
-                <h4 className="text-xs uppercase tracking-widest text-luxury-gold font-bold font-sans">
+            <div className="lg:col-span-5 space-y-8 bg-white dark:bg-[#0E0E0E] p-8 border border-luxury-purple/15 shadow-sm">
+              <div className="space-y-6 pb-6 border-b border-luxury-purple/10">
+                <h4 className="text-xs uppercase tracking-widest text-luxury-purple font-bold font-sans">
                   Chronology & Location
                 </h4>
                 
@@ -312,7 +312,7 @@ const ProjectDetail = () => {
                   <div>
                     <span className="text-[10px] uppercase tracking-widest text-luxury-black/40 dark:text-white/40 block font-bold font-sans mb-1">Coordinates</span>
                     <div className="flex items-center space-x-2 text-sm font-semibold tracking-wide">
-                      <MapPin size={14} className="text-luxury-gold" />
+                      <MapPin size={14} className="text-luxury-purple" />
                       <span>{project.location || 'Singapore'}</span>
                     </div>
                   </div>
@@ -320,7 +320,7 @@ const ProjectDetail = () => {
                   <div>
                     <span className="text-[10px] uppercase tracking-widest text-luxury-black/40 dark:text-white/40 block font-bold font-sans mb-1">Epoch</span>
                     <div className="flex items-center space-x-2 text-sm font-semibold tracking-wide">
-                      <Calendar size={14} className="text-luxury-gold" />
+                      <Calendar size={14} className="text-luxury-purple" />
                       <span>{project.year || '2025'}</span>
                     </div>
                   </div>
@@ -329,13 +329,13 @@ const ProjectDetail = () => {
 
               {/* services done checklist */}
               <div className="space-y-4">
-                <h4 className="text-xs uppercase tracking-widest text-luxury-gold font-bold font-sans">
+                <h4 className="text-xs uppercase tracking-widest text-luxury-purple font-bold font-sans">
                   Curation Checklist
                 </h4>
                 <div className="grid grid-cols-1 gap-3">
                   {project.servicesDone?.map((svc, idx) => (
                     <div key={idx} className="flex items-center space-x-3 text-xs font-light text-luxury-black/80 dark:text-white/85">
-                      <div className="w-1.5 h-1.5 rounded-full bg-luxury-gold shrink-0" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-luxury-purple shrink-0" />
                       <span>{svc}</span>
                     </div>
                   ))}

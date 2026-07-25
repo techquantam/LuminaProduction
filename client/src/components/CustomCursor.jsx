@@ -45,7 +45,7 @@ const CustomCursor = () => {
     <>
       {/* Outer Glow Ring */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-luxury-gold pointer-events-none z-[9999] custom-cursor -translate-x-1/2 -translate-y-1/2"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-luxury-purple pointer-events-none z-[9999] custom-cursor -translate-x-1/2 -translate-y-1/2"
         animate={{
           x: position.x,
           y: position.y,
@@ -56,7 +56,7 @@ const CustomCursor = () => {
       />
       {/* Core Dot */}
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 bg-luxury-gold rounded-full pointer-events-none z-[9999] custom-cursor -translate-x-1/2 -translate-y-1/2"
+        className="fixed top-0 left-0 w-2 h-2 bg-luxury-purple rounded-full pointer-events-none z-[9999] custom-cursor -translate-x-1/2 -translate-y-1/2"
         animate={{
           x: position.x,
           y: position.y,

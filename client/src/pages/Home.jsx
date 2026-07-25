@@ -200,7 +200,7 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Story */}
             <div className="space-y-8">
-              <p className="text-xs uppercase tracking-widest text-luxury-gold font-semibold">The Lumina Legacy</p>
+              <p className="text-xs uppercase tracking-widest text-luxury-purple font-semibold">The Lumina Legacy</p>
               <h2 className="font-editorial text-4xl md:text-5xl font-light leading-tight">
                 Staging physical spectacles <br className="hidden md:inline" />
                 that command global awe.
@@ -209,7 +209,7 @@ const Home = () => {
                 Lumina is a premium experiential marketing agency crafting bespoke event designs, high-end production engineering, and conceptual storytelling environments. From product launch to Global exhibitions, we compose sensory miracles for complete marketing solutions worldwide.
               </p>
               <div className="pt-4">
-                <Link to="/about" className="flex items-center space-x-3 group text-xs uppercase tracking-widest font-semibold text-luxury-gold hover:text-luxury-black dark:hover:text-white transition-colors">
+                <Link to="/about" className="flex items-center space-x-3 group text-xs uppercase tracking-widest font-semibold text-luxury-purple hover:text-luxury-black dark:hover:text-white transition-colors">
                   <span>Our Heritage Story</span>
                   <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
                 </Link>
@@ -217,21 +217,21 @@ const Home = () => {
             </div>
 
             {/* Grid stats */}
-            <div className="grid grid-cols-2 gap-8 border-l border-luxury-gold/20 pl-8">
+            <div className="grid grid-cols-2 gap-8 border-l border-luxury-purple/20 pl-8">
               <div className="space-y-2">
-                <h3 className="font-editorial text-5xl md:text-6xl text-luxury-gold font-light">24+</h3>
+                <h3 className="font-editorial text-5xl md:text-6xl text-luxury-purple font-light">24+</h3>
                 <p className="text-xs uppercase tracking-widest text-luxury-black/50 dark:text-white/40">Countries</p>
               </div>
               <div className="space-y-2">
-                <h3 className="font-editorial text-5xl md:text-6xl text-luxury-gold font-light">450+</h3>
+                <h3 className="font-editorial text-5xl md:text-6xl text-luxury-purple font-light">450+</h3>
                 <p className="text-xs uppercase tracking-widest text-luxury-black/50 dark:text-white/40">Events Experiences</p>
               </div>
               <div className="space-y-2">
-                <h3 className="font-editorial text-5xl md:text-6xl text-luxury-gold font-light">30+</h3>
+                <h3 className="font-editorial text-5xl md:text-6xl text-luxury-purple font-light">30+</h3>
                 <p className="text-xs uppercase tracking-widest text-luxury-black/50 dark:text-white/40">Global Brands</p>
               </div>
               <div className="space-y-2">
-                <h3 className="font-editorial text-5xl md:text-6xl text-luxury-gold font-light">98%</h3>
+                <h3 className="font-editorial text-5xl md:text-6xl text-luxury-purple font-light">98%</h3>
                 <p className="text-xs uppercase tracking-widest text-luxury-black/50 dark:text-white/40">Client Return</p>
               </div>
             </div>
@@ -239,11 +239,11 @@ const Home = () => {
         </div>
       </section>
       {/* 3. SERVICES SECTION */}
-      <section className="py-28 bg-white dark:bg-[#0E0E0E] transition-colors border-y border-luxury-gold/10">
+      <section className="py-28 bg-white dark:bg-[#0E0E0E] transition-colors border-y border-luxury-purple/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
             <div className="space-y-4">
-              <p className="text-xs uppercase tracking-widest text-luxury-gold font-semibold">Specialist Curation</p>
+              <p className="text-xs uppercase tracking-widest text-luxury-purple font-semibold">Specialist Curation</p>
               <h2 className="font-editorial text-4xl md:text-5xl font-light">Experiential Disciplines</h2>
             </div>
           </div>
@@ -252,12 +252,12 @@ const Home = () => {
             {services.map((svc, idx) => (
               <div
                 key={svc._id}
-                className="group relative bg-luxury-bg dark:bg-luxury-bgDark border border-luxury-gold/15 p-8 space-y-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
+                className="group relative bg-luxury-bg dark:bg-luxury-bgDark border border-luxury-purple/15 p-8 space-y-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
               >
-                <div className="w-12 h-12 rounded-full bg-luxury-gold/10 flex items-center justify-center text-luxury-gold group-hover:bg-luxury-gold group-hover:text-luxury-black transition-colors duration-500">
+                <div className="w-12 h-12 rounded-full bg-luxury-purple/10 flex items-center justify-center text-luxury-purple group-hover:bg-luxury-purple group-hover:text-luxury-black transition-colors duration-500">
                   <Sparkles size={20} />
                 </div>
-                <h3 className="font-editorial text-xl font-light group-hover:text-luxury-gold transition-colors">{svc.name}</h3>
+                <h3 className="font-editorial text-xl font-light group-hover:text-luxury-purple transition-colors">{svc.name}</h3>
                 <p className="text-sm font-light text-luxury-black/70 dark:text-white/60 leading-relaxed">{svc.description}</p>
               </div>
             ))}
@@ -270,10 +270,10 @@ const Home = () => {
 
 
       {/* 6. PROCESS TIMELINE SECTION */}
-      <section className="py-28 bg-white dark:bg-[#0E0E0E] transition-colors border-b border-luxury-gold/10">
+      <section className="py-28 bg-white dark:bg-[#0E0E0E] transition-colors border-b border-luxury-purple/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="space-y-4 mb-20 text-center">
-            <p className="text-xs uppercase tracking-widest text-luxury-gold font-semibold">The Blueprint</p>
+            <p className="text-xs uppercase tracking-widest text-luxury-purple font-semibold">The Blueprint</p>
             <h2 className="font-editorial text-4xl md:text-5xl font-light">Experience Delivery</h2>
           </div>
 
@@ -282,9 +282,9 @@ const Home = () => {
               <div key={proc.step} className="space-y-6 relative group">
                 {/* Horizontal line connector in desktop */}
                 {idx < 4 && (
-                  <div className="hidden md:block absolute top-6 left-12 w-full h-[1px] bg-luxury-gold/20 group-hover:bg-luxury-gold transition-colors duration-500" />
+                  <div className="hidden md:block absolute top-6 left-12 w-full h-[1px] bg-luxury-purple/20 group-hover:bg-luxury-purple transition-colors duration-500" />
                 )}
-                <div className="w-12 h-12 rounded-full border border-luxury-gold/40 flex items-center justify-center font-editorial text-luxury-gold font-light relative bg-white dark:bg-[#0E0E0E] group-hover:bg-luxury-gold group-hover:text-luxury-black transition-colors duration-500">
+                <div className="w-12 h-12 rounded-full border border-luxury-purple/40 flex items-center justify-center font-editorial text-luxury-purple font-light relative bg-white dark:bg-[#0E0E0E] group-hover:bg-luxury-purple group-hover:text-luxury-black transition-colors duration-500">
                   {proc.step}
                 </div>
                 <h3 className="font-editorial text-xl font-light">{proc.title}</h3>
@@ -299,19 +299,19 @@ const Home = () => {
 
 
       {/* 9. CONTACT CTA SECTION */}
-      <section className="py-32 bg-luxury-black text-white relative border-t border-luxury-gold/25 overflow-hidden">
+      <section className="py-32 bg-luxury-black text-white relative border-t border-luxury-purple/25 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,168,106,0.08),transparent_50%)]" />
         <div className="max-w-4xl mx-auto px-6 text-center space-y-10 relative z-10">
-          <p className="text-xs uppercase tracking-widest text-luxury-gold font-semibold">Initiation</p>
+          <p className="text-xs uppercase tracking-widest text-luxury-purple font-semibold">Initiation</p>
           <h2 className="font-editorial text-5xl md:text-7xl font-light leading-none tracking-tight">
             Create an <br />
-            <span className="italic text-luxury-gold">experience</span> with us.
+            <span className="italic text-luxury-purple">experience</span> with us.
           </h2>
           <p className="text-sm font-light text-white/50 max-w-md mx-auto leading-relaxed">
             Begin the script of your sensory event. Connect with our international concierge to outline your production objectives.
           </p>
           <div className="pt-6">
-            <Link to="/contact" className="inline-flex items-center space-x-3 bg-luxury-gold text-luxury-black font-semibold text-xs uppercase tracking-widest px-12 py-4 hover:bg-white transition-all duration-300">
+            <Link to="/contact" className="inline-flex items-center space-x-3 bg-luxury-purple text-luxury-black font-semibold text-xs uppercase tracking-widest px-12 py-4 hover:bg-white transition-all duration-300">
               <span>Connect Concierge</span>
               <ArrowRight size={14} />
             </Link>

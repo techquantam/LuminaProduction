@@ -4,26 +4,26 @@ import { Instagram, Twitter, Linkedin, Facebook } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-luxury-black text-white pt-24 pb-12 border-t border-luxury-gold/15 relative overflow-hidden">
+    <footer className="bg-luxury-black text-white pt-24 pb-12 border-t border-luxury-purple/15 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Info */}
           <div className="space-y-6">
-            <h3 className="font-editorial text-2xl tracking-extreme uppercase text-luxury-gold">Lumina</h3>
+            <h3 className="font-editorial text-2xl tracking-extreme uppercase text-luxury-purple">Lumina</h3>
             <p className="text-sm font-light text-white/60 leading-relaxed max-w-xs">
               Crafting sensory spectacles and architectural event wonders for the world's most prestigious entities.
             </p>
             <div className="flex space-x-4 pt-4">
-              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-luxury-gold hover:text-luxury-gold transition-colors">
+              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-luxury-purple hover:text-luxury-purple transition-colors">
                 <Instagram size={14} />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-luxury-gold hover:text-luxury-gold transition-colors">
+              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-luxury-purple hover:text-luxury-purple transition-colors">
                 <Twitter size={14} />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-luxury-gold hover:text-luxury-gold transition-colors">
+              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-luxury-purple hover:text-luxury-purple transition-colors">
                 <Linkedin size={14} />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-luxury-gold hover:text-luxury-gold transition-colors">
+              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-luxury-purple hover:text-luxury-purple transition-colors">
                 <Facebook size={14} />
               </a>
             </div>
@@ -31,75 +31,75 @@ const Footer = () => {
 
           {/* Page Links */}
           <div className="space-y-6">
-            <h4 className="text-xs uppercase tracking-widest text-luxury-gold font-medium">Navigation</h4>
+            <h4 className="text-xs uppercase tracking-widest text-luxury-purple font-medium">Navigation</h4>
             <div className="flex flex-col space-y-3 text-sm font-light text-white/60">
-              <Link to="/" className="hover:text-luxury-gold transition-colors">Home</Link>
-              <Link to="/about" className="hover:text-luxury-gold transition-colors">About Story</Link>
-              <Link to="/portfolio" className="hover:text-luxury-gold transition-colors">Creative Portfolio</Link>
-              <Link to="/contact" className="hover:text-luxury-gold transition-colors">Bespoke Concierge</Link>
+              <Link to="/" className="hover:text-luxury-purple transition-colors">Home</Link>
+              <Link to="/about" className="hover:text-luxury-purple transition-colors">About Story</Link>
+              <Link to="/portfolio" className="hover:text-luxury-purple transition-colors">Creative Portfolio</Link>
+              <Link to="/contact" className="hover:text-luxury-purple transition-colors">Bespoke Concierge</Link>
             </div>
           </div>
 
           {/* Contact Details */}
           <div className="space-y-6">
-            <h4 className="text-xs uppercase tracking-widest text-luxury-gold font-medium">Bespoke Offices</h4>
+            <h4 className="text-xs uppercase tracking-widest text-luxury-purple font-medium">Bespoke Offices</h4>
             <div className="space-y-4">
-              <div className="border-l border-luxury-gold/30 pl-3">
+              <div className="border-l border-luxury-purple/30 pl-3">
                 <a 
                   href="https://maps.google.com/?q=Osiedle+Piastowskie+120,+61-166+Pozna%C5%84,+Poland" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-white/80 hover:text-luxury-gold font-medium text-[10px] uppercase tracking-widest transition-colors block"
+                  className="text-white/80 hover:text-luxury-purple font-medium text-[10px] uppercase tracking-widest transition-colors block"
                 >
                   Poland
                 </a>
               </div>
-              <div className="border-l border-luxury-gold/30 pl-3">
+              <div className="border-l border-luxury-purple/30 pl-3">
                 <a 
                   href="https://maps.google.com/?q=Tren+de+la+Fresa+N%C2%BA+8+Street+WarehouseN%C2%BA+6+28350+Ciempozuelos+(Madrid)+Spain" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-white/80 hover:text-luxury-gold font-medium text-[10px] uppercase tracking-widest transition-colors block"
+                  className="text-white/80 hover:text-luxury-purple font-medium text-[10px] uppercase tracking-widest transition-colors block"
                 >
                   Spain
                 </a>
               </div>
-              <div className="border-l border-luxury-gold/30 pl-3">
+              <div className="border-l border-luxury-purple/30 pl-3">
                 <a 
                   href="https://maps.google.com/?q=Viale+A.+De+Gasperi+101+-20017+Rho+(Milano)+Italy" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-white/80 hover:text-luxury-gold font-medium text-[10px] uppercase tracking-widest transition-colors block"
+                  className="text-white/80 hover:text-luxury-purple font-medium text-[10px] uppercase tracking-widest transition-colors block"
                 >
                   Italy
                 </a>
               </div>
-              <div className="border-l border-luxury-gold/30 pl-3">
+              <div className="border-l border-luxury-purple/30 pl-3">
                 <a 
                   href="https://maps.google.com/?q=Orhan+Gazi+Mah.+Mimsan+San.+Sit.+1730+Sok.+No+:+3+Esenyurt+/+%C4%B0stanbul+Turkey" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-white/80 hover:text-luxury-gold font-medium text-[10px] uppercase tracking-widest transition-colors block"
+                  className="text-white/80 hover:text-luxury-purple font-medium text-[10px] uppercase tracking-widest transition-colors block"
                 >
                   Turkey
                 </a>
               </div>
-              <div className="border-l border-luxury-gold/30 pl-3">
+              <div className="border-l border-luxury-purple/30 pl-3">
                 <a 
                   href="https://maps.google.com/?q=3311+An+Nasr+Rd,+7868,+Al-Masani,+Riyadh+14714,+Saudi+Arabia" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-white/80 hover:text-luxury-gold font-medium text-[10px] uppercase tracking-widest transition-colors block"
+                  className="text-white/80 hover:text-luxury-purple font-medium text-[10px] uppercase tracking-widest transition-colors block"
                 >
                   Saudi Arabia
                 </a>
               </div>
-              <div className="border-l border-luxury-gold/30 pl-3">
+              <div className="border-l border-luxury-purple/30 pl-3">
                 <a 
                   href="https://maps.google.com/?q=Noida,+201301,+Uttar+Pradesh,+India" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-white/80 hover:text-luxury-gold font-medium text-[10px] uppercase tracking-widest transition-colors block"
+                  className="text-white/80 hover:text-luxury-purple font-medium text-[10px] uppercase tracking-widest transition-colors block"
                 >
                   India
                 </a>
@@ -109,7 +109,7 @@ const Footer = () => {
 
           {/* World Map Section */}
           <div className="space-y-6">
-            <h4 className="text-xs uppercase tracking-widest text-luxury-gold font-medium">Global Network</h4>
+            <h4 className="text-xs uppercase tracking-widest text-luxury-purple font-medium">Global Network</h4>
             <div className="relative w-full aspect-[700/337] bg-neutral-100 border border-white/10 rounded-lg overflow-hidden p-0 group/map">
               {/* Map SVG - Clear white continents on light grey background */}
               <img 
@@ -128,12 +128,12 @@ const Footer = () => {
                 style={{ top: '32.15%', left: '53.18%' }}
               >
                 <span className="flex h-1.5 w-1.5 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-luxury-gold opacity-90"></span>
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-luxury-gold border border-black/30"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-luxury-purple opacity-90"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-luxury-purple border border-black/30"></span>
                 </span>
                 {/* Tooltip */}
-                <div className="absolute top-5 left-1/2 -translate-x-1/2 bg-black border border-luxury-gold/40 text-white text-[10px] py-1.5 px-2.5 rounded shadow-2xl opacity-0 scale-75 group-hover/dot:opacity-100 group-hover/dot:scale-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-20 origin-top">
-                  <p className="font-semibold text-luxury-gold">Poznań, Poland</p>
+                <div className="absolute top-5 left-1/2 -translate-x-1/2 bg-black border border-luxury-purple/40 text-white text-[10px] py-1.5 px-2.5 rounded shadow-2xl opacity-0 scale-75 group-hover/dot:opacity-100 group-hover/dot:scale-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-20 origin-top">
+                  <p className="font-semibold text-luxury-purple">Poznań, Poland</p>
                   <p className="text-white/60 text-[9px]">Click to view on Map</p>
                 </div>
               </a>
@@ -147,11 +147,11 @@ const Footer = () => {
                 style={{ top: '43.28%', left: '46.05%' }}
               >
                 <span className="flex h-1.5 w-1.5 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-luxury-gold opacity-90"></span>
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-luxury-gold border border-black/30"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-luxury-purple opacity-90"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-luxury-purple border border-black/30"></span>
                 </span>
-                <div className="absolute top-5 left-1/2 -translate-x-1/2 bg-black border border-luxury-gold/40 text-white text-[10px] py-1.5 px-2.5 rounded shadow-2xl opacity-0 scale-75 group-hover/dot:opacity-100 group-hover/dot:scale-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-20 origin-top">
-                  <p className="font-semibold text-luxury-gold">Madrid, Spain</p>
+                <div className="absolute top-5 left-1/2 -translate-x-1/2 bg-black border border-luxury-purple/40 text-white text-[10px] py-1.5 px-2.5 rounded shadow-2xl opacity-0 scale-75 group-hover/dot:opacity-100 group-hover/dot:scale-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-20 origin-top">
+                  <p className="font-semibold text-luxury-purple">Madrid, Spain</p>
                   <p className="text-white/60 text-[9px]">Click to view on Map</p>
                 </div>
               </a>
@@ -165,11 +165,11 @@ const Footer = () => {
                 style={{ top: '39.33%', left: '51.38%' }}
               >
                 <span className="flex h-1.5 w-1.5 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-luxury-gold opacity-90"></span>
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-luxury-gold border border-black/30"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-luxury-purple opacity-90"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-luxury-purple border border-black/30"></span>
                 </span>
-                <div className="absolute top-5 left-1/2 -translate-x-1/2 bg-black border border-luxury-gold/40 text-white text-[10px] py-1.5 px-2.5 rounded shadow-2xl opacity-0 scale-75 group-hover/dot:opacity-100 group-hover/dot:scale-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-20 origin-top">
-                  <p className="font-semibold text-luxury-gold">Milan, Italy</p>
+                <div className="absolute top-5 left-1/2 -translate-x-1/2 bg-black border border-luxury-purple/40 text-white text-[10px] py-1.5 px-2.5 rounded shadow-2xl opacity-0 scale-75 group-hover/dot:opacity-100 group-hover/dot:scale-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-20 origin-top">
+                  <p className="font-semibold text-luxury-purple">Milan, Italy</p>
                   <p className="text-white/60 text-[9px]">Click to view on Map</p>
                 </div>
               </a>
@@ -183,11 +183,11 @@ const Footer = () => {
                 style={{ top: '41.32%', left: '57.59%' }}
               >
                 <span className="flex h-1.5 w-1.5 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-luxury-gold opacity-90"></span>
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-luxury-gold border border-black/30"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-luxury-purple opacity-90"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-luxury-purple border border-black/30"></span>
                 </span>
-                <div className="absolute top-5 left-1/2 -translate-x-1/2 bg-black border border-luxury-gold/40 text-white text-[10px] py-1.5 px-2.5 rounded shadow-2xl opacity-0 scale-75 group-hover/dot:opacity-100 group-hover/dot:scale-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-20 origin-top">
-                  <p className="font-semibold text-luxury-gold">Istanbul, Turkey</p>
+                <div className="absolute top-5 left-1/2 -translate-x-1/2 bg-black border border-luxury-purple/40 text-white text-[10px] py-1.5 px-2.5 rounded shadow-2xl opacity-0 scale-75 group-hover/dot:opacity-100 group-hover/dot:scale-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-20 origin-top">
+                  <p className="font-semibold text-luxury-purple">Istanbul, Turkey</p>
                   <p className="text-white/60 text-[9px]">Click to view on Map</p>
                 </div>
               </a>
@@ -201,11 +201,11 @@ const Footer = () => {
                 style={{ top: '50.52%', left: '60.29%' }}
               >
                 <span className="flex h-1.5 w-1.5 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-luxury-gold opacity-90"></span>
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-luxury-gold border border-black/30"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-luxury-purple opacity-90"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-luxury-purple border border-black/30"></span>
                 </span>
-                <div className="absolute top-5 left-1/2 -translate-x-1/2 bg-black border border-luxury-gold/40 text-white text-[10px] py-1.5 px-2.5 rounded shadow-2xl opacity-0 scale-75 group-hover/dot:opacity-100 group-hover/dot:scale-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-20 origin-top">
-                  <p className="font-semibold text-luxury-gold">Riyadh, Saudi Arabia</p>
+                <div className="absolute top-5 left-1/2 -translate-x-1/2 bg-black border border-luxury-purple/40 text-white text-[10px] py-1.5 px-2.5 rounded shadow-2xl opacity-0 scale-75 group-hover/dot:opacity-100 group-hover/dot:scale-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-20 origin-top">
+                  <p className="font-semibold text-luxury-purple">Riyadh, Saudi Arabia</p>
                   <p className="text-white/60 text-[9px]">Click to view on Map</p>
                 </div>
               </a>
@@ -219,11 +219,11 @@ const Footer = () => {
                 style={{ top: '48.10%', left: '69.30%' }}
               >
                 <span className="flex h-1.5 w-1.5 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-luxury-gold opacity-90"></span>
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-luxury-gold border border-black/30"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-luxury-purple opacity-90"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-luxury-purple border border-black/30"></span>
                 </span>
-                <div className="absolute top-5 left-1/2 -translate-x-1/2 bg-black border border-luxury-gold/40 text-white text-[10px] py-1.5 px-2.5 rounded shadow-2xl opacity-0 scale-75 group-hover/dot:opacity-100 group-hover/dot:scale-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-20 origin-top">
-                  <p className="font-semibold text-luxury-gold">Noida, India</p>
+                <div className="absolute top-5 left-1/2 -translate-x-1/2 bg-black border border-luxury-purple/40 text-white text-[10px] py-1.5 px-2.5 rounded shadow-2xl opacity-0 scale-75 group-hover/dot:opacity-100 group-hover/dot:scale-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-20 origin-top">
+                  <p className="font-semibold text-luxury-purple">Noida, India</p>
                   <p className="text-white/60 text-[9px]">Click to view on Map</p>
                 </div>
               </a>

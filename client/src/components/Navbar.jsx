@@ -44,7 +44,7 @@ const Navbar = () => {
     <>
       <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         scrolled 
-          ? 'bg-luxury-bg/95 dark:bg-luxury-bgDark/95 backdrop-blur-md border-b border-luxury-gold/15 py-4 shadow-md' 
+          ? 'bg-luxury-bg/95 dark:bg-luxury-bgDark/95 backdrop-blur-md border-b border-luxury-purple/15 py-4 shadow-md' 
           : (location.pathname === '/' 
               ? 'bg-gradient-to-b from-black/60 via-black/20 to-transparent py-7' 
               : 'bg-transparent py-6')
@@ -71,12 +71,12 @@ const Navbar = () => {
                   to={link.path}
                   className={`relative text-xs uppercase tracking-widest transition-colors duration-300 py-2 group ${
                     isHomeAndTransparent 
-                      ? 'text-white/80 hover:text-luxury-gold' 
-                      : 'text-luxury-black dark:text-white/80 hover:text-luxury-gold dark:hover:text-luxury-gold'
+                      ? 'text-white/80 hover:text-luxury-purple' 
+                      : 'text-luxury-black dark:text-white/80 hover:text-luxury-purple dark:hover:text-luxury-purple'
                   }`}
                 >
                   {link.name}
-                  <span className={`absolute bottom-0 left-0 w-full h-[1px] bg-luxury-gold transition-transform duration-500 origin-left ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
+                  <span className={`absolute bottom-0 left-0 w-full h-[1px] bg-luxury-purple transition-transform duration-500 origin-left ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
                 </Link>
               );
             })}
@@ -87,7 +87,7 @@ const Navbar = () => {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className={`p-2 transition-colors duration-300 ${isHomeAndTransparent ? 'text-white hover:text-luxury-gold' : 'text-luxury-black dark:text-white hover:text-luxury-gold dark:hover:text-luxury-gold'}`}
+              className={`p-2 transition-colors duration-300 ${isHomeAndTransparent ? 'text-white hover:text-luxury-purple' : 'text-luxury-black dark:text-white hover:text-luxury-purple dark:hover:text-luxury-purple'}`}
               aria-label="Toggle Theme"
             >
               {isDark ? <Sun size={18} /> : <Moon size={18} />}
@@ -98,8 +98,8 @@ const Navbar = () => {
               to="/dashboard"
               className={`flex items-center space-x-2 text-xs uppercase tracking-widest border rounded-full px-5 py-2.5 transition-all duration-300 ${
                 isHomeAndTransparent 
-                  ? 'border-white/30 text-white hover:border-luxury-gold hover:text-luxury-gold hover:bg-white/5' 
-                  : 'border-luxury-gold/30 text-luxury-black dark:text-white hover:border-luxury-gold hover:text-luxury-gold hover:bg-luxury-gold/5'
+                  ? 'border-white/30 text-white hover:border-luxury-purple hover:text-luxury-purple hover:bg-white/5' 
+                  : 'border-luxury-purple/30 text-luxury-black dark:text-white hover:border-luxury-purple hover:text-luxury-purple hover:bg-luxury-purple/5'
               }`}
             >
               <User size={14} />
@@ -145,7 +145,7 @@ const Navbar = () => {
                   <Link
                     key={link.name}
                     to={link.path}
-                    className={`text-2xl font-editorial tracking-widest uppercase py-2 border-b border-luxury-gold/10 ${isActive ? 'text-luxury-gold' : 'text-luxury-black dark:text-white'}`}
+                    className={`text-2xl font-editorial tracking-widest uppercase py-2 border-b border-luxury-purple/10 ${isActive ? 'text-luxury-purple' : 'text-luxury-black dark:text-white'}`}
                   >
                     {link.name}
                   </Link>
@@ -160,8 +160,8 @@ const Navbar = () => {
               </Link>
             </div>
 
-            <div className="border-t border-luxury-gold/10 pt-8">
-              <p className="text-xs uppercase tracking-widest text-luxury-gold mb-2 font-medium">Bespoke Concierge</p>
+            <div className="border-t border-luxury-purple/10 pt-8">
+              <p className="text-xs uppercase tracking-widest text-luxury-purple mb-2 font-medium">Bespoke Concierge</p>
               <p className="text-sm font-light text-luxury-black/70 dark:text-white/60">concierge@luminalive.com</p>
               <p className="text-sm font-light text-luxury-black/70 dark:text-white/60">+1 (800) 555-LUMI</p>
             </div>

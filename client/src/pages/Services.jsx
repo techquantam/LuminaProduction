@@ -68,10 +68,10 @@ const Services = () => {
             transition={{ duration: 1 }}
             className="space-y-4 max-w-4xl"
           >
-            <p className="text-xs uppercase tracking-extreme text-luxury-gold font-semibold">Our Portfolio</p>
+            <p className="text-xs uppercase tracking-extreme text-luxury-purple font-semibold">Our Portfolio</p>
             <h1 className="font-editorial text-5xl md:text-7xl font-light leading-none tracking-tight">
               Experiential <br />
-              <span className="italic text-luxury-gold">Disciplines</span>
+              <span className="italic text-luxury-purple">Disciplines</span>
             </h1>
           </motion.div>
         </div>
@@ -88,15 +88,15 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className={`grid grid-cols-1 lg:grid-cols-12 gap-12 border-b border-luxury-gold/20 pb-16 items-start`}
+                className={`grid grid-cols-1 lg:grid-cols-12 gap-12 border-b border-luxury-purple/20 pb-16 items-start`}
               >
                 {/* Visual Icon & Index Column */}
                 <div className="lg:col-span-3 flex items-center space-x-6">
-                  <div className="w-16 h-16 rounded-full bg-luxury-gold/10 text-luxury-gold flex items-center justify-center border border-luxury-gold/20">
+                  <div className="w-16 h-16 rounded-full bg-luxury-purple/10 text-luxury-purple flex items-center justify-center border border-luxury-purple/20">
                     <ServiceIcon name={svc.icon} />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-widest text-luxury-gold font-semibold">Service</p>
+                    <p className="text-xs uppercase tracking-widest text-luxury-purple font-semibold">Service</p>
                     <h3 className="font-editorial text-2xl font-light text-luxury-black dark:text-white mt-1">{svc.name}</h3>
                   </div>
                 </div>
@@ -113,11 +113,11 @@ const Services = () => {
 
                 {/* Key Features Bullet points */}
                 <div className="lg:col-span-4 space-y-3">
-                  <p className="text-xs uppercase tracking-widest text-luxury-gold font-semibold mb-2">Key Curation Specs</p>
+                  <p className="text-xs uppercase tracking-widest text-luxury-purple font-semibold mb-2">Key Curation Specs</p>
                   <div className="grid grid-cols-1 gap-2">
                     {svc.features?.map((feat, fidx) => (
                       <div key={fidx} className="flex items-center space-x-3 text-xs tracking-wide font-light text-luxury-black/75 dark:text-white/60">
-                        <div className="w-1.5 h-1.5 rounded-full bg-luxury-gold shrink-0" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-luxury-purple shrink-0" />
                         <span>{feat}</span>
                       </div>
                     ))}
