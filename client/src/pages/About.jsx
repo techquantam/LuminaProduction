@@ -26,13 +26,13 @@ const CITIES = [
   { name: 'USA', country: 'USA', x: '19.3%', y: '31.1%' },
   { name: 'UK', country: 'UK', x: '46.9%', y: '29.4%' },
   { name: 'GERMANY', country: 'Germany', x: '51.3%', y: '31.5%' },
-  { name: 'POLAND', country: 'Poland', x: '53.18%', y: '32.15%' },
-  { name: 'ITALY', country: 'Italy', x: '51.38%', y: '39.33%' },
-  { name: 'SPAIN', country: 'Spain', x: '46.05%', y: '43.28%' },
-  { name: 'TURKEY', country: 'Turkey', x: '57.59%', y: '41.32%' },
-  { name: 'SAUDI ARABIA', country: 'Saudi Arabia', x: '60.29%', y: '50.52%' },
+  { name: 'POLAND', country: 'Poland', x: '53.18%', y: '32.15%', mapUrl: 'https://maps.google.com/?q=Osiedle+Piastowskie+120,+61-166+Pozna%C5%84,+Poland' },
+  { name: 'ITALY', country: 'Italy', x: '51.38%', y: '39.33%', mapUrl: 'https://maps.google.com/?q=Viale+A.+De+Gasperi+101+-20017+Rho+(Milano)+Italy' },
+  { name: 'SPAIN', country: 'Spain', x: '46.05%', y: '43.28%', mapUrl: 'https://maps.google.com/?q=Tren+de+la+Fresa+N%C2%BA+8+Street+WarehouseN%C2%BA+6+28350+Ciempozuelos+(Madrid)+Spain' },
+  { name: 'TURKEY', country: 'Turkey', x: '57.59%', y: '41.32%', mapUrl: 'https://maps.google.com/?q=Orhan+Gazi+Mah.+Mimsan+San.+Sit.+1730+Sok.+No+:+3+Esenyurt+/+%C4%B0stanbul+Turkey' },
+  { name: 'SAUDI ARABIA', country: 'Saudi Arabia', x: '60.29%', y: '50.52%', mapUrl: 'https://maps.google.com/?q=3311+An+Nasr+Rd,+7868,+Al-Masani,+Riyadh+14714,+Saudi+Arabia' },
   { name: 'UAE', country: 'UAE', x: '63.0%', y: '49.6%' },
-  { name: 'NOIDA', country: 'India', x: '69.30%', y: '48.10%' },
+  { name: 'NOIDA', country: 'India', x: '69.30%', y: '48.10%', mapUrl: 'https://maps.google.com/?q=Noida,+201301,+Uttar+Pradesh,+India' },
   { name: 'Cape Town', country: 'South Africa', x: '51.8%', y: '84.0%' },
   { name: 'Singapore', country: 'Singapore', x: '78.2%', y: '65.5%' },
   { name: 'Beijing', country: 'China', x: '79.4%', y: '36.2%' },
@@ -216,8 +216,11 @@ const About = () => {
                 {CITIES.map((city) => {
                   const isHovered = hoveredCity === city.name || hoveredCountry === city.country;
                   return (
-                    <div
+                    <a
                       key={city.name}
+                      href={city.mapUrl || `https://maps.google.com/?q=${encodeURIComponent(city.name + ', ' + city.country)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="absolute group z-10 -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300"
                       style={{ left: city.x, top: city.y }}
                       onMouseEnter={() => {
@@ -247,7 +250,7 @@ const About = () => {
                           {city.name}
                         </span>
                       </div>
-                    </div>
+                    </a>
                   );
                 })}
               </div>
