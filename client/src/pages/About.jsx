@@ -23,13 +23,16 @@ const DEMO_CLIENTS = [
 ];
 
 const CITIES = [
-  { name: 'Las Vegas', country: 'USA', x: '10.0%', y: '35.0%' },
-  { name: 'New York', country: 'USA', x: '19.3%', y: '31.1%' },
-  { name: 'London', country: 'UK', x: '46.9%', y: '29.4%' },
-  { name: 'Berlin', country: 'Germany', x: '51.3%', y: '31.5%' },
-  { name: 'Barcelona', country: 'Spain', x: '48.0%', y: '36.8%' },
-  { name: 'Dubai', country: 'UAE', x: '63.0%', y: '49.6%' },
-  { name: 'Mumbai', country: 'India', x: '68.0%', y: '54.0%' },
+  { name: 'USA', country: 'USA', x: '19.3%', y: '31.1%' },
+  { name: 'UK', country: 'UK', x: '46.9%', y: '29.4%' },
+  { name: 'GERMANY', country: 'Germany', x: '51.3%', y: '31.5%' },
+  { name: 'POLAND', country: 'Poland', x: '53.18%', y: '32.15%' },
+  { name: 'ITALY', country: 'Italy', x: '51.38%', y: '39.33%' },
+  { name: 'SPAIN', country: 'Spain', x: '46.05%', y: '43.28%' },
+  { name: 'TURKEY', country: 'Turkey', x: '57.59%', y: '41.32%' },
+  { name: 'SAUDI ARABIA', country: 'Saudi Arabia', x: '60.29%', y: '50.52%' },
+  { name: 'UAE', country: 'UAE', x: '63.0%', y: '49.6%' },
+  { name: 'NOIDA', country: 'India', x: '69.30%', y: '48.10%' },
   { name: 'Cape Town', country: 'South Africa', x: '51.8%', y: '84.0%' },
   { name: 'Singapore', country: 'Singapore', x: '78.2%', y: '65.5%' },
   { name: 'Beijing', country: 'China', x: '79.4%', y: '36.2%' },
