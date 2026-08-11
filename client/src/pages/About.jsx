@@ -32,9 +32,9 @@ const CITIES = [
   { name: 'TURKEY', country: 'Turkey', x: '57.59%', y: '41.32%', mapUrl: 'https://maps.google.com/?q=Orhan+Gazi+Mah.+Mimsan+San.+Sit.+1730+Sok.+No+:+3+Esenyurt+/+%C4%B0stanbul+Turkey' },
   { name: 'SAUDI ARABIA', country: 'Saudi Arabia', x: '60.29%', y: '50.52%', mapUrl: 'https://maps.google.com/?q=3311+An+Nasr+Rd,+7868,+Al-Masani,+Riyadh+14714,+Saudi+Arabia' },
   { name: 'UAE', country: 'UAE', x: '63.0%', y: '49.6%' },
-  { name: 'NOIDA', country: 'India', x: '69.30%', y: '48.10%', mapUrl: 'https://maps.google.com/?q=Noida,+201301,+Uttar+Pradesh,+India' },
+  { name: 'INDIA', country: 'India', x: '68.10%', y: '46.50%', mapUrl: 'https://maps.google.com/?q=New+Delhi,+India' },
   { name: 'Cape Town', country: 'South Africa', x: '51.8%', y: '84.0%' },
-  { name: 'Singapore', country: 'Singapore', x: '78.2%', y: '65.5%' },
+  { name: 'INDIANA', country: 'USA', x: '21.2%', y: '38.8%', mapUrl: 'https://maps.google.com/?q=Indianapolis,+Indiana,+USA' },
   { name: 'Beijing', country: 'China', x: '79.4%', y: '36.2%' },
   { name: 'Tokyo', country: 'Japan', x: '85.9%', y: '40.4%' },
   { name: 'Sydney', country: 'Australia', x: '88.3%', y: '86.0%' },
@@ -59,6 +59,8 @@ const itemVariants = {
 
 
 const About = () => {
+  const { API_URL } = useAuth();
+  const [liveClients, setLiveClients] = useState([]);
   const [hoveredCity, setHoveredCity] = useState(null);
   const [hoveredCountry, setHoveredCountry] = useState(null);
 
@@ -69,6 +71,22 @@ const About = () => {
     '/about-drawing-3.png'
   ];
 
+  // Fetch clients from API
+  useEffect(() => {
+    const fetchClients = async () => {
+      try {
+        const res = await fetch(`${API_URL}/clients`);
+        const data = await res.json();
+        if (data.success && data.data && data.data.length > 0) {
+          setLiveClients(data.data);
+        }
+      } catch (err) {
+        // silently fall back to DEMO_CLIENTS
+      }
+    };
+    fetchClients();
+  }, [API_URL]);
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % 3);
@@ -76,7 +94,8 @@ const About = () => {
     return () => clearInterval(timer);
   }, []);
 
-
+  // Use live clients from DB, fall back to local demo if DB has none
+  const displayClients = liveClients.length > 0 ? liveClients : DEMO_CLIENTS;
 
   return (
     <>
@@ -300,17 +319,17 @@ const About = () => {
 
             <div className="flex whitespace-nowrap animate-infinite-marquee hover:[animation-play-state:paused] gap-12 items-center">
               {/* Double array for infinite seamless looping */}
-              {[...DEMO_CLIENTS, ...DEMO_CLIENTS].map((cli, idx) => {
+              {[...displayClients, ...displayClients].map((cli, idx) => {
                 const key = `${cli.name}-${idx}`;
                 return (
                   <div
                     key={key}
-                    className="inline-flex items-center justify-center shrink-0 w-36 h-20 relative group transition-transform duration-300 mx-6 bg-white dark:bg-neutral-900 border border-luxury-purple/10 p-1 rounded shadow-sm hover:scale-105"
+                    className="inline-flex items-center justify-center shrink-0 w-48 h-24 relative group transition-transform duration-300 mx-4 bg-white dark:bg-neutral-900 border border-luxury-purple/10 p-4 rounded shadow-sm hover:scale-105 hover:shadow-md hover:border-luxury-purple/30"
                   >
                     <img
                       src={cli.logoUrl}
                       alt={cli.name || 'Brand Logo'}
-                      className="max-w-full max-h-full object-contain pointer-events-none select-none scale-[1.6]"
+                      className="w-full h-full object-contain pointer-events-none select-none"
                     />
                   </div>
                 );

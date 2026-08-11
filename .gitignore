@@ -1,1 +1,8 @@
 node_modules
+
+# Environment secrets
+.env
+server/.env
+
+# Uploaded files (serve locally)
+client/public/uploads/

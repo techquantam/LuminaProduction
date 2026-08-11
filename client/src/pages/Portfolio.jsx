@@ -87,6 +87,8 @@ const Portfolio = () => {
   const [projects, setProjects] = useState(DEFAULT_PROJECTS);
   const [filteredProjects, setFilteredProjects] = useState(DEFAULT_PROJECTS);
   const [activeCategory, setActiveCategory] = useState('Pop-ups & Experiential Exhibitions');
+  const [showAll, setShowAll] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
@@ -150,6 +152,7 @@ const Portfolio = () => {
 
   useEffect(() => {
     const fetchProjects = async () => {
+      setLoading(true);
       try {
         const res = await fetch(`${API_URL}/projects`);
         const data = await res.json();
@@ -159,6 +162,8 @@ const Portfolio = () => {
         }
       } catch (err) {
         console.warn('API down, using premium local fallback projects.');
+      } finally {
+        setLoading(false);
       }
     };
     fetchProjects();
@@ -166,6 +171,7 @@ const Portfolio = () => {
 
   useEffect(() => {
     setFilteredProjects(projects.filter(p => p.category === activeCategory));
+    setShowAll(false); // reset when category changes
   }, [activeCategory, projects]);
 
   return (
@@ -221,53 +227,87 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Premium 3-Column Grid with Category limits */}
+      {/* Premium Project Grid */}
       <section className="pb-32 bg-luxury-bg dark:bg-luxury-bgDark transition-colors">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <motion.div
-            layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16"
-          >
-            <AnimatePresence mode="popLayout">
-              {projects.filter(p => p.category === activeCategory).slice(0, 3).map((proj) => (
-                <motion.div
-                  layout
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.96 }}
-                  transition={{ duration: 0.4 }}
-                  key={proj._id}
-                  className="flex flex-col"
-                >
-                  <div
-                    onClick={scrollToForm}
-                    className="group flex flex-col w-full h-full select-none cursor-pointer"
-                  >
-                    {/* Header above image */}
-                    <div className="mb-3 text-xs tracking-wide text-luxury-black/90 dark:text-white/90 font-sans leading-tight">
-                      <span className="font-bold">{proj.client}</span>{' '}
-                      <span className="font-light text-luxury-black/70 dark:text-white/70">{proj.title}</span>{' '}
-                      <span className="font-light text-luxury-black/40 dark:text-white/40">| {proj.year || '2025'}</span>
-                    </div>
 
-                    {/* Image block */}
-                    <div className="w-full aspect-[16/10] overflow-hidden bg-luxury-black/5 relative border border-luxury-black/5 dark:border-white/5 shadow-sm">
-                      <div
-                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-                        style={{ backgroundImage: `url(${proj.imageUrl})` }}
-                      />
-                    </div>
-
-                    {/* Footer / Location below image */}
-                    <div className="flex items-center space-x-2 text-[10px] uppercase tracking-widest text-luxury-black/50 dark:text-white/50 mt-3 font-light">
-                      <span className="w-1.5 h-1.5 rounded-full border border-luxury-purple shrink-0 inline-block" />
-                      <span>{proj.location || 'Singapore'}</span>
-                    </div>
-                  </div>
-                </motion.div>
+          {/* Loading Skeleton */}
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+              {[1,2,3].map(i => (
+                <div key={i} className="flex flex-col gap-3 animate-pulse">
+                  <div className="h-3 w-32 bg-luxury-black/10 dark:bg-white/10 rounded" />
+                  <div className="w-full aspect-[16/10] bg-luxury-black/10 dark:bg-white/10 rounded" />
+                  <div className="h-2 w-24 bg-luxury-black/10 dark:bg-white/10 rounded" />
+                </div>
               ))}
-            </AnimatePresence>
-          </motion.div>
+            </div>
+          ) : filteredProjects.length === 0 ? (
+            <div className="py-24 text-center">
+              <p className="text-xs uppercase tracking-widest text-luxury-black/40 dark:text-white/40 font-bold">No spectacles archived in this category yet.</p>
+              <p className="text-sm font-light text-luxury-black/30 dark:text-white/30 mt-2">Admin can add projects via the Dashboard → Spectacles CRUD.</p>
+            </div>
+          ) : (
+            <>
+              <motion.div
+                layout
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16"
+              >
+                <AnimatePresence mode="popLayout">
+                  {(showAll ? filteredProjects : filteredProjects.slice(0, 3)).map((proj) => (
+                    <motion.div
+                      layout
+                      initial={{ opacity: 0, scale: 0.96 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.96 }}
+                      transition={{ duration: 0.4 }}
+                      key={proj._id}
+                      className="flex flex-col"
+                    >
+                      <div
+                        onClick={scrollToForm}
+                        className="group flex flex-col w-full h-full select-none cursor-pointer"
+                      >
+                        {/* Header above image */}
+                        <div className="mb-3 text-xs tracking-wide text-luxury-black/90 dark:text-white/90 font-sans leading-tight">
+                          <span className="font-bold">{proj.client}</span>{' '}
+                          <span className="font-light text-luxury-black/70 dark:text-white/70">{proj.title}</span>{' '}
+                          <span className="font-light text-luxury-black/40 dark:text-white/40">| {proj.year || '2025'}</span>
+                        </div>
+
+                        {/* Image block */}
+                        <div className="w-full aspect-[16/10] overflow-hidden bg-luxury-black/5 relative border border-luxury-black/5 dark:border-white/5 shadow-sm">
+                          <div
+                            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
+                            style={{ backgroundImage: `url(${proj.imageUrl})` }}
+                          />
+                        </div>
+
+                        {/* Footer / Location below image */}
+                        <div className="flex items-center space-x-2 text-[10px] uppercase tracking-widest text-luxury-black/50 dark:text-white/50 mt-3 font-light">
+                          <span className="w-1.5 h-1.5 rounded-full border border-luxury-purple shrink-0 inline-block" />
+                          <span>{proj.location || 'Singapore'}</span>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </motion.div>
+
+              {/* Show All / Show Less toggle */}
+              {filteredProjects.length > 3 && (
+                <div className="flex justify-center mt-16">
+                  <button
+                    onClick={() => setShowAll(prev => !prev)}
+                    className="group flex items-center space-x-3 text-xs uppercase tracking-widest font-bold border border-luxury-purple/30 px-10 py-4 text-luxury-purple hover:bg-luxury-purple hover:text-luxury-black transition-all duration-300"
+                  >
+                    <span>{showAll ? `Show Less` : `View All ${filteredProjects.length} Projects`}</span>
+                    <ArrowRight size={12} className={`transition-transform duration-300 ${showAll ? 'rotate-180' : 'group-hover:translate-x-1'}`} />
+                  </button>
+                </div>
+              )}
+            </>
+          )}
         </div>
       </section>
 

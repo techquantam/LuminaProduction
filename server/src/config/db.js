@@ -11,7 +11,7 @@ const connectDB = async () => {
     
     // Set connection timeout to 3 seconds for local fallback check
     const conn = await mongoose.connect(mongoURI, {
-      serverSelectionTimeoutMS: 3000
+      serverSelectionTimeoutMS: 10000
     });
     
     console.log(`\x1b[32m[MongoDB Connected] Host: ${conn.connection.host}\x1b[0m`);

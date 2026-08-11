@@ -671,7 +671,13 @@ const AdminDashboard = () => {
                 <span>Concierge Inbox ({contacts.filter(c => c.status === 'unread').length})</span>
               </button>
 
-              {/* Clients CRUD Button Removed */}
+              <button
+                onClick={() => { setActiveTab('clients'); resetClientForm(); }}
+                className={`w-full text-left flex items-center space-x-4 px-6 py-4 text-xs uppercase tracking-widest font-bold border transition-all ${activeTab === 'clients' ? 'border-luxury-purple text-luxury-purple bg-luxury-purple/5' : 'border-luxury-purple/10 text-luxury-black/60 dark:text-white/60 hover:border-luxury-purple/30'}`}
+              >
+                <Globe size={14} />
+                <span>Our Clients ({clients.length})</span>
+              </button>
 
               <button
                 onClick={() => { setActiveTab('team'); resetTeamForm(); }}
@@ -975,7 +981,99 @@ const AdminDashboard = () => {
                 </div>
               )}
 
-              {/* TAB 5: CLIENTS CRUD REMOVED */}
+              {/* TAB 5: CLIENTS CRUD */}
+              {activeTab === 'clients' && (
+                <div className="space-y-12">
+                  <div className="flex justify-between items-center border-b border-luxury-purple/10 pb-4">
+                    <h2 className="font-editorial text-2xl font-light text-luxury-purple">Our Clients</h2>
+                    <p className="text-[10px] uppercase tracking-widest text-luxury-black/40 dark:text-white/40">{clients.length} brand{clients.length !== 1 ? 's' : ''} listed</p>
+                  </div>
+
+                  {/* Upload Form */}
+                  <form onSubmit={handleClientSubmit} className="space-y-6 max-w-xl">
+                    <div className="space-y-2">
+                      <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Brand Name (Optional)</label>
+                      <input
+                        type="text"
+                        value={clientForm.name}
+                        onChange={(e) => setClientForm(prev => ({ ...prev, name: e.target.value }))}
+                        className="w-full bg-transparent border-b border-luxury-purple/20 py-2 text-sm focus:outline-none focus:border-luxury-purple font-light"
+                        placeholder="E.G. GUCCI, CHANEL, FERRARI"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Client Logo Image *</label>
+                      <input
+                        type="file"
+                        onChange={(e) => setClientFile(e.target.files[0])}
+                        className="w-full text-xs text-luxury-black/60 dark:text-white/60 file:mr-4 file:py-2 file:px-4 file:border file:border-luxury-purple/30 file:text-[10px] file:uppercase file:tracking-widest file:font-bold file:bg-transparent file:text-luxury-purple hover:file:bg-luxury-purple/5 file:cursor-pointer"
+                        accept="image/*"
+                        required
+                      />
+                      <p className="text-[10px] text-luxury-black/40 dark:text-white/40">Upload PNG, JPG, or WebP. Transparent background logos look best.</p>
+                    </div>
+
+                    {/* Preview of selected file */}
+                    {clientFile && (
+                      <div className="flex items-center space-x-4 p-3 border border-luxury-purple/15 bg-luxury-purple/5">
+                        <img
+                          src={URL.createObjectURL(clientFile)}
+                          alt="Preview"
+                          className="h-14 w-28 object-contain"
+                        />
+                        <div>
+                          <p className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Preview</p>
+                          <p className="text-[10px] text-luxury-black/50 dark:text-white/50">{clientFile.name}</p>
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="pt-4">
+                      <button type="submit" className="w-full bg-luxury-purple text-luxury-black font-semibold text-xs uppercase tracking-widest py-3 hover:bg-luxury-black hover:text-white dark:hover:bg-white dark:hover:text-luxury-black transition-colors flex items-center justify-center space-x-2">
+                        <Plus size={14} />
+                        <span>Add Client Brand</span>
+                      </button>
+                    </div>
+                  </form>
+
+                  {/* Clients Grid */}
+                  <div className="space-y-4 pt-12 border-t border-luxury-purple/10">
+                    <h3 className="font-editorial text-xl font-light">Current Client Roster ({clients.length})</h3>
+                    {clients.length === 0 ? (
+                      <p className="text-xs text-luxury-black/40 dark:text-white/40 py-8 text-center">No client brands added yet. Upload your first logo above.</p>
+                    ) : (
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                        {clients.map(cli => (
+                          <div key={cli._id} className="p-3 border border-luxury-purple/10 flex flex-col items-center justify-between gap-3 bg-white dark:bg-neutral-900">
+                            <div className="h-16 w-full flex items-center justify-center">
+                              {brokenLogos[cli._id] ? (
+                                <span className="text-[9px] uppercase tracking-widest text-luxury-purple font-bold text-center px-2">{cli.name || 'Logo'}</span>
+                              ) : (
+                                <img
+                                  src={cli.logoUrl}
+                                  alt={cli.name || 'Brand Logo'}
+                                  className="max-h-14 max-w-full object-contain"
+                                  onError={() => handleLogoError(cli._id)}
+                                />
+                              )}
+                            </div>
+                            {cli.name && (
+                              <p className="text-[9px] uppercase tracking-widest font-bold text-luxury-black/60 dark:text-white/60 text-center">{cli.name}</p>
+                            )}
+                            <button
+                              onClick={() => deleteClient(cli._id)}
+                              className="w-full py-1 text-[8px] uppercase tracking-widest font-semibold text-red-500 border border-red-500/25 hover:bg-red-500 hover:text-white transition-colors"
+                            >
+                              Remove
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
 
               {/* TAB 6: TEAM CRUD */}
               {activeTab === 'team' && (
