@@ -9,27 +9,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 // Fallback images if no hero images are set in admin
-const DEFAULT_HERO_IMAGES = [
-  'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1600',
-  'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1600',
-  'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600',
-];
+const DEFAULT_HERO_IMAGES = [];
 
-const DEFAULT_SERVICES = [
-  { _id: '1', name: 'Exhibition Booth Design', description: 'Crafting bespoke, high-impact exhibition pavilions and interactive booths that command attention at global trade fairs.', icon: 'Compass' },
-  { _id: '2', name: 'Production & Set Up', description: 'Providing elite technical staging, lighting design, sound engineering, and flawless on-site execution for grand spectacles.', icon: 'Award' },
-  { _id: '3', name: 'Digital Solutions', description: 'Integrating cutting-edge creative technologies, holographic projections, and immersive AR/VR environments.', icon: 'Sparkles' },
-  { _id: '4', name: 'Luxury Events', description: 'Immersive gala dinners, high-society celebrations, and bespoke private experiences defined by meticulous details.', icon: 'Sparkles' },
-  { _id: '5', name: 'Brand Activations', description: 'High-impact tactile environments that bridge luxury brands and modern audiences.', icon: 'Flame' },
-  { _id: '6', name: 'Fashion Shows', description: 'Breathtaking runway systems, couture lighting, and dynamic spatial concepts for luxury apparel brands.', icon: 'Scissors' },
-  { _id: '7', name: 'Wedding Experiences', description: 'Ethereal, high-end nuptials and reception productions conceptualized with romance and architectural grandeur.', icon: 'Heart' }
-];
-
-const DEFAULT_PROJECTS = [
-  { _id: '1', title: 'Couture Horizon Runway', category: 'Fashion Show', client: 'AURA COUTURE', imageUrl: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800', featured: true },
-  { _id: '2', title: 'The Obsidian Gala', category: 'Corporate Gala', client: 'VERTU ENTERPRISE', imageUrl: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800', featured: true },
-  { _id: '3', title: 'Ethereal Blossom Nuptials', category: 'Luxury Wedding', client: 'The Sterling Family', imageUrl: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800', featured: true }
-];
+const DEFAULT_SERVICES = [];
+const DEFAULT_PROJECTS = [];
+const DEFAULT_TESTIMONIALS = [];
+const DEFAULT_GALLERY = [];
 
 const PROCESS_STEPS = [
   { step: '01', title: 'Strategy', desc: 'Understanding core objectives and planning spatial maps.' },
@@ -39,19 +24,7 @@ const PROCESS_STEPS = [
   { step: '05', title: 'Experience', desc: 'Delivering physical spectacles that captivate global audiences.' }
 ];
 
-const DEFAULT_TESTIMONIALS = [
-  { _id: '1', clientName: 'Alexander Vance', company: 'Aura Couture', feedback: 'Lumina did not just organize a runway; they created an architectural miracle. Staging our autumn couture on a cliffside mirror runway was sheer genius.', imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150' },
-  { _id: '2', clientName: 'Sophia Lin', company: 'Vertu Enterprise', feedback: 'Our annual executive congress was elevated into a cinematic story. The holographic stages and flawless flow exceeded our corporate vision by orders of magnitude.', imageUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150' }
-];
-
-const DEFAULT_GALLERY = [
-  { _id: '1', title: 'Oceanic Catwalk', imageUrl: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=600' },
-  { _id: '2', title: 'Ambient Scenic Beam', imageUrl: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=600' },
-  { _id: '3', title: 'Floral Conservatory', imageUrl: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600' },
-  { _id: '4', title: 'EV Reveal Laser Sync', imageUrl: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=600' }
-];
-
-const LOGOS = ['VOGUE', 'BMW', 'VERTU', 'CHANEL', 'CARTIER', 'AURA COUTURE', 'CHRONOS MOTORS', 'LVMH'];
+const LOGOS = [];
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

@@ -4,78 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Mail, FileDown, CheckCircle } from 'lucide-react';
 import TransitionEffect from '../components/TransitionEffect';
 
-const DEFAULT_PROJECTS = [
-  {
-    _id: '1',
-    title: ' ',
-    category: 'Pop-ups & Experiential Exhibitions',
-    client: 'ALFA GATE',
-    imageUrl: '/alfa-gate.png',
-    location: 'AEEDC Dubai',
-    year: '2026',
-    featured: true
-  },
-  {
-    _id: '2',
-    title: ' ',
-    category: 'Pop-ups & Experiential Exhibitions',
-    client: 'AZERBAIJAN PAVILION',
-    imageUrl: '/azerbaijan-pavilion.png',
-    location: 'Singapore, Thailand, Malaysia',
-    year: '2025',
-    featured: true
-  },
-  {
-    _id: '3',
-    title: 'The Magical House of Chanel',
-    category: 'Luxury, Fashion, Lifestyle Events & Galas',
-    client: 'EGYPT',
-    imageUrl: '/egypt.png',
-    location: 'Egypt',
-    year: '2026',
-    featured: true
-  },
-  {
-    _id: '4',
-    title: 'Journey of Potential Launch Event',
-    category: 'Pop-ups & Experiential Exhibitions',
-    client: 'HITACHI',
-    imageUrl: '/hitachi.png',
-    location: 'ADIPEC Dubai',
-    year: '2025',
-    featured: false
-  },
-  {
-    _id: '5',
-    title: 'Immersive Exhibition',
-    category: 'Pop-ups & Experiential Exhibitions',
-    client: 'Virtually Versailles',
-    imageUrl: '/national-tourism-organization.png',
-    location: 'China',
-    year: '2023',
-    featured: false
-  },
-  {
-    _id: '6',
-    title: 'Venture Beyond',
-    category: 'Luxury, Fashion, Lifestyle Events & Galas',
-    client: 'Penfolds',
-    imageUrl: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=800',
-    location: 'Singapore',
-    year: '2022',
-    featured: false
-  },
-  {
-    _id: '7',
-    title: 'Summit',
-    category: 'Corporate Events & Conferences',
-    client: 'Global Leadership',
-    imageUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=800',
-    location: 'Singapore',
-    year: '2026',
-    featured: true
-  }
-];
+const DEFAULT_PROJECTS = [];
 
 const CATEGORIES = [
   'Pop-ups & Experiential Exhibitions',

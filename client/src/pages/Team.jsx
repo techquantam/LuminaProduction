@@ -37,14 +37,8 @@ const Team = () => {
           throw new Error('No team members found');
         }
       } catch (err) {
-        console.warn('Team API offline. Loading seeded luxury luminaries.');
-        // Set beautiful static placeholder team members
-        setMembers([
-          { _id: '1', name: 'Gilles Delacroix', role: 'Managing Director & Scenographer', imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400' },
-          { _id: '2', name: 'Sophia Laurent', role: 'Creative Director & Fashion Producer', imageUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400' },
-          { _id: '3', name: 'Marcus Vance', role: 'Chief Technical Officer & AV Architect', imageUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400' },
-          { _id: '4', name: 'Elena Rostova', role: 'Head of Experience & Client Relations', imageUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400' }
-        ]);
+        console.warn('Team API offline or empty. Setting members to empty array.');
+        setMembers([]);
       }
     };
     fetchTeam();
