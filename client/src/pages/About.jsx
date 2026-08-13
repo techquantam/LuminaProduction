@@ -3,25 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import TransitionEffect from '../components/TransitionEffect';
 import { useAuth } from '../context/AuthContext';
 
-const DEMO_CLIENTS = [
-  { name: 'Chanel', logoUrl: '/uploads/one.webp' },
-  { name: 'Cartier', logoUrl: '/uploads/two.webp' },
-  { name: 'Gucci', logoUrl: '/uploads/three.webp' },
-  { name: 'Dior', logoUrl: '/uploads/four.webp' },
-  { name: 'Hermes', logoUrl: '/uploads/five.webp' },
-  { name: 'Rolex', logoUrl: '/uploads/six.webp' },
-  { name: 'Prada', logoUrl: '/uploads/seven.webp' },
-  { name: 'Louis Vuitton', logoUrl: '/uploads/eight.webp' },
-  { name: 'Louis Vuitton', logoUrl: '/uploads/nine.webp' },
-  { name: 'Louis Vuitton', logoUrl: '/uploads/ten.webp' },
-  { name: 'Louis Vuitton', logoUrl: '/uploads/eleven.webp' },
-  { name: 'Louis Vuitton', logoUrl: '/uploads/twelve.webp' },
-  { name: 'Louis Vuitton', logoUrl: '/uploads/thirteen.webp' }
-
-
-
-];
-
 const CITIES = [
   { name: 'USA', country: 'USA', x: '19.3%', y: '31.1%' },
   { name: 'UK', country: 'UK', x: '46.9%', y: '29.4%' },
@@ -94,8 +75,8 @@ const About = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Use live clients from DB, fall back to local demo if DB has none
-  const displayClients = liveClients.length > 0 ? liveClients : DEMO_CLIENTS;
+  // Use live clients from DB only
+  const displayClients = liveClients;
 
   return (
     <>

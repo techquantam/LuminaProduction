@@ -190,21 +190,7 @@ const projectsData = [
 ];
 
 const clientsData = [
-  { name: 'Audemars Piguet', logoUrl: 'https://logo.clearbit.com/audemarspiguet.com' },
-  { name: 'BMW', logoUrl: 'https://logo.clearbit.com/bmw.com' },
-  { name: 'Cartier', logoUrl: 'https://logo.clearbit.com/cartier.com' },
-  { name: 'Chanel', logoUrl: 'https://logo.clearbit.com/chanel.com' },
-  { name: 'Chopard', logoUrl: 'https://logo.clearbit.com/chopard.com' },
-  { name: 'Dior', logoUrl: 'https://logo.clearbit.com/dior.com' },
-  { name: 'Fendi', logoUrl: 'https://logo.clearbit.com/fendi.com' },
-  { name: 'Ferrari', logoUrl: 'https://logo.clearbit.com/ferrari.com' },
-  { name: 'Gucci', logoUrl: 'https://logo.clearbit.com/gucci.com' },
-  { name: 'Hermès', logoUrl: 'https://logo.clearbit.com/hermes.com' },
-  { name: 'HSBC', logoUrl: 'https://logo.clearbit.com/hsbc.com' },
-  { name: 'Lexus', logoUrl: 'https://logo.clearbit.com/lexus.com' },
-  { name: 'Louis Vuitton', logoUrl: 'https://logo.clearbit.com/louisvuitton.com' },
-  { name: 'Montblanc', logoUrl: 'https://logo.clearbit.com/montblanc.com' },
-  { name: 'Piaget', logoUrl: 'https://logo.clearbit.com/piaget.com' }
+
 ];
 
 const testimonialsData = [
@@ -324,11 +310,7 @@ const seedData = async () => {
         console.log('\x1b[32m[Seed] Mongoose Gallery Initialized.\x1b[0m');
       }
 
-      const clientCount = await Client.countDocuments();
-      if (clientCount === 0) {
-        await Client.insertMany(clientsData);
-        console.log('\x1b[32m[Seed] Mongoose Clients Initialized.\x1b[0m');
-      }
+      // Client seeding removed so only admin uploaded clients show up
 
       const teamCount = await TeamMember.countDocuments();
       if (teamCount === 0) {
