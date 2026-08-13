@@ -35,7 +35,9 @@ app.use(cors({
     const allowedOrigins = [
       'http://localhost:5173',
       'http://localhost:3000',
-      'https://lumina-production.vercel.app'
+      'https://lumina-production.vercel.app',
+      'https://luminaworldwideevents.com',
+      'https://www.luminaworldwideevents.com'
     ];
 
     if (process.env.CLIENT_URL) {
@@ -47,7 +49,8 @@ app.use(cors({
     const isAllowed = allowedOrigins.includes(origin) ||
                       origin.startsWith('http://localhost:') ||
                       /\.vercel\.app$/.test(origin) ||
-                      /\.onrender\.com$/.test(origin);
+                      /\.onrender\.com$/.test(origin) ||
+                      origin.includes('luminaworldwideevents.com');
 
     if (isAllowed) {
       callback(null, true);

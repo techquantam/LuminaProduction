@@ -46,11 +46,9 @@ const Contact = () => {
         setFeedbackMessage(data.message || 'Error sending request.');
       }
     } catch (err) {
-      console.warn('API offline. Recording contact form in client mock sandbox.');
-      // client-side success fallback
-      setStatus('success');
-      setFeedbackMessage('Offline submission recorded. Our virtual concierge has processed your details.');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      console.error('Contact API error:', err);
+      setStatus('error');
+      setFeedbackMessage('Unable to reach the server. Please try again later.');
     } finally {
       setLoading(false);
     }
