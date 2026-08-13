@@ -1326,10 +1326,8 @@ const AdminDashboard = () => {
                 </div>
               )}
 
-            </div>{/* end lg:col-span-9 */}
-
-          </div>{/* end grid */}
-
+            </div>
+          </div>
         </div>
       </div>
     </>
