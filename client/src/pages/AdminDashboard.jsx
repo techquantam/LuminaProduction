@@ -1273,7 +1273,7 @@ const AdminDashboard = () => {
                     </div>
 
                     <p className="text-[10px] text-luxury-black/40 dark:text-white/30 font-light">
-                      Note: Uploading new images will <strong>replace</strong> all existing hero images with the new selection.
+                      Note: Uploading new images will <strong>add</strong> to the existing hero images (maximum 5).
                     </p>
 
                     <button

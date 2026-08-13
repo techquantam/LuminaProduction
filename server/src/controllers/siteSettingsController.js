@@ -32,37 +32,46 @@ const getSetting = async (req, res) => {
 // PUT /api/settings/hero-images  (upload up to 5 images OR pass URLs)
 const updateHeroImages = async (req, res) => {
   try {
-    let heroImages = [];
+    let newHeroImages = [];
 
     // If files uploaded (multipart)
     if (req.files && req.files.length > 0) {
-      heroImages = req.files.map(f => getMediaUrl(req, f));
+      newHeroImages = req.files.map(f => getMediaUrl(req, f));
     } else if (req.body.images) {
       // JSON array of URLs sent as string
       try {
-        heroImages = JSON.parse(req.body.images);
+        newHeroImages = JSON.parse(req.body.images);
       } catch {
-        heroImages = req.body.images.split(',').map(u => u.trim()).filter(Boolean);
+        newHeroImages = req.body.images.split(',').map(u => u.trim()).filter(Boolean);
       }
     }
 
-    if (!heroImages || heroImages.length === 0) {
+    if (!newHeroImages || newHeroImages.length === 0) {
       return res.status(400).json({ success: false, message: 'No hero images provided.' });
     }
 
     if (global.isMockDB) {
       global._mockSettings = global._mockSettings || {};
-      global._mockSettings['hero-images'] = heroImages;
-      return res.json({ success: true, message: 'Hero images updated (mock).', data: { key: 'hero-images', value: heroImages } });
+      const current = global._mockSettings['hero-images'] || [];
+      const combined = [...current, ...newHeroImages].slice(0, 5); // Keep max 5
+      global._mockSettings['hero-images'] = combined;
+      return res.json({ success: true, message: 'Hero images added (mock).', data: { key: 'hero-images', value: combined } });
     }
+
+    // Fetch existing settings
+    let setting = await SiteSettings.findOne({ key: 'hero-images' });
+    let existingImages = setting ? setting.value : [];
+    
+    // Combine and limit to 5
+    let combinedImages = [...existingImages, ...newHeroImages].slice(0, 5);
 
     const updated = await SiteSettings.findOneAndUpdate(
       { key: 'hero-images' },
-      { value: heroImages },
+      { value: combinedImages },
       { upsert: true, new: true }
     );
 
-    res.json({ success: true, message: 'Hero images updated successfully.', data: updated });
+    res.json({ success: true, message: 'Hero images added successfully.', data: updated });
   } catch (error) {
     res.status(500).json({ success: false, message: 'Error updating hero images.', error: error.message });
   }
