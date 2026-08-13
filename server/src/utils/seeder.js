@@ -292,16 +292,10 @@ const seedData = async () => {
       galleryData.forEach(item => mockCollections.Gallery.create(item));
       console.log('\x1b[32m[Seed] Mock Gallery Initialized.\x1b[0m');
     }
-    const existingMockClients = mockCollections.Client.find();
-    for (const item of clientsData) {
-      const match = existingMockClients.find(c => c.name === item.name);
-      if (match) {
-        mockCollections.Client.findByIdAndUpdate(match._id, { logoUrl: item.logoUrl });
-      } else {
-        mockCollections.Client.create(item);
-      }
+    if (mockCollections.Client.find().length === 0) {
+      clientsData.forEach(item => mockCollections.Client.create(item));
+      console.log('\x1b[32m[Seed] Mock Clients Initialized.\x1b[0m');
     }
-    console.log('\x1b[32m[Seed] Mock Clients Synchronized.\x1b[0m');
     if (mockCollections.TeamMember.find().length === 0) {
       teamData.forEach(item => mockCollections.TeamMember.create(item));
       console.log('\x1b[32m[Seed] Mock Team Members Initialized.\x1b[0m');
@@ -330,14 +324,11 @@ const seedData = async () => {
         console.log('\x1b[32m[Seed] Mongoose Gallery Initialized.\x1b[0m');
       }
 
-      for (const item of clientsData) {
-        await Client.findOneAndUpdate(
-          { name: item.name },
-          { logoUrl: item.logoUrl },
-          { upsert: true }
-        );
+      const clientCount = await Client.countDocuments();
+      if (clientCount === 0) {
+        await Client.insertMany(clientsData);
+        console.log('\x1b[32m[Seed] Mongoose Clients Initialized.\x1b[0m');
       }
-      console.log('\x1b[32m[Seed] Mongoose Clients Synchronized.\x1b[0m');
 
       const teamCount = await TeamMember.countDocuments();
       if (teamCount === 0) {

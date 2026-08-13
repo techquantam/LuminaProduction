@@ -8,11 +8,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Curated Unsplash images for luxury branding
-const HERO_IMAGES = [
-  'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1600', // Gala Ballroom
-  'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1600', // Fashion runway
-  'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600', // Luxury wedding
+// Fallback images if no hero images are set in admin
+const DEFAULT_HERO_IMAGES = [
+  'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1600',
+  'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1600',
+  'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600',
 ];
 
 const DEFAULT_SERVICES = [
@@ -55,6 +55,7 @@ const LOGOS = ['VOGUE', 'BMW', 'VERTU', 'CHANEL', 'CARTIER', 'AURA COUTURE', 'CH
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [heroImages, setHeroImages] = useState(DEFAULT_HERO_IMAGES);
   const [services, setServices] = useState(DEFAULT_SERVICES);
   const [projects, setProjects] = useState(DEFAULT_PROJECTS);
   const [gallery, setGallery] = useState(DEFAULT_GALLERY);
@@ -64,18 +65,26 @@ const Home = () => {
 
   const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
-  // Background slider loop
+  // Background slider loop - resets if heroImages length changes
   useEffect(() => {
+    setCurrentSlide(0);
     const interval = setInterval(() => {
-      setCurrentSlide(prev => (prev + 1) % HERO_IMAGES.length);
+      setCurrentSlide(prev => (prev + 1) % heroImages.length);
     }, 6000);
     return () => clearInterval(interval);
-  }, []);
+  }, [heroImages.length]);
 
   // Fetch API content
   useEffect(() => {
     const fetchHomeData = async () => {
       try {
+        // Fetch hero images from settings
+        const hRes = await fetch(`${API_URL}/settings/hero-images`);
+        const hData = await hRes.json();
+        if (hData.success && hData.data && Array.isArray(hData.data.value) && hData.data.value.length > 0) {
+          setHeroImages(hData.data.value);
+        }
+
         const sRes = await fetch(`${API_URL}/services`);
         const sData = await sRes.json();
         if (sData.success && sData.data.length > 0) setServices(sData.data.slice(0, 7));
@@ -83,7 +92,6 @@ const Home = () => {
         const pRes = await fetch(`${API_URL}/projects/featured`);
         const pData = await pRes.json();
         if (pData.success && pData.data.length > 0) setProjects(pData.data.slice(0, 3));
-
 
         const gRes = await fetch(`${API_URL}/gallery`);
         const gData = await gRes.json();
@@ -139,7 +147,7 @@ const Home = () => {
             <motion.div
               key={currentSlide}
               className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${HERO_IMAGES[currentSlide]})` }}
+              style={{ backgroundImage: `url(${heroImages[currentSlide]})` }}
               initial={{ opacity: 0, scale: 1.15 }}
               animate={{ opacity: 0.5, scale: 1 }}
               exit={{ opacity: 0 }}
@@ -183,7 +191,7 @@ const Home = () => {
 
         {/* Slide Indicators */}
         <div className="absolute bottom-12 right-6 md:right-12 flex items-center space-x-3 z-10">
-          {HERO_IMAGES.map((_, idx) => (
+          {heroImages.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setCurrentSlide(idx)}

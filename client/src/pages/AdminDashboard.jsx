@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { motion } from 'framer-motion';
-import { LayoutDashboard, FolderKanban, ShieldCheck, LogOut, MessageSquare, Plus, Edit2, Trash2, CheckCircle, Mail, Globe, Award, Lock, Users } from 'lucide-react';
+import { LayoutDashboard, FolderKanban, ShieldCheck, LogOut, MessageSquare, Plus, Edit2, Trash2, CheckCircle, Mail, Globe, Award, Lock, Users, Image } from 'lucide-react';
 import TransitionEffect from '../components/TransitionEffect';
 
 const AdminDashboard = () => {
@@ -22,6 +22,9 @@ const AdminDashboard = () => {
   const [contacts, setContacts] = useState([]);
   const [clients, setClients] = useState([]);
   const [team, setTeam] = useState([]);
+  const [heroImages, setHeroImages] = useState([]);
+  const [heroImageFiles, setHeroImageFiles] = useState([]);
+  const [heroUploading, setHeroUploading] = useState(false);
 
   // Form States (Creates & Updates)
   const [isEditing, setIsEditing] = useState(false);
@@ -103,6 +106,15 @@ const AdminDashboard = () => {
       const teamRes = await fetch(`${API_URL}/team`);
       const teamData = await teamRes.json();
       if (teamData.success) setTeam(teamData.data);
+
+      // Hero Images
+      const hRes = await fetch(`${API_URL}/settings/hero-images`);
+      const hData = await hRes.json();
+      if (hData.success && hData.data && Array.isArray(hData.data.value)) {
+        setHeroImages(hData.data.value);
+      } else {
+        setHeroImages([]);
+      }
     } catch (err) {
       console.warn('API is offline. Loading mock interactive collections in memory.');
       loadMockCollections();
@@ -529,6 +541,78 @@ const AdminDashboard = () => {
     setTeamFile(null);
   };
 
+  // ==========================================
+  // HERO IMAGES CRUD OPERATIONS
+  // ==========================================
+  const handleHeroImagesUpload = async (e) => {
+    e.preventDefault();
+    if (!heroImageFiles || heroImageFiles.length === 0) {
+      triggerAlert('error', 'Please select at least one image.');
+      return;
+    }
+    setHeroUploading(true);
+
+    if (isStandalone || !token) {
+      const mockUrls = Array.from(heroImageFiles).map((f, i) =>
+        `https://images.unsplash.com/photo-151157831432${i}-379afb476865?q=80&w=1600`
+      );
+      setHeroImages(prev => [...prev, ...mockUrls]);
+      setHeroImageFiles([]);
+      triggerAlert('success', 'Hero Images added (Sandbox).');
+      setHeroUploading(false);
+      return;
+    }
+
+    try {
+      const formPayload = new FormData();
+      Array.from(heroImageFiles).forEach(f => formPayload.append('heroImages', f));
+
+      const response = await fetch(`${API_URL}/settings/hero-images`, {
+        method: 'PUT',
+        headers: { 'Authorization': `Bearer ${token}` },
+        body: formPayload
+      });
+      const data = await response.json();
+      if (data.success) {
+        triggerAlert('success', 'Hero images updated successfully.');
+        fetchCollections();
+        setHeroImageFiles([]);
+      } else {
+        triggerAlert('error', data.message);
+      }
+    } catch (err) {
+      triggerAlert('error', 'Error uploading hero images.');
+    } finally {
+      setHeroUploading(false);
+    }
+  };
+
+  const deleteHeroImage = async (index) => {
+    if (!window.confirm('Remove this hero image?')) return;
+
+    if (isStandalone || !token) {
+      setHeroImages(prev => prev.filter((_, i) => i !== index));
+      triggerAlert('success', 'Hero image removed (Sandbox).');
+      return;
+    }
+
+    try {
+      const res = await fetch(`${API_URL}/settings/hero-images/${index}`, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      const data = await res.json();
+      if (data.success) {
+        triggerAlert('success', 'Hero image removed.');
+        fetchCollections();
+      } else {
+        triggerAlert('error', data.message);
+      }
+    } catch (e) {
+      triggerAlert('error', 'Error removing hero image.');
+    }
+  };
+
   // 1. RENDER LOGIN SCREEN
   if (!admin) {
     return (
@@ -685,6 +769,14 @@ const AdminDashboard = () => {
               >
                 <Users size={14} />
                 <span>Team CRUD</span>
+              </button>
+
+              <button
+                onClick={() => { setActiveTab('hero'); }}
+                className={`w-full text-left flex items-center space-x-4 px-6 py-4 text-xs uppercase tracking-widest font-bold border transition-all ${activeTab === 'hero' ? 'border-luxury-gold text-luxury-gold bg-luxury-gold/5' : 'border-luxury-purple/10 text-luxury-black/60 dark:text-white/60 hover:border-luxury-gold/30'}`}
+              >
+                <Image size={14} />
+                <span>Hero Slides ({heroImages.length})</span>
               </button>
             </div>
 
@@ -1156,9 +1248,87 @@ const AdminDashboard = () => {
                 </div>
               )}
 
-            </div>
+              {/* TAB: HERO IMAGES */}
+              {activeTab === 'hero' && (
+                <div className="space-y-10">
+                  <div className="border-b border-luxury-gold/20 pb-4">
+                    <h2 className="font-editorial text-2xl font-light text-luxury-gold">Hero Background Slides</h2>
+                    <p className="text-xs text-luxury-black/50 dark:text-white/40 mt-1 font-light">Upload images that appear as the rotating background on the homepage hero section.</p>
+                  </div>
 
-          </div>
+                  {/* Upload Form */}
+                  <form onSubmit={handleHeroImagesUpload} className="space-y-6 p-6 border border-luxury-gold/20 bg-luxury-gold/[0.02]">
+                    <div className="space-y-2">
+                      <label className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold">Upload Hero Images (Max 5 at once)</label>
+                      <input
+                        type="file"
+                        multiple
+                        accept="image/*"
+                        onChange={(e) => setHeroImageFiles(Array.from(e.target.files))}
+                        className="w-full text-xs text-luxury-black/60 dark:text-white/60 file:mr-4 file:py-2 file:px-4 file:border-0 file:text-xs file:uppercase file:tracking-widest file:font-bold file:bg-luxury-gold file:text-luxury-black hover:file:bg-luxury-black hover:file:text-white file:transition-colors cursor-pointer"
+                      />
+                      {heroImageFiles.length > 0 && (
+                        <p className="text-[10px] text-luxury-gold font-semibold uppercase tracking-widest">{heroImageFiles.length} file(s) selected</p>
+                      )}
+                    </div>
+
+                    <p className="text-[10px] text-luxury-black/40 dark:text-white/30 font-light">
+                      Note: Uploading new images will <strong>replace</strong> all existing hero images with the new selection.
+                    </p>
+
+                    <button
+                      type="submit"
+                      disabled={heroUploading || heroImageFiles.length === 0}
+                      className="w-full bg-luxury-gold text-luxury-black font-semibold text-xs uppercase tracking-widest py-3 hover:bg-luxury-black hover:text-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                    >
+                      <Image size={14} />
+                      <span>{heroUploading ? 'Uploading...' : 'Upload & Set Hero Images'}</span>
+                    </button>
+                  </form>
+
+                  {/* Current Hero Images Grid */}
+                  <div className="space-y-4">
+                    <h3 className="font-editorial text-xl font-light border-b border-luxury-gold/10 pb-2">
+                      Current Hero Images ({heroImages.length})
+                    </h3>
+
+                    {heroImages.length === 0 ? (
+                      <div className="p-12 border border-dashed border-luxury-gold/20 text-center">
+                        <Image size={32} className="text-luxury-gold/30 mx-auto mb-3" />
+                        <p className="text-xs uppercase tracking-widest text-luxury-black/30 dark:text-white/30 font-semibold">No hero images set — using default fallbacks</p>
+                      </div>
+                    ) : (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        {heroImages.map((imgUrl, idx) => (
+                          <div key={idx} className="relative group overflow-hidden border border-luxury-gold/20">
+                            <img
+                              src={imgUrl}
+                              alt={`Hero slide ${idx + 1}`}
+                              className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
+                              onError={(e) => { e.target.src = 'https://via.placeholder.com/400x200?text=Image+Error'; }}
+                            />
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all duration-300 flex items-center justify-center">
+                              <button
+                                onClick={() => deleteHeroImage(idx)}
+                                className="opacity-0 group-hover:opacity-100 transition-opacity px-4 py-2 bg-red-500 text-white text-[10px] uppercase tracking-widest font-bold hover:bg-red-700"
+                              >
+                                Remove
+                              </button>
+                            </div>
+                            <div className="absolute top-2 left-2 bg-luxury-gold text-luxury-black text-[9px] font-bold px-2 py-1 uppercase tracking-widest">
+                              Slide {idx + 1}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+            </div>{/* end lg:col-span-9 */}
+
+          </div>{/* end grid */}
 
         </div>
       </div>

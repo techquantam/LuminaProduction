@@ -15,6 +15,7 @@ const galleryRoutes = require('./routes/gallery');
 const contactRoutes = require('./routes/contacts');
 const clientRoutes = require('./routes/clients');
 const teamRoutes = require('./routes/team');
+const settingsRoutes = require('./routes/settings');
 
 const app = express();
 
@@ -45,7 +46,8 @@ app.use(cors({
 
     const isAllowed = allowedOrigins.includes(origin) ||
                       origin.startsWith('http://localhost:') ||
-                      /\.vercel\.app$/.test(origin);
+                      /\.vercel\.app$/.test(origin) ||
+                      /\.onrender\.com$/.test(origin);
 
     if (isAllowed) {
       callback(null, true);
@@ -58,8 +60,9 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve Static Uploads
-app.use('/uploads', express.static(path.join(__dirname, '../../client/public/uploads')));
+// Serve Static Uploads (local dev only - use Cloudinary in production)
+const uploadsPath = path.join(__dirname, '../../client/public/uploads');
+app.use('/uploads', express.static(uploadsPath));
 
 // Routes Middleware
 app.use('/api/auth', authRoutes);
@@ -70,6 +73,7 @@ app.use('/api/gallery', galleryRoutes);
 app.use('/api/contacts', contactRoutes);
 app.use('/api/clients', clientRoutes);
 app.use('/api/team', teamRoutes);
+app.use('/api/settings', settingsRoutes);
 
 // Health Check / Root endpoint
 app.get('/', (req, res) => {
