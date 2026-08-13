@@ -62,18 +62,16 @@ if (isCloudinaryActive) {
   console.log('\x1b[35m[Storage Notice] Cloudinary config is missing or placeholder ("LUMINA"). Using local disk storage.\x1b[0m');
 }
 
-// Create a bulletproof wrapper middleware that catches Cloudinary errors and falls back to local uploads
 const dynamicUpload = {
   single: (fieldName) => {
     return (req, res, next) => {
       if (cloudinaryMulter) {
         cloudinaryMulter.single(fieldName)(req, res, (err) => {
           if (err) {
-            console.warn(`\x1b[33m[Upload Fallback] Cloudinary upload failed (${err.message}). Retrying with local disk storage...\x1b[0m`);
-            localMulter.single(fieldName)(req, res, next);
-          } else {
-            next();
+            console.error(`\x1b[31m[Upload Error] Cloudinary upload failed: ${err.message}\x1b[0m`);
+            return res.status(500).json({ success: false, message: 'Cloudinary upload failed. Check API credentials.' });
           }
+          next();
         });
       } else {
         localMulter.single(fieldName)(req, res, next);
@@ -85,11 +83,10 @@ const dynamicUpload = {
       if (cloudinaryMulter) {
         cloudinaryMulter.fields(fieldsArray)(req, res, (err) => {
           if (err) {
-            console.warn(`\x1b[33m[Upload Fallback] Cloudinary fields upload failed (${err.message}). Retrying with local disk storage...\x1b[0m`);
-            localMulter.fields(fieldsArray)(req, res, next);
-          } else {
-            next();
+            console.error(`\x1b[31m[Upload Error] Cloudinary fields upload failed: ${err.message}\x1b[0m`);
+            return res.status(500).json({ success: false, message: 'Cloudinary upload failed. Check API credentials.' });
           }
+          next();
         });
       } else {
         localMulter.fields(fieldsArray)(req, res, next);
