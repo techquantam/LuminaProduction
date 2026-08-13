@@ -18,7 +18,7 @@ const teamRoutes = require('./routes/team');
 const settingsRoutes = require('./routes/settings');
 
 const app = express();
-
+app.set('trust proxy', 1); // Allow req.protocol to be https when behind Render proxy
 // Database Connection
 connectDB().then(async () => {
   // Seed Database with standard luxury assets & default admin account
