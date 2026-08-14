@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
 import TransitionEffect from '../components/TransitionEffect';
+import ScrollReveal from '../components/ScrollReveal';
 
 const OFFICES = [
   { city: 'Poland', address: 'Osiedle Piastowskie 120, 61-166 Poznań, Poland' },
@@ -83,115 +84,125 @@ const Contact = () => {
             
             {/* Left side: Information */}
             <div className="lg:col-span-5 space-y-12">
-              <div className="space-y-6">
-                <h2 className="font-editorial text-3xl font-light">Global Coordinates</h2>
-                <p className="text-sm font-light text-luxury-black/70 dark:text-white/60 leading-relaxed">
-                  We orchestrate experiences worldwide. Reach out to our office or submit the brief to initiate the process..
-                </p>
-              </div>
+              <ScrollReveal delay={0.1}>
+                <div className="space-y-6">
+                  <h2 className="font-editorial text-3xl font-light">Global Coordinates</h2>
+                  <p className="text-sm font-light text-luxury-black/70 dark:text-white/60 leading-relaxed">
+                    We orchestrate experiences worldwide. Reach out to our office or submit the brief to initiate the process..
+                  </p>
+                </div>
+              </ScrollReveal>
 
               {/* Office Details Cards */}
               <div className="space-y-8">
-                {OFFICES.map((off) => (
-                  <div key={off.city} className="border-l-2 border-luxury-purple/30 pl-6 space-y-2">
-                    <h3 className="font-editorial text-xl text-luxury-purple font-light uppercase tracking-widest">{off.city}</h3>
-                    <p className="text-xs font-light text-luxury-black/80 dark:text-white/70">{off.address}</p>
-                    <p className="text-xs font-light text-luxury-black/60 dark:text-white/50">{off.phone}</p>
-                    <p className="text-xs font-light text-luxury-black/60 dark:text-white/50">{off.email}</p>
-                  </div>
+                {OFFICES.map((off, idx) => (
+                  <ScrollReveal key={off.city} delay={0.2 + (idx * 0.1)}>
+                    <div className="border-l-2 border-luxury-purple/30 pl-6 space-y-2">
+                      <h3 className="font-editorial text-xl text-luxury-purple font-light uppercase tracking-widest">{off.city}</h3>
+                      <p className="text-xs font-light text-luxury-black/80 dark:text-white/70">{off.address}</p>
+                      <p className="text-xs font-light text-luxury-black/60 dark:text-white/50">{off.phone}</p>
+                      <p className="text-xs font-light text-luxury-black/60 dark:text-white/50">{off.email}</p>
+                    </div>
+                  </ScrollReveal>
                 ))}
               </div>
 
               {/* General Contact Info */}
-              <div className="border-t border-luxury-purple/15 pt-8 space-y-3">
-                <div className="flex items-center space-x-3 text-luxury-purple">
-                  <Mail size={16} />
-                  <span className="text-xs uppercase tracking-widest font-semibold">General Inquiries</span>
+              <ScrollReveal delay={0.4}>
+                <div className="border-t border-luxury-purple/15 pt-8 space-y-3">
+                  <div className="flex items-center space-x-3 text-luxury-purple">
+                    <Mail size={16} />
+                    <span className="text-xs uppercase tracking-widest font-semibold">General Inquiries</span>
+                  </div>
+                  <p className="text-sm font-light text-luxury-black/70 dark:text-white/60 leading-relaxed">
+                    Our mail ID: <a href="mailto:hello@luminaworldwideevents.com" className="text-luxury-purple hover:underline font-medium">hello@luminaworldwideevents.com</a>
+                  </p>
                 </div>
-                <p className="text-sm font-light text-luxury-black/70 dark:text-white/60 leading-relaxed">
-                  Our mail ID: <a href="mailto:hello@luminaworldwideevents.com" className="text-luxury-purple hover:underline font-medium">hello@luminaworldwideevents.com</a>
-                </p>
-              </div>
+              </ScrollReveal>
             </div>
 
             {/* Right side: Luxurious Form */}
-            <div className="lg:col-span-7 bg-white dark:bg-[#0E0E0E] p-8 md:p-12 border border-luxury-purple/15 shadow-xl">
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="space-y-2">
-                    <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Your Name</label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full bg-transparent border-b border-luxury-purple/20 py-3 text-sm focus:outline-none focus:border-luxury-purple text-luxury-black dark:text-white font-light"
-                      placeholder="ENTER NAME"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Email Address</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full bg-transparent border-b border-luxury-purple/20 py-3 text-sm focus:outline-none focus:border-luxury-purple text-luxury-black dark:text-white font-light"
-                      placeholder="ENTER EMAIL"
-                      required
-                    />
-                  </div>
+            <div className="lg:col-span-7">
+              <ScrollReveal delay={0.3} direction="left">
+                <div className="bg-white dark:bg-[#0E0E0E] p-8 md:p-12 border border-luxury-purple/15 shadow-xl">
+                  <form onSubmit={handleSubmit} className="space-y-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div className="space-y-2">
+                        <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Your Name</label>
+                        <input
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          className="w-full bg-transparent border-b border-luxury-purple/20 py-3 text-sm focus:outline-none focus:border-luxury-purple text-luxury-black dark:text-white font-light"
+                          placeholder="ENTER NAME"
+                          required
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Email Address</label>
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          className="w-full bg-transparent border-b border-luxury-purple/20 py-3 text-sm focus:outline-none focus:border-luxury-purple text-luxury-black dark:text-white font-light"
+                          placeholder="ENTER EMAIL"
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Subject Theme</label>
+                      <input
+                        type="text"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        className="w-full bg-transparent border-b border-luxury-purple/20 py-3 text-sm focus:outline-none focus:border-luxury-purple text-luxury-black dark:text-white font-light"
+                        placeholder="E.G. COUTURE SHOW 2026"
+                        required
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Creative Objective</label>
+                      <textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        rows={4}
+                        className="w-full bg-transparent border-b border-luxury-purple/20 py-3 text-sm focus:outline-none focus:border-luxury-purple text-luxury-black dark:text-white font-light resize-none"
+                        placeholder="DESCRIBE THE SPECTACLE Blueprints..."
+                        required
+                      />
+                    </div>
+
+                    {/* Status messages */}
+                    {status === 'success' && (
+                      <div className="flex items-center space-x-3 p-4 bg-luxury-purple/10 border border-luxury-purple/30 text-luxury-purple rounded text-xs uppercase tracking-widest font-semibold animate-pulse">
+                        <CheckCircle2 size={16} />
+                        <span>{feedbackMessage}</span>
+                      </div>
+                    )}
+                    {status === 'error' && (
+                      <div className="p-4 bg-red-950/20 border border-red-800 text-red-400 rounded text-xs uppercase tracking-widest">
+                        {feedbackMessage}
+                      </div>
+                    )}
+
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="w-full bg-luxury-purple text-luxury-black font-semibold text-xs uppercase tracking-widest py-4 flex items-center justify-center space-x-2 hover:bg-luxury-black hover:text-white dark:hover:bg-white dark:hover:text-luxury-black transition-colors"
+                    >
+                      <Send size={14} />
+                      <span>{loading ? 'TRANSMITTING...' : 'TRANSMIT SCRIPT'}</span>
+                    </button>
+                  </form>
                 </div>
-
-                <div className="space-y-2">
-                  <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Subject Theme</label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="w-full bg-transparent border-b border-luxury-purple/20 py-3 text-sm focus:outline-none focus:border-luxury-purple text-luxury-black dark:text-white font-light"
-                    placeholder="E.G. COUTURE SHOW 2026"
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold">Creative Objective</label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={4}
-                    className="w-full bg-transparent border-b border-luxury-purple/20 py-3 text-sm focus:outline-none focus:border-luxury-purple text-luxury-black dark:text-white font-light resize-none"
-                    placeholder="DESCRIBE THE SPECTACLE Blueprints..."
-                    required
-                  />
-                </div>
-
-                {/* Status messages */}
-                {status === 'success' && (
-                  <div className="flex items-center space-x-3 p-4 bg-luxury-purple/10 border border-luxury-purple/30 text-luxury-purple rounded text-xs uppercase tracking-widest font-semibold animate-pulse">
-                    <CheckCircle2 size={16} />
-                    <span>{feedbackMessage}</span>
-                  </div>
-                )}
-                {status === 'error' && (
-                  <div className="p-4 bg-red-950/20 border border-red-800 text-red-400 rounded text-xs uppercase tracking-widest">
-                    {feedbackMessage}
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full bg-luxury-purple text-luxury-black font-semibold text-xs uppercase tracking-widest py-4 flex items-center justify-center space-x-2 hover:bg-luxury-black hover:text-white dark:hover:bg-white dark:hover:text-luxury-black transition-colors"
-                >
-                  <Send size={14} />
-                  <span>{loading ? 'TRANSMITTING...' : 'TRANSMIT SCRIPT'}</span>
-                </button>
-              </form>
+              </ScrollReveal>
             </div>
 
           </div>

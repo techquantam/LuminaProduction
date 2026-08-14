@@ -5,6 +5,7 @@ import { ArrowRight, Award, Compass, Play, Sparkles } from 'lucide-react';
 import TransitionEffect from '../components/TransitionEffect';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ScrollReveal from '../components/ScrollReveal';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -181,40 +182,56 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Story */}
             <div className="space-y-8">
-              <p className="text-xs uppercase tracking-widest text-luxury-purple font-semibold">The Lumina Legacy</p>
-              <h2 className="font-editorial text-4xl md:text-5xl font-light leading-tight">
-                Staging physical spectacles <br className="hidden md:inline" />
-                that command global awe.
-              </h2>
-              <p className="text-sm font-light text-luxury-black/70 dark:text-white/60 leading-relaxed">
-                Lumina is a premium experiential marketing agency crafting bespoke event designs, high-end production engineering, and conceptual storytelling environments. From product launch to Global exhibitions, we compose sensory miracles for complete marketing solutions worldwide.
-              </p>
-              <div className="pt-4">
-                <Link to="/about" className="flex items-center space-x-3 group text-xs uppercase tracking-widest font-semibold text-luxury-purple hover:text-luxury-black dark:hover:text-white transition-colors">
-                  <span>Our Heritage Story</span>
-                  <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
-                </Link>
-              </div>
+              <ScrollReveal delay={0.1}>
+                <p className="text-xs uppercase tracking-widest text-luxury-purple font-semibold">The Lumina Legacy</p>
+              </ScrollReveal>
+              <ScrollReveal delay={0.2}>
+                <h2 className="font-editorial text-4xl md:text-5xl font-light leading-tight">
+                  Staging physical spectacles <br className="hidden md:inline" />
+                  that command global awe.
+                </h2>
+              </ScrollReveal>
+              <ScrollReveal delay={0.3}>
+                <p className="text-sm font-light text-luxury-black/70 dark:text-white/60 leading-relaxed">
+                  Lumina is a premium experiential marketing agency crafting bespoke event designs, high-end production engineering, and conceptual storytelling environments. From product launch to Global exhibitions, we compose sensory miracles for complete marketing solutions worldwide.
+                </p>
+              </ScrollReveal>
+              <ScrollReveal delay={0.4}>
+                <div className="pt-4">
+                  <Link to="/about" className="flex items-center space-x-3 group text-xs uppercase tracking-widest font-semibold text-luxury-purple hover:text-luxury-black dark:hover:text-white transition-colors">
+                    <span>Our Heritage Story</span>
+                    <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
+                  </Link>
+                </div>
+              </ScrollReveal>
             </div>
 
             {/* Grid stats */}
             <div className="grid grid-cols-2 gap-8 border-l border-luxury-purple/20 pl-8">
-              <div className="space-y-2">
-                <h3 className="font-editorial text-5xl md:text-6xl text-luxury-purple font-light">24+</h3>
-                <p className="text-xs uppercase tracking-widest text-luxury-black/50 dark:text-white/40">Countries</p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-editorial text-5xl md:text-6xl text-luxury-purple font-light">450+</h3>
-                <p className="text-xs uppercase tracking-widest text-luxury-black/50 dark:text-white/40">Events Experiences</p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-editorial text-5xl md:text-6xl text-luxury-purple font-light">30+</h3>
-                <p className="text-xs uppercase tracking-widest text-luxury-black/50 dark:text-white/40">Global Brands</p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-editorial text-5xl md:text-6xl text-luxury-purple font-light">98%</h3>
-                <p className="text-xs uppercase tracking-widest text-luxury-black/50 dark:text-white/40">Client Return</p>
-              </div>
+              <ScrollReveal delay={0.2} direction="left">
+                <div className="space-y-2">
+                  <h3 className="font-editorial text-5xl md:text-6xl text-luxury-purple font-light">24+</h3>
+                  <p className="text-xs uppercase tracking-widest text-luxury-black/50 dark:text-white/40">Countries</p>
+                </div>
+              </ScrollReveal>
+              <ScrollReveal delay={0.3} direction="left">
+                <div className="space-y-2">
+                  <h3 className="font-editorial text-5xl md:text-6xl text-luxury-purple font-light">450+</h3>
+                  <p className="text-xs uppercase tracking-widest text-luxury-black/50 dark:text-white/40">Events Experiences</p>
+                </div>
+              </ScrollReveal>
+              <ScrollReveal delay={0.4} direction="left">
+                <div className="space-y-2">
+                  <h3 className="font-editorial text-5xl md:text-6xl text-luxury-purple font-light">30+</h3>
+                  <p className="text-xs uppercase tracking-widest text-luxury-black/50 dark:text-white/40">Global Brands</p>
+                </div>
+              </ScrollReveal>
+              <ScrollReveal delay={0.5} direction="left">
+                <div className="space-y-2">
+                  <h3 className="font-editorial text-5xl md:text-6xl text-luxury-purple font-light">98%</h3>
+                  <p className="text-xs uppercase tracking-widest text-luxury-black/50 dark:text-white/40">Client Return</p>
+                </div>
+              </ScrollReveal>
             </div>
           </div>
         </div>
@@ -224,23 +241,28 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
             <div className="space-y-4">
-              <p className="text-xs uppercase tracking-widest text-luxury-purple font-semibold">Specialist Curation</p>
-              <h2 className="font-editorial text-4xl md:text-5xl font-light">Experiential Disciplines</h2>
+              <ScrollReveal>
+                <p className="text-xs uppercase tracking-widest text-luxury-purple font-semibold">Specialist Curation</p>
+              </ScrollReveal>
+              <ScrollReveal delay={0.1}>
+                <h2 className="font-editorial text-4xl md:text-5xl font-light">Experiential Disciplines</h2>
+              </ScrollReveal>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((svc, idx) => (
-              <div
-                key={svc._id}
-                className="group relative bg-luxury-bg dark:bg-luxury-bgDark border border-luxury-purple/15 p-8 space-y-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
-              >
-                <div className="w-12 h-12 rounded-full bg-luxury-purple/10 flex items-center justify-center text-luxury-purple group-hover:bg-luxury-purple group-hover:text-luxury-black transition-colors duration-500">
-                  <Sparkles size={20} />
+              <ScrollReveal key={svc._id} delay={0.1 * idx}>
+                <div
+                  className="group relative h-full bg-luxury-bg dark:bg-luxury-bgDark border border-luxury-purple/15 p-8 space-y-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
+                >
+                  <div className="w-12 h-12 rounded-full bg-luxury-purple/10 flex items-center justify-center text-luxury-purple group-hover:bg-luxury-purple group-hover:text-luxury-black transition-colors duration-500">
+                    <Sparkles size={20} />
+                  </div>
+                  <h3 className="font-editorial text-xl font-light group-hover:text-luxury-purple transition-colors">{svc.name}</h3>
+                  <p className="text-sm font-light text-luxury-black/70 dark:text-white/60 leading-relaxed">{svc.description}</p>
                 </div>
-                <h3 className="font-editorial text-xl font-light group-hover:text-luxury-purple transition-colors">{svc.name}</h3>
-                <p className="text-sm font-light text-luxury-black/70 dark:text-white/60 leading-relaxed">{svc.description}</p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -254,13 +276,17 @@ const Home = () => {
       <section className="py-28 bg-white dark:bg-[#0E0E0E] transition-colors border-b border-luxury-purple/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="space-y-4 mb-20 text-center">
-            <p className="text-xs uppercase tracking-widest text-luxury-purple font-semibold">The Blueprint</p>
-            <h2 className="font-editorial text-4xl md:text-5xl font-light">Experience Delivery</h2>
+            <ScrollReveal>
+              <p className="text-xs uppercase tracking-widest text-luxury-purple font-semibold">The Blueprint</p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <h2 className="font-editorial text-4xl md:text-5xl font-light">Experience Delivery</h2>
+            </ScrollReveal>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8 relative">
             {PROCESS_STEPS.map((proc, idx) => (
-              <div key={proc.step} className="space-y-6 relative group">
+              <ScrollReveal key={proc.step} delay={0.15 * idx} className="space-y-6 relative group">
                 {/* Horizontal line connector in desktop */}
                 {idx < 4 && (
                   <div className="hidden md:block absolute top-6 left-12 w-full h-[1px] bg-luxury-purple/20 group-hover:bg-luxury-purple transition-colors duration-500" />
@@ -270,7 +296,7 @@ const Home = () => {
                 </div>
                 <h3 className="font-editorial text-xl font-light">{proc.title}</h3>
                 <p className="text-sm font-light text-luxury-black/60 dark:text-white/50 leading-relaxed">{proc.desc}</p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -283,20 +309,28 @@ const Home = () => {
       <section className="py-32 bg-luxury-black text-white relative border-t border-luxury-purple/25 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,168,106,0.08),transparent_50%)]" />
         <div className="max-w-4xl mx-auto px-6 text-center space-y-10 relative z-10">
-          <p className="text-xs uppercase tracking-widest text-luxury-purple font-semibold">Initiation</p>
-          <h2 className="font-editorial text-5xl md:text-7xl font-light leading-none tracking-tight">
-            Create an <br />
-            <span className="italic text-luxury-purple">experience</span> with us.
-          </h2>
-          <p className="text-sm font-light text-white/50 max-w-md mx-auto leading-relaxed">
-            Begin the script of your sensory event. Connect with our international concierge to outline your production objectives.
-          </p>
-          <div className="pt-6">
-            <Link to="/contact" className="inline-flex items-center space-x-3 bg-luxury-purple text-luxury-black font-semibold text-xs uppercase tracking-widest px-12 py-4 hover:bg-white transition-all duration-300">
-              <span>Connect Concierge</span>
-              <ArrowRight size={14} />
-            </Link>
-          </div>
+          <ScrollReveal>
+            <p className="text-xs uppercase tracking-widest text-luxury-purple font-semibold">Initiation</p>
+          </ScrollReveal>
+          <ScrollReveal delay={0.1}>
+            <h2 className="font-editorial text-5xl md:text-7xl font-light leading-none tracking-tight">
+              Create an <br />
+              <span className="italic text-luxury-purple">experience</span> with us.
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal delay={0.2}>
+            <p className="text-sm font-light text-white/50 max-w-md mx-auto leading-relaxed">
+              Begin the script of your sensory event. Connect with our international concierge to outline your production objectives.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={0.3}>
+            <div className="pt-6">
+              <Link to="/contact" className="inline-flex items-center space-x-3 bg-luxury-purple text-luxury-black font-semibold text-xs uppercase tracking-widest px-12 py-4 hover:bg-white transition-all duration-300">
+                <span>Connect Concierge</span>
+                <ArrowRight size={14} />
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
     </>

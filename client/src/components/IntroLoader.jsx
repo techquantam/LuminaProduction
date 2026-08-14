@@ -120,7 +120,7 @@ const IntroLoader = ({ onComplete }) => {
               <div className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
                 <iframe
                   id="intro-video-iframe"
-                  src="https://www.youtube.com/embed/cG8NJJ9lnOg?enablejsapi=1&autoplay=1&mute=1&controls=0&loop=0&rel=0&showinfo=0&iv_load_policy=3&modestbranding=1&disablekb=1&fs=0&wmode=transparent&end=45"
+                  src="https://www.youtube.com/embed/mJhIzhauiHM?enablejsapi=1&autoplay=1&mute=1&controls=0&loop=0&rel=0&showinfo=0&iv_load_policy=3&modestbranding=1&disablekb=1&fs=0&wmode=transparent&end=45"
                   title="Lumina Cinematic Intro"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

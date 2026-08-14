@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import TransitionEffect from '../components/TransitionEffect';
+import ScrollReveal from '../components/ScrollReveal';
 import { useAuth } from '../context/AuthContext';
 
 const SEGMENTS = [
@@ -81,12 +82,9 @@ const Team = () => {
           {/* Segments Sections */}
           <div className="space-y-12 border-t border-luxury-purple/15 pt-12 pb-24">
             {SEGMENTS.map((seg, idx) => (
-              <motion.div
+              <ScrollReveal
                 key={seg.title}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                delay={idx * 0.1}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-8 border-b border-luxury-purple/10 pb-8 items-start"
               >
                 {/* Title with Arrow Icon on the left */}
@@ -105,7 +103,7 @@ const Team = () => {
                     {seg.desc}
                   </p>
                 </div>
-              </motion.div>
+              </ScrollReveal>
             ))}
           </div>
 
@@ -125,12 +123,9 @@ const Team = () => {
             {/* Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {members.map((member, idx) => (
-                <motion.div
+                <ScrollReveal
                   key={member._id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  delay={idx * 0.1}
                   className="group bg-white dark:bg-[#0E0E0E] border border-luxury-purple/15 p-6 hover:shadow-xl transition-all duration-500 flex flex-col justify-between"
                 >
                   <div className="space-y-6">
@@ -152,7 +147,7 @@ const Team = () => {
                       </h3>
                     </div>
                   </div>
-                </motion.div>
+                </ScrollReveal>
               ))}
             </div>
           </div>

@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Calendar, MapPin, Tag, ChevronLeft, ChevronRight, Check } from 'lucide-react';
 import TransitionEffect from '../components/TransitionEffect';
+import ScrollReveal from '../components/ScrollReveal';
 
 const DEFAULT_PROJECTS = {
   '1': {
@@ -214,23 +215,25 @@ const ProjectDetail = () => {
           </div>
 
           {/* Majestic Large Main Viewport */}
-          <div className="w-full h-[62vh] relative overflow-hidden bg-luxury-black border border-luxury-black/5 dark:border-white/5 shadow-md">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${project.imageUrl})` }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80" />
-            
-            {/* Project Quick Overlay Title */}
-            <div className="absolute bottom-6 left-6 md:left-12 z-10 text-white">
-              <p className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold mb-1">
-                {project.client}
-              </p>
-              <h2 className="font-editorial text-2xl md:text-3xl font-light">
-                {project.title}
-              </h2>
+          <ScrollReveal delay={0.1} scale={0.98} distance={30}>
+            <div className="w-full h-[62vh] relative overflow-hidden bg-luxury-black border border-luxury-black/5 dark:border-white/5 shadow-md">
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${project.imageUrl})` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80" />
+              
+              {/* Project Quick Overlay Title */}
+              <div className="absolute bottom-6 left-6 md:left-12 z-10 text-white">
+                <p className="text-[10px] uppercase tracking-widest text-luxury-purple font-bold mb-1">
+                  {project.client}
+                </p>
+                <h2 className="font-editorial text-2xl md:text-3xl font-light">
+                  {project.title}
+                </h2>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -259,25 +262,27 @@ const ProjectDetail = () => {
           )}
 
           {/* Large Horizontal Scroll View */}
-          <div
-            ref={carouselRef}
-            className="flex gap-6 overflow-x-auto scroll-smooth scrollbar-none pb-4 px-2"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
-            {subImagesList.map((imgUrl, index) => {
-              return (
-                <div
-                  key={index}
-                  className="relative flex-shrink-0 w-[300px] md:w-[480px] aspect-[16/10] overflow-hidden border border-luxury-black/10 dark:border-white/10 bg-luxury-black/10 shadow-sm"
-                >
+          <ScrollReveal delay={0.2} direction="left">
+            <div
+              ref={carouselRef}
+              className="flex gap-6 overflow-x-auto scroll-smooth scrollbar-none pb-4 px-2"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {subImagesList.map((imgUrl, index) => {
+                return (
                   <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-500 ease-out hover:scale-[1.03]"
-                    style={{ backgroundImage: `url(${imgUrl})` }}
-                  />
-                </div>
-              );
-            })}
-          </div>
+                    key={index}
+                    className="relative flex-shrink-0 w-[300px] md:w-[480px] aspect-[16/10] overflow-hidden border border-luxury-black/10 dark:border-white/10 bg-luxury-black/10 shadow-sm"
+                  >
+                    <div
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-500 ease-out hover:scale-[1.03]"
+                      style={{ backgroundImage: `url(${imgUrl})` }}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -288,60 +293,67 @@ const ProjectDetail = () => {
             
             {/* Left Column: Creative Narrative Details */}
             <div className="lg:col-span-7 space-y-8">
-              <div className="space-y-4">
-                <p className="text-xs uppercase tracking-widest text-luxury-purple font-bold font-sans">
-                  The Creative Script
+              <ScrollReveal delay={0.1}>
+                <div className="space-y-4">
+                  <p className="text-xs uppercase tracking-widest text-luxury-purple font-bold font-sans">
+                    The Creative Script
+                  </p>
+                  <h3 className="font-editorial text-3xl font-light text-luxury-black dark:text-white leading-tight">
+                    {project.client} &mdash; <span className="italic text-luxury-purple">{project.title}</span>
+                  </h3>
+                </div>
+              </ScrollReveal>
+              <ScrollReveal delay={0.2}>
+                <p className="font-editorial text-lg font-light text-luxury-black/80 dark:text-white/70 leading-relaxed max-w-2xl">
+                  {project.description}
                 </p>
-                <h3 className="font-editorial text-3xl font-light text-luxury-black dark:text-white leading-tight">
-                  {project.client} &mdash; <span className="italic text-luxury-purple">{project.title}</span>
-                </h3>
-              </div>
-              <p className="font-editorial text-lg font-light text-luxury-black/80 dark:text-white/70 leading-relaxed max-w-2xl">
-                {project.description}
-              </p>
+              </ScrollReveal>
             </div>
 
             {/* Right Column: Spec Metrics & Checklist details */}
-            <div className="lg:col-span-5 space-y-8 bg-white dark:bg-[#0E0E0E] p-8 border border-luxury-purple/15 shadow-sm">
-              <div className="space-y-6 pb-6 border-b border-luxury-purple/10">
-                <h4 className="text-xs uppercase tracking-widest text-luxury-purple font-bold font-sans">
-                  Chronology & Location
-                </h4>
-                
-                <div className="grid grid-cols-2 gap-6">
-                  <div>
-                    <span className="text-[10px] uppercase tracking-widest text-luxury-black/40 dark:text-white/40 block font-bold font-sans mb-1">Coordinates</span>
-                    <div className="flex items-center space-x-2 text-sm font-semibold tracking-wide">
-                      <MapPin size={14} className="text-luxury-purple" />
-                      <span>{project.location || 'Singapore'}</span>
+            <div className="lg:col-span-5">
+              <ScrollReveal delay={0.3} direction="left">
+                <div className="space-y-8 bg-white dark:bg-[#0E0E0E] p-8 border border-luxury-purple/15 shadow-sm">
+                  <div className="space-y-6 pb-6 border-b border-luxury-purple/10">
+                    <h4 className="text-xs uppercase tracking-widest text-luxury-purple font-bold font-sans">
+                      Chronology & Location
+                    </h4>
+                    
+                    <div className="grid grid-cols-2 gap-6">
+                      <div>
+                        <span className="text-[10px] uppercase tracking-widest text-luxury-black/40 dark:text-white/40 block font-bold font-sans mb-1">Coordinates</span>
+                        <div className="flex items-center space-x-2 text-sm font-semibold tracking-wide">
+                          <MapPin size={14} className="text-luxury-purple" />
+                          <span>{project.location || 'Singapore'}</span>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <span className="text-[10px] uppercase tracking-widest text-luxury-black/40 dark:text-white/40 block font-bold font-sans mb-1">Epoch</span>
+                        <div className="flex items-center space-x-2 text-sm font-semibold tracking-wide">
+                          <Calendar size={14} className="text-luxury-purple" />
+                          <span>{project.year || '2025'}</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  
-                  <div>
-                    <span className="text-[10px] uppercase tracking-widest text-luxury-black/40 dark:text-white/40 block font-bold font-sans mb-1">Epoch</span>
-                    <div className="flex items-center space-x-2 text-sm font-semibold tracking-wide">
-                      <Calendar size={14} className="text-luxury-purple" />
-                      <span>{project.year || '2025'}</span>
+
+                  {/* services done checklist */}
+                  <div className="space-y-4">
+                    <h4 className="text-xs uppercase tracking-widest text-luxury-purple font-bold font-sans">
+                      Curation Checklist
+                    </h4>
+                    <div className="grid grid-cols-1 gap-3">
+                      {project.servicesDone?.map((svc, idx) => (
+                        <div key={idx} className="flex items-center space-x-3 text-xs font-light text-luxury-black/80 dark:text-white/85">
+                          <div className="w-1.5 h-1.5 rounded-full bg-luxury-purple shrink-0" />
+                          <span>{svc}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
-              </div>
-
-              {/* services done checklist */}
-              <div className="space-y-4">
-                <h4 className="text-xs uppercase tracking-widest text-luxury-purple font-bold font-sans">
-                  Curation Checklist
-                </h4>
-                <div className="grid grid-cols-1 gap-3">
-                  {project.servicesDone?.map((svc, idx) => (
-                    <div key={idx} className="flex items-center space-x-3 text-xs font-light text-luxury-black/80 dark:text-white/85">
-                      <div className="w-1.5 h-1.5 rounded-full bg-luxury-purple shrink-0" />
-                      <span>{svc}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
+              </ScrollReveal>
             </div>
 
           </div>

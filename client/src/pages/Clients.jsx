@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import TransitionEffect from '../components/TransitionEffect';
+import ScrollReveal from '../components/ScrollReveal';
 
 const PARTNERS = [
   { name: 'Vogue France', type: 'Fashion & Runway', desc: 'Constructed custom kinetic scenery for the anniversary gala catwalk.', image: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=400' },
@@ -39,12 +40,9 @@ const Clients = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {PARTNERS.map((partner, idx) => (
-              <motion.div
+              <ScrollReveal
                 key={partner.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                delay={idx * 0.1}
                 className="group bg-white dark:bg-[#0E0E0E] border border-luxury-purple/15 p-6 hover:shadow-xl transition-all duration-500 flex flex-col justify-between"
               >
                 <div className="space-y-6">
@@ -75,7 +73,7 @@ const Clients = () => {
                   <span>&bull;</span>
                   <span>2024 - 2026</span>
                 </div>
-              </motion.div>
+              </ScrollReveal>
             ))}
           </div>
         </div>

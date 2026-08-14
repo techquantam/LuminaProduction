@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Mail, FileDown, CheckCircle } from 'lucide-react';
 import TransitionEffect from '../components/TransitionEffect';
+import ScrollReveal from '../components/ScrollReveal';
 
 const DEFAULT_PROJECTS = [];
 
@@ -110,16 +111,13 @@ const Portfolio = () => {
       {/* Premium Minimal Editorial Header */}
       <section className="pt-32 pb-6 bg-luxury-bg dark:bg-luxury-bgDark transition-colors">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-2"
-          >
-            <h1 className="font-editorial text-4xl md:text-5xl font-light tracking-tight text-luxury-black dark:text-white">
-              Portfolio
-            </h1>
-          </motion.div>
+          <ScrollReveal>
+            <div className="space-y-2">
+              <h1 className="font-editorial text-4xl md:text-5xl font-light tracking-tight text-luxury-black dark:text-white">
+                Portfolio
+              </h1>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -245,16 +243,20 @@ const Portfolio = () => {
         <div className="max-w-4xl mx-auto px-6 md:px-12">
 
           {/* Header */}
-          <div className="flex items-center space-x-4 mb-10">
-            <h2 className="font-editorial text-3xl md:text-4xl font-light text-luxury-black dark:text-white">Request Credentials Booklet</h2>
-            <span className="font-editorial text-3xl md:text-4xl font-light text-luxury-purple">↘</span>
-            <div className="w-12 h-[1px] bg-luxury-purple" />
-          </div>
+          <ScrollReveal>
+            <div className="flex items-center space-x-4 mb-10">
+              <h2 className="font-editorial text-3xl md:text-4xl font-light text-luxury-black dark:text-white">Request Credentials Booklet</h2>
+              <span className="font-editorial text-3xl md:text-4xl font-light text-luxury-purple">↘</span>
+              <div className="w-12 h-[1px] bg-luxury-purple" />
+            </div>
+          </ScrollReveal>
 
-          <p className="text-sm font-light text-luxury-black/70 dark:text-white/70 leading-relaxed mb-12 max-w-2xl">
-            Access our exclusive capabilities portfolio, case studies, and bespoke event credentials.
-            Fill in your details below to receive our official credentials booklet directly in your inbox.
-          </p>
+          <ScrollReveal delay={0.1}>
+            <p className="text-sm font-light text-luxury-black/70 dark:text-white/70 leading-relaxed mb-12 max-w-2xl">
+              Access our exclusive capabilities portfolio, case studies, and bespoke event credentials.
+              Fill in your details below to receive our official credentials booklet directly in your inbox.
+            </p>
+          </ScrollReveal>
 
           <AnimatePresence mode="wait">
             {submitStatus.success ? (
