@@ -144,7 +144,7 @@ const About = () => {
               className="max-w-2xl text-right"
             >
               <p className="font-editorial text-xl md:text-2xl font-light text-luxury-black/90 dark:text-white/90 leading-relaxed">
-                Orchestrating a new epoch of spatial design, we sculpt high-concept environments and cinematic brand spectacles that transcend traditional limits across Singapore and the global stage.
+                Orchestrating a new epoch of spatial design, we sculpt high-concept environments and cinematic brand spectacles that transcend traditional limits across USA Indiana and the global stage.
               </p>
             </div>
           </ScrollReveal>
